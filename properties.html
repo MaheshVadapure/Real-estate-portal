@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Properties | DreamHome</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<div class="logo">
+
+<i class="fa-solid fa-house"></i>
+
+DreamHome
+
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="favorites.html">Favorites</a></li>
+
+<li><a href="profile.html">Profile</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="properties">
+
+<h2>Available Properties</h2>
+
+<div class="search-box">
+
+<select id="filterCategory">
+
+<option value="">All Property Types</option>
+
+<option value="Apartment">Apartment</option>
+
+<option value="Villa">Villa</option>
+
+<option value="House">House</option>
+
+<option value="Commercial">Commercial</option>
+
+<option value="Land">Land</option>
+
+</select>
+
+<button onclick="filterProperties()">
+
+Filter
+
+</button>
+
+</div>
+
+<br>
+
+<div class="property-grid">
+
+<!-- Property 1 -->
+
+<div class="card property-card"
+
+data-category="Villa">
+
+<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600">
+
+<h3>Luxury Villa</h3>
+
+<p>Los Angeles</p>
+
+<p class="price">$350,000</p>
+
+<button class="card-btn"
+
+onclick="viewProperty('Luxury Villa','$350,000','Los Angeles','https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600')">
+
+View Details
+
+</button>
+
+</div>
+
+<!-- Property 2 -->
+
+<div class="card property-card"
+
+data-category="Apartment">
+
+<img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600">
+
+<h3>Modern Apartment</h3>
+
+<p>New York</p>
+
+<p class="price">$220,000</p>
+
+<button class="card-btn"
+
+onclick="viewProperty('Modern Apartment','$220,000','New York','https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600')">
+
+View Details
+
+</button>
+
+</div>
+
+<!-- Property 3 -->
+
+<div class="card property-card"
+
+data-category="House">
+
+<img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600">
+
+<h3>Family House</h3>
+
+<p>Chicago</p>
+
+<p class="price">$420,000</p>
+
+<button class="card-btn"
+
+onclick="viewProperty('Family House','$420,000','Chicago','https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600')">
+
+View Details
+
+</button>
+
+</div>
+
+<!-- Property 4 -->
+
+<div class="card property-card"
+
+data-category="Commercial">
+
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600">
+
+<h3>Commercial Office</h3>
+
+<p>San Francisco</p>
+
+<p class="price">$650,000</p>
+
+<button class="card-btn"
+
+onclick="viewProperty('Commercial Office','$650,000','San Francisco','https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600')">
+
+View Details
+
+</button>
+
+</div>
+
+<!-- Property 5 -->
+
+<div class="card property-card"
+
+data-category="Land">
+
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600">
+
+<h3>Residential Plot</h3>
+
+<p>Texas</p>
+
+<p class="price">$95,000</p>
+
+<button class="card-btn"
+
+onclick="viewProperty('Residential Plot','$95,000','Texas','https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600')">
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+<h3 id="noProperty"
+
+style="display:none;text-align:center;color:red;margin-top:30px;">
+
+No Properties Found
+
+</h3>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

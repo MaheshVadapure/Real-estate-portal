@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Property</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<div class="logo">
+
+🏠 DreamHome Admin
+
+</div>
+
+</div>
+
+</header>
+
+<div class="form-container">
+
+<h2>Add New Property</h2>
+
+<form>
+
+<div class="form-group">
+
+<label>Property Name</label>
+
+<input type="text" id="propertyName">
+
+</div>
+
+<div class="form-group">
+
+<label>Price</label>
+
+<input type="text" id="propertyPrice">
+
+</div>
+
+<div class="form-group">
+
+<label>Location</label>
+
+<input type="text" id="propertyLocation">
+
+</div>
+
+<div class="form-group">
+
+<label>Category</label>
+
+<select id="propertyCategory">
+
+<option>Apartment</option>
+
+<option>Villa</option>
+
+<option>House</option>
+
+<option>Commercial</option>
+
+<option>Land</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Image URL</label>
+
+<input type="text" id="propertyImage">
+
+</div>
+
+<div class="form-group">
+
+<label>Description</label>
+
+<textarea id="propertyDescription" rows="5"></textarea>
+
+</div>
+
+<button
+
+type="button"
+
+class="submit-btn"
+
+onclick="saveProperty()">
+
+Add Property
+
+</button>
+
+</form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
