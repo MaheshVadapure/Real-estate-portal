@@ -2,218 +2,1031 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | DreamHome</title>
 
-<title>Properties | DreamHome</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
 
+        /* =========================
+           PROPERTY PAGE
+        ========================= */
+
+        .property-header {
+            text-align: center;
+            padding: 50px 20px 25px;
+        }
+
+        .property-header h1 {
+            font-size: 40px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .property-header p {
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        /* FILTER BOX */
+
+        .filter-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .filter-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .filter-box {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .filter-box input,
+        .filter-box select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .filter-box input:focus,
+        .filter-box select:focus {
+            border-color: #0ea5e9;
+        }
+
+        .filter-btn {
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #0ea5e9;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover {
+            background: #0284c7;
+        }
+
+        .reset-btn {
+            background: #64748b;
+        }
+
+        .reset-btn:hover {
+            background: #475569;
+        }
+
+        /* PROPERTY INFO */
+
+        .property-info {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .property-info h3 {
+            color: #0f172a;
+        }
+
+        .property-info span {
+            color: #0ea5e9;
+        }
+
+        /* PROPERTY GRID */
+
+        .property-grid {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+            transition: 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .property-image {
+            position: relative;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #0ea5e9;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .property-content {
+            padding: 20px;
+        }
+
+        .property-content h3 {
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .location {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .location i {
+            color: #ef4444;
+            margin-right: 5px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .property-features i {
+            color: #0ea5e9;
+            margin-right: 4px;
+        }
+
+        .property-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0ea5e9;
+            margin-bottom: 15px;
+        }
+
+        .view-btn {
+            display: block;
+            text-align: center;
+            background: #0ea5e9;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #0284c7;
+        }
+
+        /* NO PROPERTY */
+
+        .no-property {
+            display: none;
+            width: 90%;
+            max-width: 600px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .no-property i {
+            font-size: 50px;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .no-property h3 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .no-property p {
+            color: #64748b;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 600px) {
+
+            .property-header h1 {
+                font-size: 30px;
+            }
+
+            .property-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .property-features {
+                flex-wrap: wrap;
+            }
+
+        }
+
+    </style>
 </head>
 
 <body>
 
-<header>
+    <!-- NAVIGATION -->
 
-<div class="container">
+    <header>
 
-<div class="logo">
+        <div class="container">
 
-<i class="fa-solid fa-house"></i>
+            <div class="logo">
+                <i class="fa-solid fa-house"></i>
+                DreamHome
+            </div>
 
-DreamHome
+            <nav>
+                <ul>
 
-</div>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
 
-<nav>
+                    <li>
+                        <a href="properties.html">Properties</a>
+                    </li>
 
-<ul>
+                    <li>
+                        <a href="favorites.html">Favorites</a>
+                    </li>
 
-<li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="profile.html">Profile</a>
+                    </li>
 
-<li><a href="favorites.html">Favorites</a></li>
+                </ul>
+            </nav>
 
-<li><a href="profile.html">Profile</a></li>
+        </div>
 
-</ul>
+    </header>
 
-</nav>
 
-</div>
+    <!-- PAGE HEADER -->
 
-</header>
+    <section class="property-header">
 
-<section class="properties">
+        <h1>Explore Properties</h1>
 
-<h2>Available Properties</h2>
+        <p>
+            Find your perfect home from our available properties
+        </p>
 
-<div class="search-box">
+    </section>
 
-<select id="filterCategory">
 
-<option value="">All Property Types</option>
+    <!-- FILTER SECTION -->
 
-<option value="Apartment">Apartment</option>
+    <section class="filter-container">
 
-<option value="Villa">Villa</option>
+        <div class="filter-title">
+            <i class="fa-solid fa-sliders"></i>
+            Search & Filter Properties
+        </div>
 
-<option value="House">House</option>
+        <div class="filter-box">
 
-<option value="Commercial">Commercial</option>
+            <!-- Search -->
 
-<option value="Land">Land</option>
+            <input
+                type="text"
+                id="propertySearch"
+                placeholder="Search by property or location"
+            >
 
-</select>
 
-<button onclick="filterProperties()">
+            <!-- Category -->
 
-Filter
+            <select id="filterCategory">
 
-</button>
+                <option value="">
+                    All Property Types
+                </option>
 
-</div>
+                <option value="Apartment">
+                    Apartment
+                </option>
 
-<br>
+                <option value="Villa">
+                    Villa
+                </option>
 
-<div class="property-grid">
+                <option value="House">
+                    House
+                </option>
 
-<!-- Property 1 -->
+                <option value="Commercial">
+                    Commercial
+                </option>
 
-<div class="card property-card"
+                <option value="Land">
+                    Land
+                </option>
 
-data-category="Villa">
+            </select>
 
-<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600">
 
-<h3>Luxury Villa</h3>
+            <!-- Price -->
 
-<p>Los Angeles</p>
+            <select id="filterPrice">
 
-<p class="price">$350,000</p>
+                <option value="">
+                    All Prices
+                </option>
 
-<button class="card-btn"
+                <option value="100000">
+                    Under $100,000
+                </option>
 
-onclick="viewProperty('Luxury Villa','$350,000','Los Angeles','https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600')">
+                <option value="250000">
+                    Under $250,000
+                </option>
 
-View Details
+                <option value="500000">
+                    Under $500,000
+                </option>
 
-</button>
+                <option value="1000000">
+                    Under $1,000,000
+                </option>
 
-</div>
+            </select>
 
-<!-- Property 2 -->
 
-<div class="card property-card"
+            <!-- Sort -->
 
-data-category="Apartment">
+            <select id="sortProperty">
 
-<img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600">
+                <option value="">
+                    Sort By
+                </option>
 
-<h3>Modern Apartment</h3>
+                <option value="low">
+                    Price: Low to High
+                </option>
 
-<p>New York</p>
+                <option value="high">
+                    Price: High to Low
+                </option>
 
-<p class="price">$220,000</p>
+            </select>
 
-<button class="card-btn"
 
-onclick="viewProperty('Modern Apartment','$220,000','New York','https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600')">
+            <button
+                class="filter-btn"
+                onclick="filterProperties()">
 
-View Details
+                <i class="fa-solid fa-filter"></i>
+                Apply Filter
 
-</button>
+            </button>
 
-</div>
 
-<!-- Property 3 -->
+            <button
+                class="filter-btn reset-btn"
+                onclick="resetFilters()">
 
-<div class="card property-card"
+                <i class="fa-solid fa-rotate-left"></i>
+                Reset
 
-data-category="House">
+            </button>
 
-<img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600">
+        </div>
 
-<h3>Family House</h3>
+    </section>
 
-<p>Chicago</p>
 
-<p class="price">$420,000</p>
+    <!-- PROPERTY COUNT -->
 
-<button class="card-btn"
+    <div class="property-info">
 
-onclick="viewProperty('Family House','$420,000','Chicago','https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600')">
+        <h3>
+            Available Properties:
+            <span id="propertyCount">5</span>
+        </h3>
 
-View Details
+    </div>
 
-</button>
 
-</div>
+    <!-- PROPERTY LIST -->
 
-<!-- Property 4 -->
+    <section>
 
-<div class="card property-card"
+        <div class="property-grid" id="propertyGrid">
 
-data-category="Commercial">
 
-<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600">
+            <!-- PROPERTY 1 -->
 
-<h3>Commercial Office</h3>
+            <div
+                class="property-card"
+                data-category="Villa"
+                data-price="350000"
+                data-name="Luxury Villa"
+                data-location="Los Angeles">
 
-<p>San Francisco</p>
+                <div class="property-image">
 
-<p class="price">$650,000</p>
+                    <img
+                        src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
+                        alt="Luxury Villa">
 
-<button class="card-btn"
+                    <span class="property-badge">
+                        Villa
+                    </span>
 
-onclick="viewProperty('Commercial Office','$650,000','San Francisco','https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600')">
+                </div>
 
-View Details
+                <div class="property-content">
 
-</button>
+                    <h3>
+                        Luxury Villa
+                    </h3>
 
-</div>
+                    <p class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Los Angeles
+                    </p>
 
-<!-- Property 5 -->
+                    <div class="property-features">
 
-<div class="card property-card"
+                        <span>
+                            <i class="fa-solid fa-bed"></i>
+                            4 Beds
+                        </span>
 
-data-category="Land">
+                        <span>
+                            <i class="fa-solid fa-bath"></i>
+                            3 Baths
+                        </span>
 
-<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600">
+                    </div>
 
-<h3>Residential Plot</h3>
+                    <div class="property-price">
+                        $350,000
+                    </div>
 
-<p>Texas</p>
+                    <button
+                        class="view-btn"
+                        onclick="viewProperty(
+                            'Luxury Villa',
+                            '$350,000',
+                            'Los Angeles',
+                            'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600'
+                        )">
 
-<p class="price">$95,000</p>
+                        View Details
 
-<button class="card-btn"
+                    </button>
 
-onclick="viewProperty('Residential Plot','$95,000','Texas','https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600')">
+                </div>
 
-View Details
+            </div>
 
-</button>
 
-</div>
+            <!-- PROPERTY 2 -->
 
-</div>
+            <div
+                class="property-card"
+                data-category="Apartment"
+                data-price="220000"
+                data-name="Modern Apartment"
+                data-location="New York">
 
-<h3 id="noProperty"
+                <div class="property-image">
 
-style="display:none;text-align:center;color:red;margin-top:30px;">
+                    <img
+                        src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
+                        alt="Modern Apartment">
 
-No Properties Found
+                    <span class="property-badge">
+                        Apartment
+                    </span>
 
-</h3>
+                </div>
 
-</section>
+                <div class="property-content">
 
-<script src="script.js"></script>
+                    <h3>
+                        Modern Apartment
+                    </h3>
+
+                    <p class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        New York
+                    </p>
+
+                    <div class="property-features">
+
+                        <span>
+                            <i class="fa-solid fa-bed"></i>
+                            3 Beds
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-bath"></i>
+                            2 Baths
+                        </span>
+
+                    </div>
+
+                    <div class="property-price">
+                        $220,000
+                    </div>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewProperty(
+                            'Modern Apartment',
+                            '$220,000',
+                            'New York',
+                            'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600'
+                        )">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY 3 -->
+
+            <div
+                class="property-card"
+                data-category="House"
+                data-price="420000"
+                data-name="Family House"
+                data-location="Chicago">
+
+                <div class="property-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
+                        alt="Family House">
+
+                    <span class="property-badge">
+                        House
+                    </span>
+
+                </div>
+
+                <div class="property-content">
+
+                    <h3>
+                        Family House
+                    </h3>
+
+                    <p class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Chicago
+                    </p>
+
+                    <div class="property-features">
+
+                        <span>
+                            <i class="fa-solid fa-bed"></i>
+                            5 Beds
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-bath"></i>
+                            4 Baths
+                        </span>
+
+                    </div>
+
+                    <div class="property-price">
+                        $420,000
+                    </div>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewProperty(
+                            'Family House',
+                            '$420,000',
+                            'Chicago',
+                            'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600'
+                        )">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY 4 -->
+
+            <div
+                class="property-card"
+                data-category="Commercial"
+                data-price="650000"
+                data-name="Commercial Office"
+                data-location="San Francisco">
+
+                <div class="property-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600"
+                        alt="Commercial Office">
+
+                    <span class="property-badge">
+                        Commercial
+                    </span>
+
+                </div>
+
+                <div class="property-content">
+
+                    <h3>
+                        Commercial Office
+                    </h3>
+
+                    <p class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        San Francisco
+                    </p>
+
+                    <div class="property-features">
+
+                        <span>
+                            <i class="fa-solid fa-building"></i>
+                            Office
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Parking
+                        </span>
+
+                    </div>
+
+                    <div class="property-price">
+                        $650,000
+                    </div>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewProperty(
+                            'Commercial Office',
+                            '$650,000',
+                            'San Francisco',
+                            'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600'
+                        )">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROPERTY 5 -->
+
+            <div
+                class="property-card"
+                data-category="Land"
+                data-price="95000"
+                data-name="Residential Plot"
+                data-location="Texas">
+
+                <div class="property-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600"
+                        alt="Residential Plot">
+
+                    <span class="property-badge">
+                        Land
+                    </span>
+
+                </div>
+
+                <div class="property-content">
+
+                    <h3>
+                        Residential Plot
+                    </h3>
+
+                    <p class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Texas
+                    </p>
+
+                    <div class="property-features">
+
+                        <span>
+                            <i class="fa-solid fa-tree"></i>
+                            Open Land
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-road"></i>
+                            Road Access
+                        </span>
+
+                    </div>
+
+                    <div class="property-price">
+                        $95,000
+                    </div>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewProperty(
+                            'Residential Plot',
+                            '$95,000',
+                            'Texas',
+                            'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600'
+                        )">
+
+                        View Details
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- NO RESULT -->
+
+        <div
+            class="no-property"
+            id="noProperty">
+
+            <i class="fa-solid fa-house-circle-xmark"></i>
+
+            <h3>
+                No Properties Found
+            </h3>
+
+            <p>
+                Try changing your search or filter options.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>DreamHome</h2>
+
+            <p>
+                Your trusted partner for buying,
+                selling, and renting properties.
+            </p>
+
+            <div class="social">
+
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+
+            </div>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- PROPERTY FILTER SCRIPT -->
+
+    <script>
+
+        function filterProperties() {
+
+            let search =
+                document.getElementById("propertySearch")
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+            let category =
+                document.getElementById("filterCategory").value;
+
+            let price =
+                document.getElementById("filterPrice").value;
+
+            let sort =
+                document.getElementById("sortProperty").value;
+
+            let grid =
+                document.getElementById("propertyGrid");
+
+            let cards =
+                Array.from(
+                    document.querySelectorAll(".property-card")
+                );
+
+            let visibleCards = [];
+
+            cards.forEach(function(card) {
+
+                let name =
+                    card.dataset.name.toLowerCase();
+
+                let location =
+                    card.dataset.location.toLowerCase();
+
+                let cardCategory =
+                    card.dataset.category;
+
+                let cardPrice =
+                    Number(card.dataset.price);
+
+                let searchMatch =
+                    name.includes(search) ||
+                    location.includes(search);
+
+                let categoryMatch =
+                    category === "" ||
+                    cardCategory === category;
+
+                let priceMatch =
+                    price === "" ||
+                    cardPrice <= Number(price);
+
+                if (
+                    searchMatch &&
+                    categoryMatch &&
+                    priceMatch
+                ) {
+
+                    card.style.display = "block";
+
+                    visibleCards.push(card);
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            /* SORT */
+
+            if (sort === "low") {
+
+                visibleCards.sort(function(a, b) {
+
+                    return Number(a.dataset.price) -
+                           Number(b.dataset.price);
+
+                });
+
+            }
+
+            if (sort === "high") {
+
+                visibleCards.sort(function(a, b) {
+
+                    return Number(b.dataset.price) -
+                           Number(a.dataset.price);
+
+                });
+
+            }
+
+
+            /* Reorder cards */
+
+            visibleCards.forEach(function(card) {
+
+                grid.appendChild(card);
+
+            });
+
+
+            /* Property count */
+
+            document.getElementById("propertyCount")
+                .textContent = visibleCards.length;
+
+
+            /* No result */
+
+            if (visibleCards.length === 0) {
+
+                document.getElementById("noProperty")
+                    .style.display = "block";
+
+            } else {
+
+                document.getElementById("noProperty")
+                    .style.display = "none";
+
+            }
+
+        }
+
+
+        /* RESET */
+
+        function resetFilters() {
+
+            document.getElementById("propertySearch")
+                .value = "";
+
+            document.getElementById("filterCategory")
+                .value = "";
+
+            document.getElementById("filterPrice")
+                .value = "";
+
+            document.getElementById("sortProperty")
+                .value = "";
+
+            filterProperties();
+
+        }
+
+
+        /* LIVE SEARCH */
+
+        document.getElementById("propertySearch")
+            .addEventListener("input", function() {
+
+                filterProperties();
+
+            });
+
+    </script>
 
 </body>
 
