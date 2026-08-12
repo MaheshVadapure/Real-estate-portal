@@ -3,68 +3,673 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Favourite Properties | DreamHome</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>My Favorites | DreamHome</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           FAVORITES PAGE
+        ========================= */
+
+        .favorites-page {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto 80px;
+        }
+
+        .favorites-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .favorites-header h1 {
+            font-size: 38px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .favorites-header p {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* COUNT */
+
+        .favorite-count {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .favorite-count h3 {
+            color: #0f172a;
+        }
+
+        .favorite-count span {
+            color: #e11d48;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* GRID */
+
+        .favorite-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+
+        .favorite-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.10);
+
+            transition: 0.3s;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        /* IMAGE */
+
+        .favorite-image {
+            position: relative;
+        }
+
+        .favorite-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .heart-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+            color: #e11d48;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* CONTENT */
+
+        .favorite-content {
+            padding: 20px;
+        }
+
+        .favorite-content h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .favorite-location {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .favorite-location i {
+            color: #ef4444;
+            margin-right: 5px;
+        }
+
+        .favorite-price {
+            color: #0ea5e9;
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        /* BUTTONS */
+
+        .favorite-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .favorite-actions button {
+            flex: 1;
+
+            padding: 11px;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .view-btn {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .view-btn:hover {
+            background: #0284c7;
+        }
+
+        .remove-btn {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .remove-btn:hover {
+            background: #fecaca;
+        }
+
+        /* EMPTY STATE */
+
+        .empty-favorites {
+            display: none;
+
+            background: white;
+
+            padding: 70px 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .empty-favorites i {
+            font-size: 65px;
+            color: #e11d48;
+            margin-bottom: 20px;
+        }
+
+        .empty-favorites h2 {
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .empty-favorites p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .browse-btn {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background: #0ea5e9;
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+        }
+
+        .browse-btn:hover {
+            background: #0284c7;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:600px) {
+
+            .favorites-header h1 {
+                font-size: 30px;
+            }
+
+            .favorite-count {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .favorite-actions {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="container">
+    <!-- HEADER -->
 
-<div class="logo">
+    <header>
 
-<i class="fa-solid fa-house"></i>
+        <div class="container">
 
-DreamHome
+            <div class="logo">
 
-</div>
+                <i class="fa-solid fa-house"></i>
 
-<nav>
+                DreamHome
 
-<ul>
+            </div>
 
-<li><a href="index.html">Home</a></li>
 
-<li><a href="properties.html">Properties</a></li>
+            <nav>
 
-<li><a href="profile.html">Profile</a></li>
+                <ul>
 
-</ul>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
 
-</nav>
+                    <li>
+                        <a href="properties.html">
+                            Properties
+                        </a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="favorites.html">
+                            Favorites
+                        </a>
+                    </li>
 
-</header>
+                    <li>
+                        <a href="profile.html">
+                            Profile
+                        </a>
+                    </li>
 
-<section class="properties">
+                </ul>
 
-<h2>Favourite Properties</h2>
+            </nav>
 
-<div class="property-grid" id="favoriteList">
+        </div>
 
-</div>
+    </header>
 
-<h3 id="emptyMessage"
-style="display:none;text-align:center;color:red;margin-top:30px;">
 
-No Favourite Properties
+    <!-- FAVORITES -->
 
-</h3>
+    <main class="favorites-page">
 
-</section>
 
-<script src="script.js"></script>
+        <div class="favorites-header">
+
+            <h1>
+                My Favorite Properties
+            </h1>
+
+            <p>
+                Save your favorite properties and
+                find them easily later.
+            </p>
+
+        </div>
+
+
+        <!-- COUNT -->
+
+        <div class="favorite-count">
+
+            <h3>
+                <i class="fa-solid fa-heart"></i>
+                Saved Properties
+            </h3>
+
+            <span id="favoriteCount">
+                0
+            </span>
+
+        </div>
+
+
+        <!-- FAVORITE LIST -->
+
+        <div
+            class="favorite-grid"
+            id="favoriteList">
+        </div>
+
+
+        <!-- EMPTY STATE -->
+
+        <div
+            class="empty-favorites"
+            id="emptyMessage">
+
+            <i class="fa-regular fa-heart"></i>
+
+            <h2>
+                No Favorite Properties
+            </h2>
+
+            <p>
+                You haven't saved any properties yet.
+                Start exploring properties and add
+                your favorites.
+            </p>
+
+            <a
+                href="properties.html"
+                class="browse-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Browse Properties
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                DreamHome
+            </h2>
+
+            <p>
+                Your trusted partner for buying,
+                selling, and renting properties.
+            </p>
+
+            <div class="social">
+
+                <i class="fab fa-facebook"></i>
+
+                <i class="fab fa-instagram"></i>
+
+                <i class="fab fa-twitter"></i>
+
+                <i class="fab fa-linkedin"></i>
+
+            </div>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- FAVORITES SCRIPT -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadFavorites();
+
+            }
+        );
+
+
+        function loadFavorites() {
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem("favourites")
+                ) || [];
+
+
+            let container =
+                document.getElementById(
+                    "favoriteList"
+                );
+
+            let emptyMessage =
+                document.getElementById(
+                    "emptyMessage"
+                );
+
+            let count =
+                document.getElementById(
+                    "favoriteCount"
+                );
+
+
+            /* COUNT */
+
+            count.textContent =
+                favorites.length;
+
+
+            /* EMPTY */
+
+            if (favorites.length === 0) {
+
+                container.style.display = "none";
+
+                emptyMessage.style.display = "block";
+
+                return;
+
+            }
+
+
+            container.style.display = "grid";
+
+            emptyMessage.style.display = "none";
+
+
+            /* CLEAR OLD CONTENT */
+
+            container.innerHTML = "";
+
+
+            /* DISPLAY FAVORITES */
+
+            favorites.forEach(
+                function (property, index) {
+
+                    let card =
+                        document.createElement("div");
+
+                    card.className =
+                        "favorite-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="favorite-image">
+
+                            <img
+                                src="${property.image}"
+                                alt="${property.name}"
+                            >
+
+                            <div class="heart-icon">
+
+                                <i class="fa-solid fa-heart"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="favorite-content">
+
+                            <h3>
+                                ${property.name}
+                            </h3>
+
+
+                            <p class="favorite-location">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                ${property.location}
+
+                            </p>
+
+
+                            <div class="favorite-price">
+
+                                ${property.price}
+
+                            </div>
+
+
+                            <div class="favorite-actions">
+
+                                <button
+                                    class="view-btn"
+                                    onclick="viewFavorite(${index})">
+
+                                    <i class="fa-solid fa-eye"></i>
+
+                                    View Details
+
+                                </button>
+
+
+                                <button
+                                    class="remove-btn"
+                                    onclick="removeFavoriteItem(${index})">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Remove
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(card);
+
+                }
+            );
+
+        }
+
+
+        /* VIEW FAVORITE */
+
+        function viewFavorite(index) {
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem("favourites")
+                ) || [];
+
+
+            let property =
+                favorites[index];
+
+
+            if (!property) {
+
+                return;
+
+            }
+
+
+            localStorage.setItem(
+                "selectedProperty",
+                JSON.stringify(property)
+            );
+
+
+            window.location.href =
+                "property-details.html";
+
+        }
+
+
+        /* REMOVE FAVORITE */
+
+        function removeFavoriteItem(index) {
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem("favourites")
+                ) || [];
+
+
+            if (
+                !confirm(
+                    "Remove this property from favorites?"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            favorites.splice(index, 1);
+
+
+            localStorage.setItem(
+                "favourites",
+                JSON.stringify(favorites)
+            );
+
+
+            loadFavorites();
+
+        }
+
+    </script>
+
 
 </body>
 
