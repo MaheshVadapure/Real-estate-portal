@@ -3,106 +3,1120 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
+    <title>Property Details | DreamHome</title>
 
-content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 
-<title>Property Details</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet"
+    <style>
 
-href="style.css">
+        /* =========================
+           PROPERTY DETAILS PAGE
+        ========================= */
+
+        .details-page {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto 80px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            color: #0284c7;
+        }
+
+        /* MAIN PROPERTY */
+
+        .property-details-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+            padding: 10px;
+            background: #f1f5f9;
+        }
+
+        .main-image {
+            height: 500px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .main-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .thumbnail-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            height: 160px;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .thumbnail img:hover {
+            transform: scale(1.05);
+        }
+
+        /* CONTENT */
+
+        .details-content {
+            padding: 35px;
+        }
+
+        .property-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .property-top h1 {
+            color: #0f172a;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        .location i {
+            color: #ef4444;
+            margin-right: 5px;
+        }
+
+        .price-box {
+            text-align: right;
+        }
+
+        .price {
+            color: #0ea5e9;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .price-label {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* BADGES */
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .badge.status {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .rating {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature i {
+            font-size: 25px;
+            color: #0ea5e9;
+            margin-bottom: 8px;
+        }
+
+        .feature h4 {
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* DESCRIPTION */
+
+        .section-title {
+            color: #0f172a;
+            font-size: 23px;
+            margin: 35px 0 15px;
+        }
+
+        .description {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* AMENITIES */
+
+        .amenities {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .amenity {
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            color: #475569;
+        }
+
+        .amenity i {
+            color: #0ea5e9;
+            margin-right: 8px;
+        }
+
+        /* ACTION BUTTONS */
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .action-buttons button,
+        .action-buttons a {
+            flex: 1;
+            min-width: 180px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 9px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .favorite-btn {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .favorite-btn:hover {
+            background: #fbcfe8;
+        }
+
+        .contact-btn {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .contact-btn:hover {
+            background: #0284c7;
+        }
+
+        /* OWNER */
+
+        .owner-box {
+            margin-top: 35px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .owner-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #e0f2fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5e9;
+            font-size: 24px;
+        }
+
+        .owner-box h4 {
+            margin-bottom: 5px;
+            color: #0f172a;
+        }
+
+        .owner-box p {
+            color: #64748b;
+        }
+
+        /* SIMILAR PROPERTIES */
+
+        .similar-section {
+            margin-top: 60px;
+        }
+
+        .similar-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0f172a;
+        }
+
+        .similar-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .similar-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+        }
+
+        .similar-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .similar-content {
+            padding: 18px;
+        }
+
+        .similar-content h3 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .similar-content p {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .similar-price {
+            color: #0ea5e9;
+            font-weight: 700;
+            font-size: 19px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 800px) {
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 350px;
+            }
+
+            .thumbnail-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .thumbnail {
+                height: 140px;
+            }
+
+            .property-top {
+                flex-direction: column;
+            }
+
+            .price-box {
+                text-align: left;
+            }
+
+        }
+
+        @media(max-width: 500px) {
+
+            .details-content {
+                padding: 22px;
+            }
+
+            .property-top h1 {
+                font-size: 27px;
+            }
+
+            .main-image {
+                height: 280px;
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<header>
+    <!-- HEADER -->
 
-<div class="container">
+    <header>
 
-<div class="logo">
+        <div class="container">
 
-🏠 DreamHome
+            <div class="logo">
+                <i class="fa-solid fa-house"></i>
+                DreamHome
+            </div>
 
-</div>
+            <nav>
 
-</div>
+                <ul>
 
-</header>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
 
-<section class="details">
+                    <li>
+                        <a href="properties.html">Properties</a>
+                    </li>
 
-<img id="propertyImage">
+                    <li>
+                        <a href="favorites.html">Favorites</a>
+                    </li>
 
-<div class="details-content">
+                    <li>
+                        <a href="profile.html">Profile</a>
+                    </li>
 
-<h2 id="propertyName"></h2>
+                </ul>
 
-<p><strong>Price:</strong>
+            </nav>
 
-<span id="propertyPrice"></span>
+        </div>
 
-</p>
+    </header>
 
-<p>
 
-<strong>Location:</strong>
+    <!-- PROPERTY DETAILS -->
 
-<span id="propertyLocation"></span>
+    <main class="details-page">
 
-</p>
+        <a href="properties.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Properties
+        </a>
 
-<p>
 
-Beautiful fully furnished property with
-modern architecture, parking,
-24×7 security,
-garden and nearby schools.
+        <div class="property-details-card">
 
-</p>
 
-<ul>
+            <!-- IMAGE GALLERY -->
 
-<li>3 Bedrooms</li>
+            <div class="gallery">
 
-<li>2 Bathrooms</li>
+                <div class="main-image">
 
-<li>Swimming Pool</li>
+                    <img
+                        id="propertyImage"
+                        src=""
+                        alt="Property Image">
 
-<li>Parking</li>
+                </div>
 
-<li>Garden</li>
 
-<li>24×7 Security</li>
+                <div class="thumbnail-container">
 
-</ul>
+                    <div class="thumbnail">
 
-<div class="action-buttons">
+                        <img
+                            id="image2"
+                            src=""
+                            alt="Property Image">
 
-<button
+                    </div>
 
-onclick="addFavourite()">
+                    <div class="thumbnail">
 
-Add to Favourite
+                        <img
+                            id="image3"
+                            src=""
+                            alt="Property Image">
 
-</button>
+                    </div>
 
-<a href="contact-owner.html">
+                    <div class="thumbnail">
 
-Contact Owner
+                        <img
+                            id="image4"
+                            src=""
+                            alt="Property Image">
 
-</a>
+                    </div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-</section>
 
-<script src="script.js"></script>
+            <!-- CONTENT -->
+
+            <div class="details-content">
+
+
+                <div class="property-top">
+
+                    <div>
+
+                        <h1 id="propertyName">
+                            Property Name
+                        </h1>
+
+                        <p class="location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="propertyLocation">
+                                Location
+                            </span>
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="price-box">
+
+                        <div
+                            class="price"
+                            id="propertyPrice">
+                            $0
+                        </div>
+
+                        <div class="price-label">
+                            Property Price
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BADGES -->
+
+                <div class="badges">
+
+                    <span
+                        class="badge"
+                        id="propertyCategory">
+                        Property
+                    </span>
+
+                    <span class="badge status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Verified
+                    </span>
+
+                    <span class="badge rating">
+                        <i class="fa-solid fa-star"></i>
+                        4.8 Rating
+                    </span>
+
+                </div>
+
+
+                <!-- FEATURES -->
+
+                <div class="features">
+
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-bed"></i>
+
+                        <h4 id="bedrooms">
+                            4
+                        </h4>
+
+                        <p>
+                            Bedrooms
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-bath"></i>
+
+                        <h4 id="bathrooms">
+                            3
+                        </h4>
+
+                        <p>
+                            Bathrooms
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-ruler-combined"></i>
+
+                        <h4 id="area">
+                            2,500
+                        </h4>
+
+                        <p>
+                            Sq. Ft.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-car"></i>
+
+                        <h4>
+                            2
+                        </h4>
+
+                        <p>
+                            Parking
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <h2 class="section-title">
+                    Property Description
+                </h2>
+
+                <p
+                    class="description"
+                    id="propertyDescription">
+
+                    This beautiful property offers modern
+                    architecture, spacious rooms, excellent
+                    natural lighting and a comfortable living
+                    environment. It is located in a convenient
+                    location close to schools, shopping centers,
+                    hospitals and other essential facilities.
+
+                </p>
+
+
+                <!-- AMENITIES -->
+
+                <h2 class="section-title">
+                    Amenities
+                </h2>
+
+                <div class="amenities">
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-wifi"></i>
+                        High Speed Internet
+                    </div>
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        24×7 Security
+                    </div>
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-car"></i>
+                        Parking
+                    </div>
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-tree"></i>
+                        Garden
+                    </div>
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-person-swimming"></i>
+                        Swimming Pool
+                    </div>
+
+                    <div class="amenity">
+                        <i class="fa-solid fa-elevator"></i>
+                        Elevator
+                    </div>
+
+                </div>
+
+
+                <!-- OWNER -->
+
+                <div class="owner-box">
+
+                    <div class="owner-icon">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Property Owner
+                        </h4>
+
+                        <p>
+                            Verified property owner
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="action-buttons">
+
+                    <button
+                        class="favorite-btn"
+                        onclick="addFavourite()">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        Add to Favourite
+
+                    </button>
+
+
+                    <a
+                        href="contact-owner.html"
+                        class="contact-btn">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        Contact Owner
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIMILAR PROPERTIES -->
+
+        <section class="similar-section">
+
+            <h2>
+                Similar Properties
+            </h2>
+
+
+            <div class="similar-grid">
+
+
+                <div class="similar-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600"
+                        alt="Modern Home">
+
+                    <div class="similar-content">
+
+                        <h3>
+                            Modern Family Home
+                        </h3>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            California
+                        </p>
+
+                        <div class="similar-price">
+                            $380,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="similar-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"
+                        alt="Luxury House">
+
+                    <div class="similar-content">
+
+                        <h3>
+                            Luxury House
+                        </h3>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Miami
+                        </p>
+
+                        <div class="similar-price">
+                            $450,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="similar-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600"
+                        alt="Premium Villa">
+
+                    <div class="similar-content">
+
+                        <h3>
+                            Premium Villa
+                        </h3>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Texas
+                        </p>
+
+                        <div class="similar-price">
+                            $520,000
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>DreamHome</h2>
+
+            <p>
+                Your trusted partner for buying,
+                selling, and renting properties.
+            </p>
+
+            <div class="social">
+
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+
+            </div>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <!-- PROPERTY DETAILS DATA -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let property =
+                JSON.parse(
+                    localStorage.getItem("selectedProperty")
+                );
+
+
+            if (!property) {
+
+                document.getElementById("propertyName")
+                    .textContent = "Property Not Found";
+
+                return;
+
+            }
+
+
+            /* BASIC INFORMATION */
+
+            document.getElementById("propertyName")
+                .textContent = property.name;
+
+            document.getElementById("propertyPrice")
+                .textContent = property.price;
+
+            document.getElementById("propertyLocation")
+                .textContent = property.location;
+
+            document.getElementById("propertyImage")
+                .src = property.image;
+
+
+            /* CATEGORY */
+
+            let category = "Property";
+
+            if (property.name.toLowerCase().includes("villa")) {
+                category = "Villa";
+            }
+            else if (property.name.toLowerCase().includes("apartment")) {
+                category = "Apartment";
+            }
+            else if (property.name.toLowerCase().includes("house")) {
+                category = "House";
+            }
+            else if (property.name.toLowerCase().includes("office")) {
+                category = "Commercial";
+            }
+            else if (property.name.toLowerCase().includes("plot")) {
+                category = "Land";
+            }
+
+            document.getElementById("propertyCategory")
+                .textContent = category;
+
+
+            /* PROPERTY SPECIFIC DETAILS */
+
+            let details = {
+
+                "Luxury Villa": {
+                    bedrooms: "4",
+                    bathrooms: "3",
+                    area: "2,800",
+                    description:
+                        "A beautiful luxury villa with spacious rooms, modern architecture, premium interiors, garden and excellent security."
+                },
+
+                "Modern Apartment": {
+                    bedrooms: "3",
+                    bathrooms: "2",
+                    area: "1,650",
+                    description:
+                        "A modern apartment designed for comfortable urban living with excellent natural lighting and convenient access to city facilities."
+                },
+
+                "Family House": {
+                    bedrooms: "5",
+                    bathrooms: "4",
+                    area: "3,200",
+                    description:
+                        "A spacious family house offering comfortable bedrooms, a beautiful garden, parking and a peaceful residential environment."
+                },
+
+                "Commercial Office": {
+                    bedrooms: "0",
+                    bathrooms: "2",
+                    area: "4,500",
+                    description:
+                        "A premium commercial office space suitable for businesses, startups and professional organizations with excellent connectivity."
+                },
+
+                "Residential Plot": {
+                    bedrooms: "N/A",
+                    bathrooms: "N/A",
+                    area: "5,000",
+                    description:
+                        "A residential plot with good road access and suitable surroundings for constructing a modern residential property."
+                }
+
+            };
+
+
+            let selected =
+                details[property.name];
+
+
+            if (selected) {
+
+                document.getElementById("bedrooms")
+                    .textContent = selected.bedrooms;
+
+                document.getElementById("bathrooms")
+                    .textContent = selected.bathrooms;
+
+                document.getElementById("area")
+                    .textContent = selected.area;
+
+                document.getElementById("propertyDescription")
+                    .textContent = selected.description;
+
+            }
+
+
+            /* IMAGE GALLERY */
+
+            let galleryImages = {
+
+                "Luxury Villa": [
+                    property.image,
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600"
+                ],
+
+                "Modern Apartment": [
+                    property.image,
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600",
+                    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600",
+                    "https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=600"
+                ],
+
+                "Family House": [
+                    property.image,
+                    "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600",
+                    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600"
+                ],
+
+                "Commercial Office": [
+                    property.image,
+                    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600",
+                    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600",
+                    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600"
+                ],
+
+                "Residential Plot": [
+                    property.image,
+                    "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600",
+                    "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600",
+                    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600"
+                ]
+
+            };
+
+
+            let images =
+                galleryImages[property.name];
+
+
+            if (images) {
+
+                document.getElementById("propertyImage")
+                    .src = images[0];
+
+                document.getElementById("image2")
+                    .src = images[1];
+
+                document.getElementById("image3")
+                    .src = images[2];
+
+                document.getElementById("image4")
+                    .src = images[3];
+
+
+                /* THUMBNAIL CLICK */
+
+                document.querySelectorAll(".thumbnail img")
+                    .forEach(function (thumbnail) {
+
+                        thumbnail.addEventListener(
+                            "click",
+                            function () {
+
+                                document.getElementById(
+                                    "propertyImage"
+                                ).src = this.src;
+
+                            }
+                        );
+
+                    });
+
+            }
+
+        });
+
+    </script>
 
 </body>
 
