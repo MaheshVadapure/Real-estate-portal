@@ -3,117 +3,1410 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>Contact Owner</title>
+    <title>Contact Owner | DreamHome</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           CONTACT OWNER PAGE
+        ========================= */
+
+        .contact-page {
+
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 50px auto 80px;
+
+        }
+
+
+        .contact-header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .contact-header h1 {
+
+            color: #0f172a;
+
+            font-size: 38px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .contact-header p {
+
+            color: #64748b;
+
+        }
+
+
+        .contact-layout {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.2fr;
+
+            gap: 30px;
+
+        }
+
+
+        /* PROPERTY CARD */
+
+        .property-card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.10);
+
+            height: fit-content;
+
+        }
+
+
+        .property-card img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+        }
+
+
+        .property-info {
+
+            padding: 25px;
+
+        }
+
+
+        .property-info h2 {
+
+            color: #0f172a;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .property-location {
+
+            color: #64748b;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .property-location i {
+
+            color: #ef4444;
+
+            margin-right: 5px;
+
+        }
+
+
+        .property-price {
+
+            color: #0ea5e9;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .property-badge {
+
+            display: inline-block;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* CONTACT FORM */
+
+        .contact-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.10);
+
+        }
+
+
+        .contact-card h2 {
+
+            color: #0f172a;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .contact-card > p {
+
+            color: #64748b;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #334155;
+
+            font-weight: 600;
+
+        }
+
+
+        .form-group input,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            box-sizing: border-box;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+
+            border-color: #0ea5e9;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 140px;
+
+            resize: vertical;
+
+        }
+
+
+        .input-note {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* MESSAGES */
+
+        .message {
+
+            display: none;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 18px;
+
+            font-size: 14px;
+
+        }
+
+
+        .error-message {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+        }
+
+
+        .success-message {
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+        }
+
+
+        /* BUTTONS */
+
+        .button-row {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 10px;
+
+        }
+
+
+        .submit-btn,
+        .whatsapp-btn {
+
+            flex: 1;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            font-size: 15px;
+
+        }
+
+
+        .submit-btn {
+
+            background: #0ea5e9;
+
+            color: white;
+
+        }
+
+
+        .submit-btn:hover {
+
+            background: #0284c7;
+
+        }
+
+
+        .whatsapp-btn {
+
+            background: #16a34a;
+
+            color: white;
+
+        }
+
+
+        .whatsapp-btn:hover {
+
+            background: #15803d;
+
+        }
+
+
+        /* OWNER INFO */
+
+        .owner-info {
+
+            margin-top: 25px;
+
+            padding: 18px;
+
+            background: #f8fafc;
+
+            border-radius: 10px;
+
+        }
+
+
+        .owner-info h3 {
+
+            color: #0f172a;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .owner-detail {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin: 8px 0;
+
+            color: #64748b;
+
+        }
+
+
+        .owner-detail i {
+
+            color: #0ea5e9;
+
+            width: 20px;
+
+        }
+
+
+        /* SUCCESS BOX */
+
+        .success-box {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+        }
+
+
+        .success-box i {
+
+            font-size: 60px;
+
+            color: #16a34a;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .success-box h2 {
+
+            color: #0f172a;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .success-box p {
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+        }
+
+
+        .back-property {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 12px 20px;
+
+            background: #0ea5e9;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width: 800px) {
+
+            .contact-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        @media(max-width: 500px) {
+
+            .contact-header h1 {
+
+                font-size: 30px;
+
+            }
+
+            .contact-card {
+
+                padding: 22px;
+
+            }
+
+            .button-row {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="container">
+    <!-- HEADER -->
 
-<div class="logo">
+    <header>
 
-<i class="fa-solid fa-house"></i>
+        <div class="container">
 
-DreamHome
+            <div class="logo">
 
-</div>
+                <i class="fa-solid fa-house"></i>
 
-<nav>
+                DreamHome
 
-<ul>
+            </div>
 
-<li><a href="index.html">Home</a></li>
 
-<li><a href="properties.html">Properties</a></li>
+            <nav>
 
-<li><a href="favorites.html">Favorites</a></li>
+                <ul>
 
-</ul>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
 
-</nav>
+                    <li>
+                        <a href="properties.html">
+                            Properties
+                        </a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="favorites.html">
+                            Favorites
+                        </a>
+                    </li>
 
-</header>
+                    <li>
+                        <a href="profile.html">
+                            Profile
+                        </a>
+                    </li>
 
-<div class="form-container">
+                </ul>
 
-<h2>Contact Property Owner</h2>
+            </nav>
 
-<form>
+        </div>
 
-<div class="form-group">
+    </header>
 
-<label>Name</label>
 
-<input
-type="text"
-id="contactName"
-placeholder="Enter Name">
+    <!-- CONTACT PAGE -->
 
-</div>
+    <main class="contact-page">
 
-<div class="form-group">
 
-<label>Email</label>
+        <div class="contact-header">
 
-<input
-type="email"
-id="contactEmail"
-placeholder="Enter Email">
+            <h1>
+                Contact Property Owner
+            </h1>
 
-</div>
+            <p>
+                Send an inquiry to the property owner
+                and get more information.
+            </p>
 
-<div class="form-group">
+        </div>
 
-<label>Phone</label>
 
-<input
-type="text"
-id="contactPhone"
-placeholder="Enter Phone Number">
+        <div class="contact-layout">
 
-</div>
 
-<div class="form-group">
+            <!-- PROPERTY -->
 
-<label>Message</label>
+            <div>
 
-<textarea
-id="contactMessage"
-rows="5"
-placeholder="Write your inquiry"></textarea>
 
-</div>
+                <div class="property-card">
 
-<button
-type="button"
-class="submit-btn"
-onclick="sendInquiry()">
+                    <img
+                        id="propertyImage"
+                        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+                        alt="Property">
 
-Send Inquiry
 
-</button>
+                    <div class="property-info">
 
-</form>
+                        <span
+                            class="property-badge"
+                            id="propertyCategory">
 
-</div>
+                            Property
 
-<script src="script.js"></script>
+                        </span>
+
+
+                        <h2 id="propertyName">
+
+                            Property Name
+
+                        </h2>
+
+
+                        <p class="property-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span id="propertyLocation">
+                                Location
+                            </span>
+
+                        </p>
+
+
+                        <div
+                            class="property-price"
+                            id="propertyPrice">
+
+                            $0
+
+                        </div>
+
+
+                        <div class="owner-info">
+
+                            <h3>
+                                <i class="fa-solid fa-user"></i>
+                                Property Owner
+                            </h3>
+
+
+                            <div class="owner-detail">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                <span>
+                                    Verified Owner
+                                </span>
+
+                            </div>
+
+
+                            <div class="owner-detail">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                <span>
+                                    Usually responds within 24 hours
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-card">
+
+
+                <div id="formContainer">
+
+
+                    <h2>
+                        Send an Inquiry
+                    </h2>
+
+                    <p>
+                        Fill in your details and we'll
+                        send your inquiry to the owner.
+                    </p>
+
+
+                    <div
+                        id="errorMessage"
+                        class="message error-message">
+                    </div>
+
+
+                    <div
+                        id="successMessage"
+                        class="message success-message">
+                    </div>
+
+
+                    <form id="contactForm">
+
+
+                        <!-- NAME -->
+
+                        <div class="form-group">
+
+                            <label for="name">
+
+                                Full Name
+
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter your full name"
+                                required>
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+
+                                Email Address
+
+                            </label>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+
+                        <!-- PHONE -->
+
+                        <div class="form-group">
+
+                            <label for="phone">
+
+                                Phone Number
+
+                            </label>
+
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10 digit phone number"
+                                maxlength="10"
+                                required>
+
+
+                            <div class="input-note">
+
+                                Enter a valid 10-digit mobile number.
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="form-group">
+
+                            <label for="message">
+
+                                Your Message
+
+                            </label>
+
+
+                            <textarea
+                                id="message"
+                                placeholder="I am interested in this property. Please provide more details..."
+                                required></textarea>
+
+
+                            <div class="input-note">
+
+                                Minimum 10 characters.
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="button-row">
+
+
+                            <button
+                                type="submit"
+                                class="submit-btn">
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                                Send Inquiry
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="whatsapp-btn"
+                                onclick="contactWhatsApp()">
+
+                                <i class="fa-brands fa-whatsapp"></i>
+
+                                WhatsApp
+
+                            </button>
+
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <!-- SUCCESS -->
+
+                <div
+                    class="success-box"
+                    id="successBox">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+
+                    <h2>
+                        Inquiry Sent Successfully!
+                    </h2>
+
+
+                    <p>
+
+                        Thank you for contacting the property owner.
+
+                        Your inquiry has been saved successfully.
+
+                        The owner will contact you soon.
+
+                    </p>
+
+
+                    <a
+                        href="properties.html"
+                        class="back-property">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        Browse More Properties
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                DreamHome
+            </h2>
+
+            <p>
+                Your trusted partner for buying,
+                selling, and renting properties.
+            </p>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        /* =========================
+           PROPERTY DATA
+        ========================= */
+
+        let selectedProperty =
+            JSON.parse(
+                localStorage.getItem(
+                    "selectedProperty"
+                )
+            );
+
+
+        let currentUser =
+            JSON.parse(
+                localStorage.getItem(
+                    "currentUser"
+                )
+            );
+
+
+        /* =========================
+           LOAD PAGE
+        ========================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadProperty();
+
+                loadUser();
+
+            }
+        );
+
+
+        function loadProperty() {
+
+            if (!selectedProperty) {
+
+                document.getElementById(
+                    "propertyName"
+                ).textContent =
+                    "Property Not Found";
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "propertyName"
+            ).textContent =
+                selectedProperty.name;
+
+
+            document.getElementById(
+                "propertyPrice"
+            ).textContent =
+                selectedProperty.price;
+
+
+            document.getElementById(
+                "propertyLocation"
+            ).textContent =
+                selectedProperty.location;
+
+
+            document.getElementById(
+                "propertyImage"
+            ).src =
+                selectedProperty.image;
+
+
+            /* CATEGORY */
+
+            let category =
+                "Property";
+
+
+            let name =
+                selectedProperty.name
+                .toLowerCase();
+
+
+            if (name.includes("villa")) {
+
+                category = "Villa";
+
+            }
+
+            else if (
+                name.includes("apartment")
+            ) {
+
+                category = "Apartment";
+
+            }
+
+            else if (
+                name.includes("house")
+            ) {
+
+                category = "House";
+
+            }
+
+            else if (
+                name.includes("office")
+            ) {
+
+                category = "Commercial";
+
+            }
+
+            else if (
+                name.includes("plot")
+            ) {
+
+                category = "Land";
+
+            }
+
+
+            document.getElementById(
+                "propertyCategory"
+            ).textContent =
+                category;
+
+        }
+
+
+        /* =========================
+           LOAD USER
+        ========================= */
+
+        function loadUser() {
+
+            if (!currentUser) {
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "name"
+            ).value =
+                currentUser.name || "";
+
+
+            document.getElementById(
+                "email"
+            ).value =
+                currentUser.email || "";
+
+
+            document.getElementById(
+                "phone"
+            ).value =
+                currentUser.phone || "";
+
+        }
+
+
+        /* =========================
+           SEND INQUIRY
+        ========================= */
+
+        document.getElementById(
+            "contactForm"
+        ).addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                let name =
+                    document.getElementById(
+                        "name"
+                    ).value.trim();
+
+
+                let email =
+                    document.getElementById(
+                        "email"
+                    ).value.trim()
+                    .toLowerCase();
+
+
+                let phone =
+                    document.getElementById(
+                        "phone"
+                    ).value.trim();
+
+
+                let message =
+                    document.getElementById(
+                        "message"
+                    ).value.trim();
+
+
+                let error =
+                    document.getElementById(
+                        "errorMessage"
+                    );
+
+
+                let success =
+                    document.getElementById(
+                        "successMessage"
+                    );
+
+
+                error.style.display =
+                    "none";
+
+                success.style.display =
+                    "none";
+
+
+                /* NAME */
+
+                if (name.length < 3) {
+
+                    showError(
+                        "Please enter your full name."
+                    );
+
+                    return;
+
+                }
+
+
+                /* EMAIL */
+
+                let emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(email)
+                ) {
+
+                    showError(
+                        "Please enter a valid email address."
+                    );
+
+                    return;
+
+                }
+
+
+                /* PHONE */
+
+                if (
+                    !/^[0-9]{10}$/.test(phone)
+                ) {
+
+                    showError(
+                        "Phone number must contain exactly 10 digits."
+                    );
+
+                    return;
+
+                }
+
+
+                /* MESSAGE */
+
+                if (message.length < 10) {
+
+                    showError(
+                        "Please enter a message of at least 10 characters."
+                    );
+
+                    return;
+
+                }
+
+
+                /* PROPERTY CHECK */
+
+                if (!selectedProperty) {
+
+                    showError(
+                        "Property information could not be found."
+                    );
+
+                    return;
+
+                }
+
+
+                /* GET EXISTING INQUIRIES */
+
+                let inquiries =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "inquiries"
+                        )
+                    ) || [];
+
+
+                /* CREATE INQUIRY */
+
+                let inquiry = {
+
+                    id:
+                        Date.now(),
+
+                    propertyName:
+                        selectedProperty.name,
+
+                    propertyPrice:
+                        selectedProperty.price,
+
+                    propertyLocation:
+                        selectedProperty.location,
+
+                    propertyImage:
+                        selectedProperty.image,
+
+                    name:
+                        name,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone,
+
+                    message:
+                        message,
+
+                    date:
+                        new Date()
+                        .toISOString(),
+
+                    status:
+                        "Pending"
+
+                };
+
+
+                inquiries.push(
+                    inquiry
+                );
+
+
+                /* SAVE */
+
+                localStorage.setItem(
+                    "inquiries",
+                    JSON.stringify(
+                        inquiries
+                    )
+                );
+
+
+                /* SUCCESS */
+
+                document.getElementById(
+                    "formContainer"
+                ).style.display =
+                    "none";
+
+
+                document.getElementById(
+                    "successBox"
+                ).style.display =
+                    "block";
+
+            }
+        );
+
+
+        /* =========================
+           ERROR MESSAGE
+        ========================= */
+
+        function showError(message) {
+
+            let error =
+                document.getElementById(
+                    "errorMessage"
+                );
+
+
+            error.textContent =
+                message;
+
+
+            error.style.display =
+                "block";
+
+
+            error.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        function contactWhatsApp() {
+
+            if (!selectedProperty) {
+
+                alert(
+                    "Property information not available."
+                );
+
+                return;
+
+            }
+
+
+            let name =
+                document.getElementById(
+                    "name"
+                ).value.trim();
+
+
+            let message =
+                document.getElementById(
+                    "message"
+                ).value.trim();
+
+
+            if (!name) {
+
+                alert(
+                    "Please enter your name first."
+                );
+
+                return;
+
+            }
+
+
+            let propertyName =
+                selectedProperty.name;
+
+
+            let propertyLocation =
+                selectedProperty.location;
+
+
+            let text =
+                `Hello, I am ${name}.%0A%0A` +
+                `I am interested in the property:%0A` +
+                `${propertyName}%0A` +
+                `Location: ${propertyLocation}%0A%0A` +
+                `Message: ${message || "Please provide more details."}`;
+
+
+            /*
+             * Replace the number below with
+             * the actual property owner's
+             * WhatsApp number.
+             */
+
+            let ownerNumber =
+                "917249077508";
+
+
+            let url =
+                `https://wa.me/${ownerNumber}?text=${text}`;
+
+
+            window.open(
+                url,
+                "_blank"
+            );
+
+        }
+
+    </script>
 
 </body>
 
