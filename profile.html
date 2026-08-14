@@ -3,89 +3,1240 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Profile | DreamHome</title>
+    <title>My Profile | DreamHome</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        .profile-page {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto 80px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .profile-header h1 {
+            color: #0f172a;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .profile-header p {
+            color: #64748b;
+        }
+
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 30px;
+        }
+
+        /* PROFILE CARD */
+
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+            height: fit-content;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e0f2fe;
+            color: #0ea5e9;
+
+            font-size: 45px;
+        }
+
+        .profile-card h2 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .profile-card p {
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .verified {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            background: #dcfce7;
+            color: #15803d;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .logout-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #fee2e2;
+            color: #dc2626;
+
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background: #fecaca;
+        }
+
+        /* CONTENT */
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .section-card h2 {
+            color: #0f172a;
+            margin-bottom: 22px;
+        }
+
+        /* STATISTICS */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat i {
+            font-size: 25px;
+            color: #0ea5e9;
+            margin-bottom: 8px;
+        }
+
+        .stat h3 {
+            font-size: 25px;
+            color: #0f172a;
+        }
+
+        .stat p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* PROFILE DETAILS */
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            color: #64748b;
+        }
+
+        .detail-label i {
+            width: 25px;
+            color: #0ea5e9;
+        }
+
+        .detail-value {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* EDIT FORM */
+
+        .edit-form {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #0ea5e9;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 12px 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .primary-btn {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #0284c7;
+        }
+
+        .secondary-btn {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .message {
+            display: none;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 800px) {
+
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media(max-width: 500px) {
+
+            .profile-header h1 {
+                font-size: 30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .button-row {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<header>
 
-<div class="container">
+    <!-- HEADER -->
 
-<div class="logo">
+    <header>
 
-<i class="fa-solid fa-house"></i>
+        <div class="container">
 
-DreamHome
+            <div class="logo">
 
-</div>
+                <i class="fa-solid fa-house"></i>
+                DreamHome
 
-<nav>
+            </div>
 
-<ul>
+            <nav>
 
-<li><a href="index.html">Home</a></li>
+                <ul>
 
-<li><a href="properties.html">Properties</a></li>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
 
-<li><a href="favorites.html">Favorites</a></li>
+                    <li>
+                        <a href="properties.html">
+                            Properties
+                        </a>
+                    </li>
 
-<li><a href="login.html">Logout</a></li>
+                    <li>
+                        <a href="favorites.html">
+                            Favorites
+                        </a>
+                    </li>
 
-</ul>
+                    <li>
+                        <a href="profile.html">
+                            Profile
+                        </a>
+                    </li>
 
-</nav>
+                </ul>
 
-</div>
+            </nav>
 
-</header>
+        </div>
 
-<section class="profile-card">
+    </header>
 
-<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
-<h2 id="userName">User Name</h2>
+    <!-- PROFILE -->
 
-<p>
+    <main class="profile-page">
 
-<strong>Email :</strong>
 
-<span id="userEmail"></span>
+        <div class="profile-header">
 
-</p>
+            <h1>
+                My Profile
+            </h1>
 
-<p>
+            <p>
+                Manage your DreamHome account and activity.
+            </p>
 
-<strong>Phone :</strong>
+        </div>
 
-<span id="userPhone"></span>
 
-</p>
+        <div class="profile-layout">
 
-<br>
 
-<button
+            <!-- LEFT PROFILE CARD -->
 
-class="submit-btn"
+            <div class="profile-card">
 
-onclick="logout()">
+                <div class="profile-avatar">
 
-Logout
+                    <i class="fa-solid fa-user"></i>
 
-</button>
+                </div>
 
-</section>
+                <h2 id="profileName">
+                    User
+                </h2>
 
-<script src="script.js"></script>
+                <p id="profileEmail">
+                    user@email.com
+                </p>
+
+                <p id="profilePhone">
+                    Phone number
+                </p>
+
+                <span class="verified">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Active Account
+
+                </span>
+
+
+                <button
+                    class="logout-btn"
+                    onclick="logoutUser()">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+
+            <!-- RIGHT CONTENT -->
+
+            <div class="profile-content">
+
+
+                <!-- STATISTICS -->
+
+                <div class="section-card">
+
+                    <h2>
+                        My Activity
+                    </h2>
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                            <h3 id="favoriteCount">
+                                0
+                            </h3>
+
+                            <p>
+                                Favorite Properties
+                            </p>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <h3 id="inquiryCount">
+                                0
+                            </h3>
+
+                            <p>
+                                Inquiries
+                            </p>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            <h3 id="memberSince">
+                                2026
+                            </h3>
+
+                            <p>
+                                Member Since
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACCOUNT DETAILS -->
+
+                <div
+                    class="section-card"
+                    id="detailsSection">
+
+                    <h2>
+                        Account Information
+                    </h2>
+
+
+                    <div class="detail-row">
+
+                        <div class="detail-label">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            Full Name
+
+                        </div>
+
+                        <div
+                            class="detail-value"
+                            id="detailName">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <div class="detail-label">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            Email
+
+                        </div>
+
+                        <div
+                            class="detail-value"
+                            id="detailEmail">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <div class="detail-label">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            Phone
+
+                        </div>
+
+                        <div
+                            class="detail-value"
+                            id="detailPhone">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <div class="detail-label">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            Account Created
+
+                        </div>
+
+                        <div
+                            class="detail-value"
+                            id="detailCreated">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-btn"
+                        onclick="showEditForm()">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Edit Profile
+
+                    </button>
+
+                </div>
+
+
+                <!-- EDIT PROFILE -->
+
+                <div
+                    class="section-card edit-form"
+                    id="editSection">
+
+                    <h2>
+                        Edit Profile
+                    </h2>
+
+
+                    <div
+                        id="successMessage"
+                        class="message success">
+                    </div>
+
+
+                    <div
+                        id="errorMessage"
+                        class="message error">
+                    </div>
+
+
+                    <form id="editForm">
+
+
+                        <div class="form-group">
+
+                            <label for="editName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="editName"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="editEmail">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="editEmail"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="editPhone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="editPhone"
+                                maxlength="10"
+                                required>
+
+                        </div>
+
+
+                        <div class="button-row">
+
+                            <button
+                                type="submit"
+                                class="primary-btn">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Save Changes
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="secondary-btn"
+                                onclick="hideEditForm()">
+
+                                Cancel
+
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="section-card">
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+
+                    <div class="button-row">
+
+                        <a
+                            href="favorites.html"
+                            class="primary-btn">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                            My Favorites
+
+                        </a>
+
+
+                        <a
+                            href="properties.html"
+                            class="secondary-btn">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            Browse Properties
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                DreamHome
+            </h2>
+
+            <p>
+                Your trusted partner for buying,
+                selling, and renting properties.
+            </p>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        /* =========================
+           LOAD PROFILE
+        ========================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadProfile();
+
+            }
+        );
+
+
+        function getCurrentUser() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "currentUser"
+                )
+            );
+
+        }
+
+
+        function loadProfile() {
+
+            let user =
+                getCurrentUser();
+
+
+            if (!user) {
+
+                alert(
+                    "Please login to view your profile."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+
+            }
+
+
+            /* PROFILE CARD */
+
+            document.getElementById(
+                "profileName"
+            ).textContent =
+                user.name;
+
+
+            document.getElementById(
+                "profileEmail"
+            ).textContent =
+                user.email;
+
+
+            document.getElementById(
+                "profilePhone"
+            ).textContent =
+                user.phone || "Not provided";
+
+
+            /* ACCOUNT DETAILS */
+
+            document.getElementById(
+                "detailName"
+            ).textContent =
+                user.name;
+
+
+            document.getElementById(
+                "detailEmail"
+            ).textContent =
+                user.email;
+
+
+            document.getElementById(
+                "detailPhone"
+            ).textContent =
+                user.phone || "Not provided";
+
+
+            /* CREATED DATE */
+
+            if (user.createdAt) {
+
+                let date =
+                    new Date(
+                        user.createdAt
+                    );
+
+                document.getElementById(
+                    "detailCreated"
+                ).textContent =
+                    date.toLocaleDateString();
+
+
+                document.getElementById(
+                    "memberSince"
+                ).textContent =
+                    date.getFullYear();
+
+            }
+
+
+            /* FAVORITES */
+
+            let favorites =
+                JSON.parse(
+                    localStorage.getItem(
+                        "favourites"
+                    )
+                ) || [];
+
+
+            document.getElementById(
+                "favoriteCount"
+            ).textContent =
+                favorites.length;
+
+
+            /* INQUIRIES */
+
+            let inquiries =
+                JSON.parse(
+                    localStorage.getItem(
+                        "inquiries"
+                    )
+                ) || [];
+
+
+            let userInquiries =
+                inquiries.filter(
+                    function (item) {
+
+                        return (
+                            item.email ===
+                            user.email
+                        );
+
+                    }
+                );
+
+
+            document.getElementById(
+                "inquiryCount"
+            ).textContent =
+                userInquiries.length;
+
+        }
+
+
+        /* =========================
+           SHOW EDIT FORM
+        ========================= */
+
+        function showEditForm() {
+
+            let user =
+                getCurrentUser();
+
+
+            if (!user) return;
+
+
+            document.getElementById(
+                "editName"
+            ).value =
+                user.name;
+
+
+            document.getElementById(
+                "editEmail"
+            ).value =
+                user.email;
+
+
+            document.getElementById(
+                "editPhone"
+            ).value =
+                user.phone || "";
+
+
+            document.getElementById(
+                "editSection"
+            ).style.display =
+                "block";
+
+
+            document.getElementById(
+                "editSection"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* =========================
+           HIDE EDIT FORM
+        ========================= */
+
+        function hideEditForm() {
+
+            document.getElementById(
+                "editSection"
+            ).style.display =
+                "none";
+
+        }
+
+
+        /* =========================
+           SAVE PROFILE
+        ========================= */
+
+        document.getElementById(
+            "editForm"
+        ).addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                let user =
+                    getCurrentUser();
+
+
+                if (!user) return;
+
+
+                let name =
+                    document.getElementById(
+                        "editName"
+                    ).value.trim();
+
+
+                let email =
+                    document.getElementById(
+                        "editEmail"
+                    ).value.trim()
+                    .toLowerCase();
+
+
+                let phone =
+                    document.getElementById(
+                        "editPhone"
+                    ).value.trim();
+
+
+                let error =
+                    document.getElementById(
+                        "errorMessage"
+                    );
+
+
+                let success =
+                    document.getElementById(
+                        "successMessage"
+                    );
+
+
+                error.style.display =
+                    "none";
+
+                success.style.display =
+                    "none";
+
+
+                /* VALIDATION */
+
+                if (name.length < 3) {
+
+                    error.textContent =
+                        "Please enter a valid name.";
+
+                    error.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                let emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+                if (
+                    !emailPattern.test(email)
+                ) {
+
+                    error.textContent =
+                        "Please enter a valid email.";
+
+                    error.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                if (
+                    !/^[0-9]{10}$/.test(phone)
+                ) {
+
+                    error.textContent =
+                        "Phone number must contain 10 digits.";
+
+                    error.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                /* GET USERS */
+
+                let users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "users"
+                        )
+                    ) || [];
+
+
+                /* DUPLICATE EMAIL */
+
+                let duplicate =
+                    users.find(
+                        function (item) {
+
+                            return (
+                                item.email === email &&
+                                item.email !== user.email
+                            );
+
+                        }
+                    );
+
+
+                if (duplicate) {
+
+                    error.textContent =
+                        "Another account already uses this email.";
+
+                    error.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+                /* UPDATE USER */
+
+                let oldEmail =
+                    user.email;
+
+
+                user.name =
+                    name;
+
+                user.email =
+                    email;
+
+                user.phone =
+                    phone;
+
+
+                /* UPDATE USERS ARRAY */
+
+                users =
+                    users.map(
+                        function (item) {
+
+                            if (
+                                item.email ===
+                                oldEmail
+                            ) {
+
+                                return user;
+
+                            }
+
+                            return item;
+
+                        }
+                    );
+
+
+                localStorage.setItem(
+                    "users",
+                    JSON.stringify(users)
+                );
+
+
+                /* UPDATE CURRENT USER */
+
+                localStorage.setItem(
+                    "currentUser",
+                    JSON.stringify(user)
+                );
+
+
+                success.textContent =
+                    "Profile updated successfully.";
+
+                success.style.display =
+                    "block";
+
+
+                loadProfile();
+
+
+                setTimeout(
+                    function () {
+
+                        hideEditForm();
+
+                    },
+                    1200
+                );
+
+            }
+        );
+
+
+        /* =========================
+           LOGOUT
+        ========================= */
+
+        function logoutUser() {
+
+            if (
+                !confirm(
+                    "Are you sure you want to logout?"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                "currentUser"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script>
 
 </body>
 
