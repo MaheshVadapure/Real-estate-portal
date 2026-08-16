@@ -3,114 +3,2117 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Add Property</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+    <title>Add Property | DreamHome</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           ADD PROPERTY PAGE
+        ========================= */
+
+        .add-property-page {
+
+            width: 92%;
+            max-width: 1150px;
+
+            margin: 45px auto 80px;
+
+        }
+
+
+        .page-header {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .page-header h1 {
+
+            color: #0f172a;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-header p {
+
+            color: #64748b;
+
+        }
+
+
+        .form-layout {
+
+            display: grid;
+
+            grid-template-columns: 1.3fr 0.8fr;
+
+            gap: 30px;
+
+            align-items: start;
+
+        }
+
+
+        /* FORM CARD */
+
+        .form-card {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+
+        }
+
+
+        .form-card h2 {
+
+            color: #0f172a;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .form-section-title {
+
+            font-size: 17px;
+
+            color: #334155;
+
+            margin: 25px 0 15px;
+
+            padding-bottom: 8px;
+
+            border-bottom: 1px solid #e2e8f0;
+
+        }
+
+
+        .form-section-title:first-of-type {
+
+            margin-top: 0;
+
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #334155;
+
+            font-weight: 600;
+
+        }
+
+
+        .required {
+
+            color: #dc2626;
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            box-sizing: border-box;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 15px;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #0ea5e9;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 130px;
+
+            resize: vertical;
+
+        }
+
+
+        .input-help {
+
+            margin-top: 5px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+        }
+
+
+        /* AMENITIES */
+
+        .amenities-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .amenity-option {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px;
+
+            border-radius: 8px;
+
+            background: #f8fafc;
+
+            color: #475569;
+
+            cursor: pointer;
+
+        }
+
+
+        .amenity-option:hover {
+
+            background: #e0f2fe;
+
+        }
+
+
+        .amenity-option input {
+
+            accent-color: #0ea5e9;
+
+        }
+
+
+        /* BUTTONS */
+
+        .button-row {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .submit-btn,
+        .reset-btn {
+
+            flex: 1;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+        }
+
+
+        .submit-btn {
+
+            background: #0ea5e9;
+
+            color: white;
+
+        }
+
+
+        .submit-btn:hover {
+
+            background: #0284c7;
+
+        }
+
+
+        .reset-btn {
+
+            background: #e2e8f0;
+
+            color: #334155;
+
+        }
+
+
+        .reset-btn:hover {
+
+            background: #cbd5e1;
+
+        }
+
+
+        /* MESSAGES */
+
+        .message {
+
+            display: none;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 18px;
+
+            font-size: 14px;
+
+        }
+
+
+        .error-message {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+        }
+
+
+        .success-message {
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+        }
+
+
+        /* PREVIEW */
+
+        .preview-card {
+
+            background: white;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+
+            position: sticky;
+
+            top: 25px;
+
+        }
+
+
+        .preview-header {
+
+            padding: 20px;
+
+            border-bottom: 1px solid #e2e8f0;
+
+        }
+
+
+        .preview-header h2 {
+
+            color: #0f172a;
+
+            font-size: 20px;
+
+        }
+
+
+        .preview-image {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            background: #e2e8f0;
+
+        }
+
+
+        .preview-content {
+
+            padding: 22px;
+
+        }
+
+
+        .preview-content h3 {
+
+            color: #0f172a;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .preview-location {
+
+            color: #64748b;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .preview-location i {
+
+            color: #ef4444;
+
+            margin-right: 5px;
+
+        }
+
+
+        .preview-price {
+
+            color: #0ea5e9;
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .preview-badge {
+
+            display: inline-block;
+
+            padding: 6px 12px;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .preview-features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+            margin: 15px 0;
+
+        }
+
+
+        .preview-feature {
+
+            text-align: center;
+
+            padding: 10px 5px;
+
+            background: #f8fafc;
+
+            border-radius: 8px;
+
+        }
+
+
+        .preview-feature i {
+
+            color: #0ea5e9;
+
+            display: block;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .preview-feature span {
+
+            font-size: 12px;
+
+            color: #64748b;
+
+        }
+
+
+        .preview-description {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .no-preview {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            color: #94a3b8;
+
+        }
+
+
+        .no-preview i {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            .form-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .preview-card {
+
+                position: static;
+
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .amenities-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .button-row {
+
+                flex-direction: column;
+
+            }
+
+
+            .page-header h1 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="container">
+    <!-- HEADER -->
 
-<div class="logo">
+    <header>
 
-🏠 DreamHome Admin
+        <div class="container">
 
-</div>
+            <div class="logo">
 
-</div>
+                <i class="fa-solid fa-house"></i>
 
-</header>
+                DreamHome Admin
 
-<div class="form-container">
+            </div>
 
-<h2>Add New Property</h2>
 
-<form>
+            <nav>
 
-<div class="form-group">
+                <ul>
 
-<label>Property Name</label>
+                    <li>
+                        <a href="admin-dashboard.html">
+                            Dashboard
+                        </a>
+                    </li>
 
-<input type="text" id="propertyName">
+                    <li>
+                        <a href="manage-properties.html">
+                            Properties
+                        </a>
+                    </li>
 
-</div>
+                    <li>
+                        <a href="manage-users.html">
+                            Users
+                        </a>
+                    </li>
 
-<div class="form-group">
+                    <li>
+                        <a href="index.html">
+                            Website
+                        </a>
+                    </li>
 
-<label>Price</label>
+                </ul>
 
-<input type="text" id="propertyPrice">
+            </nav>
 
-</div>
+        </div>
 
-<div class="form-group">
+    </header>
 
-<label>Location</label>
 
-<input type="text" id="propertyLocation">
+    <!-- PAGE -->
 
-</div>
+    <main class="add-property-page">
 
-<div class="form-group">
 
-<label>Category</label>
+        <div class="page-header">
 
-<select id="propertyCategory">
+            <h1>
+                Add New Property
+            </h1>
 
-<option>Apartment</option>
+            <p>
+                Create a detailed property listing for DreamHome.
+            </p>
 
-<option>Villa</option>
+        </div>
 
-<option>House</option>
 
-<option>Commercial</option>
+        <div class="form-layout">
 
-<option>Land</option>
 
-</select>
+            <!-- FORM -->
 
-</div>
+            <section class="form-card">
 
-<div class="form-group">
 
-<label>Image URL</label>
+                <h2>
 
-<input type="text" id="propertyImage">
+                    <i class="fa-solid fa-building"></i>
 
-</div>
+                    Property Information
 
-<div class="form-group">
+                </h2>
 
-<label>Description</label>
 
-<textarea id="propertyDescription" rows="5"></textarea>
+                <div
+                    id="errorMessage"
+                    class="message error-message">
+                </div>
 
-</div>
 
-<button
+                <div
+                    id="successMessage"
+                    class="message success-message">
+                </div>
 
-type="button"
 
-class="submit-btn"
+                <form id="propertyForm">
 
-onclick="saveProperty()">
 
-Add Property
+                    <!-- BASIC INFORMATION -->
 
-</button>
+                    <h3 class="form-section-title">
 
-</form>
+                        Basic Information
 
-</div>
+                    </h3>
 
-<script src="script.js"></script>
+
+                    <div class="form-group">
+
+                        <label for="propertyName">
+
+                            Property Name
+                            <span class="required">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="propertyName"
+                            placeholder="e.g. Luxury Family Villa"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="propertyType">
+
+                                Property Type
+                                <span class="required">*</span>
+
+                            </label>
+
+
+                            <select
+                                id="propertyType"
+                                required>
+
+                                <option value="">
+                                    Select Type
+                                </option>
+
+                                <option value="Villa">
+                                    Villa
+                                </option>
+
+                                <option value="Apartment">
+                                    Apartment
+                                </option>
+
+                                <option value="House">
+                                    House
+                                </option>
+
+                                <option value="Commercial">
+                                    Commercial
+                                </option>
+
+                                <option value="Land">
+                                    Land / Plot
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="propertyStatus">
+
+                                Listing Status
+                                <span class="required">*</span>
+
+                            </label>
+
+
+                            <select
+                                id="propertyStatus"
+                                required>
+
+                                <option value="">
+                                    Select Status
+                                </option>
+
+                                <option value="For Sale">
+                                    For Sale
+                                </option>
+
+                                <option value="For Rent">
+                                    For Rent
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="price">
+
+                                Price
+                                <span class="required">*</span>
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="price"
+                                min="1"
+                                placeholder="Enter price"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="location">
+
+                                Location
+                                <span class="required">*</span>
+
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="location"
+                                placeholder="e.g. Pune, Maharashtra"
+                                required>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- PROPERTY DETAILS -->
+
+                    <h3 class="form-section-title">
+
+                        Property Details
+
+                    </h3>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="bedrooms">
+
+                                Bedrooms
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="bedrooms"
+                                min="0"
+                                placeholder="e.g. 3">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="bathrooms">
+
+                                Bathrooms
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="bathrooms"
+                                min="0"
+                                placeholder="e.g. 2">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="area">
+
+                                Area (sq. ft.)
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="area"
+                                min="1"
+                                placeholder="e.g. 2500">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="parking">
+
+                                Parking Spaces
+
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="parking"
+                                min="0"
+                                placeholder="e.g. 2">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- IMAGE -->
+
+                    <h3 class="form-section-title">
+
+                        Property Image
+
+                    </h3>
+
+
+                    <div class="form-group">
+
+                        <label for="image">
+
+                            Image URL
+                            <span class="required">*</span>
+
+                        </label>
+
+
+                        <input
+                            type="url"
+                            id="image"
+                            placeholder="https://example.com/property.jpg"
+                            required>
+
+
+                        <div class="input-help">
+
+                            Use a publicly accessible image URL.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="description">
+
+                            Description
+                            <span class="required">*</span>
+
+                        </label>
+
+
+                        <textarea
+                            id="description"
+                            placeholder="Describe the property, location, facilities and other important details..."
+                            required></textarea>
+
+                    </div>
+
+
+                    <!-- AMENITIES -->
+
+                    <h3 class="form-section-title">
+
+                        Amenities
+
+                    </h3>
+
+
+                    <div class="amenities-grid">
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="Parking"
+                                class="amenity">
+
+                            <i class="fa-solid fa-car"></i>
+
+                            Parking
+
+                        </label>
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="Swimming Pool"
+                                class="amenity">
+
+                            <i class="fa-solid fa-person-swimming"></i>
+
+                            Swimming Pool
+
+                        </label>
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="Garden"
+                                class="amenity">
+
+                            <i class="fa-solid fa-tree"></i>
+
+                            Garden
+
+                        </label>
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="Security"
+                                class="amenity">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            24×7 Security
+
+                        </label>
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="WiFi"
+                                class="amenity">
+
+                            <i class="fa-solid fa-wifi"></i>
+
+                            WiFi
+
+                        </label>
+
+
+                        <label class="amenity-option">
+
+                            <input
+                                type="checkbox"
+                                value="Elevator"
+                                class="amenity">
+
+                            <i class="fa-solid fa-elevator"></i>
+
+                            Elevator
+
+                        </label>
+
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="button-row">
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn">
+
+                            <i class="fa-solid fa-plus"></i>
+
+                            Add Property
+
+                        </button>
+
+
+                        <button
+                            type="reset"
+                            class="reset-btn"
+                            onclick="resetPreview()">
+
+                            <i class="fa-solid fa-rotate-left"></i>
+
+                            Reset
+
+                        </button>
+
+
+                    </div>
+
+
+                </form>
+
+
+            </section>
+
+
+            <!-- PREVIEW -->
+
+            <aside class="preview-card">
+
+
+                <div class="preview-header">
+
+                    <h2>
+
+                        <i class="fa-solid fa-eye"></i>
+
+                        Live Preview
+
+                    </h2>
+
+                </div>
+
+
+                <div id="previewContent">
+
+
+                    <div class="no-preview">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <p>
+                            Start filling the form to preview
+                            your property listing.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                DreamHome
+            </h2>
+
+            <p>
+                Admin Management System
+            </p>
+
+            <p>
+                © 2026 DreamHome. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           FORM ELEMENTS
+        ========================= */
+
+        const form =
+            document.getElementById(
+                "propertyForm"
+            );
+
+
+        const fields = [
+
+            "propertyName",
+            "propertyType",
+            "propertyStatus",
+            "price",
+            "location",
+            "bedrooms",
+            "bathrooms",
+            "area",
+            "parking",
+            "image",
+            "description"
+
+        ];
+
+
+        /* =========================
+           LIVE PREVIEW
+        ========================= */
+
+        fields.forEach(
+            function (id) {
+
+                document.getElementById(id)
+                    .addEventListener(
+                        "input",
+                        updatePreview
+                    );
+
+                document.getElementById(id)
+                    .addEventListener(
+                        "change",
+                        updatePreview
+                    );
+
+            }
+        );
+
+
+        document.querySelectorAll(
+            ".amenity"
+        ).forEach(
+            function (checkbox) {
+
+                checkbox.addEventListener(
+                    "change",
+                    updatePreview
+                );
+
+            }
+        );
+
+
+        function updatePreview() {
+
+
+            let name =
+                document.getElementById(
+                    "propertyName"
+                ).value.trim();
+
+
+            let type =
+                document.getElementById(
+                    "propertyType"
+                ).value;
+
+
+            let status =
+                document.getElementById(
+                    "propertyStatus"
+                ).value;
+
+
+            let price =
+                document.getElementById(
+                    "price"
+                ).value;
+
+
+            let location =
+                document.getElementById(
+                    "location"
+                ).value.trim();
+
+
+            let bedrooms =
+                document.getElementById(
+                    "bedrooms"
+                ).value;
+
+
+            let bathrooms =
+                document.getElementById(
+                    "bathrooms"
+                ).value;
+
+
+            let area =
+                document.getElementById(
+                    "area"
+                ).value;
+
+
+            let image =
+                document.getElementById(
+                    "image"
+                ).value.trim();
+
+
+            let description =
+                document.getElementById(
+                    "description"
+                ).value.trim();
+
+
+            let preview =
+                document.getElementById(
+                    "previewContent"
+                );
+
+
+            /* DEFAULT IMAGE */
+
+            let previewImage =
+                image ||
+                "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800";
+
+
+            /* PRICE */
+
+            let formattedPrice =
+                price
+                    ? "₹" +
+                      Number(price)
+                        .toLocaleString("en-IN")
+                    : "₹0";
+
+
+            /* AMENITIES */
+
+            let amenities = [];
+
+
+            document.querySelectorAll(
+                ".amenity:checked"
+            ).forEach(
+                function (item) {
+
+                    amenities.push(
+                        item.value
+                    );
+
+                }
+            );
+
+
+            let amenitiesHTML =
+                amenities.length > 0
+                ? amenities
+                    .map(
+                        function (item) {
+
+                            return `
+                                <span style="
+                                    display:inline-block;
+                                    padding:5px 9px;
+                                    margin:3px;
+                                    background:#e0f2fe;
+                                    color:#0369a1;
+                                    border-radius:15px;
+                                    font-size:11px;
+                                ">
+                                    ${escapeHTML(item)}
+                                </span>
+                            `;
+
+                        }
+                    )
+                    .join("")
+                : `
+                    <span style="color:#94a3b8;font-size:12px;">
+                        No amenities selected
+                    </span>
+                `;
+
+
+            preview.innerHTML = `
+
+                <img
+                    class="preview-image"
+                    src="${escapeAttribute(previewImage)}"
+                    alt="Property Preview"
+                    onerror="
+                        this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800'
+                    "
+                >
+
+
+                <div class="preview-content">
+
+
+                    ${
+                        type
+                        ? `<span class="preview-badge">
+                                ${escapeHTML(type)}
+                           </span>`
+                        : ""
+                    }
+
+
+                    <h3>
+
+                        ${
+                            escapeHTML(
+                                name ||
+                                "Property Name"
+                            )
+                        }
+
+                    </h3>
+
+
+                    <p class="preview-location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        ${
+                            escapeHTML(
+                                location ||
+                                "Property Location"
+                            )
+                        }
+
+                    </p>
+
+
+                    <div class="preview-price">
+
+                        ${formattedPrice}
+
+                        ${
+                            status
+                            ? `<span style="
+                                    font-size:12px;
+                                    color:#64748b;
+                                    font-weight:400;
+                                ">
+                                    • ${escapeHTML(status)}
+                               </span>`
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <div class="preview-features">
+
+
+                        <div class="preview-feature">
+
+                            <i class="fa-solid fa-bed"></i>
+
+                            <strong>
+                                ${bedrooms || "0"}
+                            </strong>
+
+                            <span>
+                                Beds
+                            </span>
+
+                        </div>
+
+
+                        <div class="preview-feature">
+
+                            <i class="fa-solid fa-bath"></i>
+
+                            <strong>
+                                ${bathrooms || "0"}
+                            </strong>
+
+                            <span>
+                                Baths
+                            </span>
+
+                        </div>
+
+
+                        <div class="preview-feature">
+
+                            <i class="fa-solid fa-ruler-combined"></i>
+
+                            <strong>
+                                ${area || "0"}
+                            </strong>
+
+                            <span>
+                                Sq.Ft.
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <p class="preview-description">
+
+                        ${
+                            escapeHTML(
+                                description ||
+                                "Property description will appear here."
+                            )
+                        }
+
+                    </p>
+
+
+                    <div style="margin-top:15px;">
+
+                        ${amenitiesHTML}
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           FORM SUBMISSION
+        ========================= */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                let error =
+                    document.getElementById(
+                        "errorMessage"
+                    );
+
+
+                let success =
+                    document.getElementById(
+                        "successMessage"
+                    );
+
+
+                error.style.display =
+                    "none";
+
+                success.style.display =
+                    "none";
+
+
+                /* GET VALUES */
+
+                let name =
+                    document.getElementById(
+                        "propertyName"
+                    ).value.trim();
+
+
+                let type =
+                    document.getElementById(
+                        "propertyType"
+                    ).value;
+
+
+                let status =
+                    document.getElementById(
+                        "propertyStatus"
+                    ).value;
+
+
+                let price =
+                    Number(
+                        document.getElementById(
+                            "price"
+                        ).value
+                    );
+
+
+                let location =
+                    document.getElementById(
+                        "location"
+                    ).value.trim();
+
+
+                let bedrooms =
+                    Number(
+                        document.getElementById(
+                            "bedrooms"
+                        ).value || 0
+                    );
+
+
+                let bathrooms =
+                    Number(
+                        document.getElementById(
+                            "bathrooms"
+                        ).value || 0
+                    );
+
+
+                let area =
+                    Number(
+                        document.getElementById(
+                            "area"
+                        ).value || 0
+                    );
+
+
+                let parking =
+                    Number(
+                        document.getElementById(
+                            "parking"
+                        ).value || 0
+                    );
+
+
+                let image =
+                    document.getElementById(
+                        "image"
+                    ).value.trim();
+
+
+                let description =
+                    document.getElementById(
+                        "description"
+                    ).value.trim();
+
+
+                /* =========================
+                   VALIDATION
+                ========================= */
+
+                if (name.length < 3) {
+
+                    showError(
+                        "Property name must contain at least 3 characters."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!type) {
+
+                    showError(
+                        "Please select a property type."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!status) {
+
+                    showError(
+                        "Please select a listing status."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    !Number.isFinite(price) ||
+                    price <= 0
+                ) {
+
+                    showError(
+                        "Please enter a valid property price."
+                    );
+
+                    return;
+
+                }
+
+
+                if (location.length < 2) {
+
+                    showError(
+                        "Please enter a valid property location."
+                    );
+
+                    return;
+
+                }
+
+
+                if (bedrooms < 0) {
+
+                    showError(
+                        "Bedrooms cannot be negative."
+                    );
+
+                    return;
+
+                }
+
+
+                if (bathrooms < 0) {
+
+                    showError(
+                        "Bathrooms cannot be negative."
+                    );
+
+                    return;
+
+                }
+
+
+                if (area <= 0) {
+
+                    showError(
+                        "Please enter a valid property area."
+                    );
+
+                    return;
+
+                }
+
+
+                if (parking < 0) {
+
+                    showError(
+                        "Parking spaces cannot be negative."
+                    );
+
+                    return;
+
+                }
+
+
+                let urlPattern =
+                    /^https?:\/\/.+/i;
+
+
+                if (
+                    !urlPattern.test(image)
+                ) {
+
+                    showError(
+                        "Please enter a valid image URL beginning with http:// or https://."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    description.length < 20
+                ) {
+
+                    showError(
+                        "Property description must contain at least 20 characters."
+                    );
+
+                    return;
+
+                }
+
+
+                /* =========================
+                   GET AMENITIES
+                ========================= */
+
+                let amenities = [];
+
+
+                document.querySelectorAll(
+                    ".amenity:checked"
+                ).forEach(
+                    function (item) {
+
+                        amenities.push(
+                            item.value
+                        );
+
+                    }
+                );
+
+
+                /* =========================
+                   GET EXISTING PROPERTIES
+                ========================= */
+
+                let properties =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "properties"
+                        )
+                    ) || [];
+
+
+                /* =========================
+                   CHECK DUPLICATE
+                ========================= */
+
+                let duplicate =
+                    properties.some(
+                        function (property) {
+
+                            return (
+                                property.name
+                                    .toLowerCase() ===
+                                name.toLowerCase() &&
+
+                                property.location
+                                    .toLowerCase() ===
+                                location.toLowerCase()
+                            );
+
+                        }
+                    );
+
+
+                if (duplicate) {
+
+                    showError(
+                        "A property with the same name and location already exists."
+                    );
+
+                    return;
+
+                }
+
+
+                /* =========================
+                   CREATE PROPERTY
+                ========================= */
+
+                let property = {
+
+                    id:
+                        Date.now(),
+
+                    name:
+                        name,
+
+                    type:
+                        type,
+
+                    status:
+                        status,
+
+                    price:
+                        "₹" +
+                        price.toLocaleString(
+                            "en-IN"
+                        ),
+
+                    priceValue:
+                        price,
+
+                    location:
+                        location,
+
+                    bedrooms:
+                        bedrooms,
+
+                    bathrooms:
+                        bathrooms,
+
+                    area:
+                        area,
+
+                    parking:
+                        parking,
+
+                    image:
+                        image,
+
+                    description:
+                        description,
+
+                    amenities:
+                        amenities,
+
+                    createdAt:
+                        new Date()
+                            .toISOString()
+
+                };
+
+
+                /* =========================
+                   SAVE PROPERTY
+                ========================= */
+
+                properties.push(
+                    property
+                );
+
+
+                localStorage.setItem(
+                    "properties",
+                    JSON.stringify(
+                        properties
+                    )
+                );
+
+
+                /* =========================
+                   SUCCESS
+                ========================= */
+
+                success.textContent =
+                    "Property added successfully!";
+
+
+                success.style.display =
+                    "block";
+
+
+                /* RESET FORM */
+
+                form.reset();
+
+
+                resetPreview();
+
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+
+                /*
+                 * Keep the success message visible
+                 * for a short time.
+                 */
+
+                setTimeout(
+                    function () {
+
+                        success.style.display =
+                            "none";
+
+                    },
+                    4000
+                );
+
+            }
+        );
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        function showError(
+            message
+        ) {
+
+            let error =
+                document.getElementById(
+                    "errorMessage"
+                );
+
+
+            error.textContent =
+                message;
+
+
+            error.style.display =
+                "block";
+
+
+            error.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        }
+
+
+        /* =========================
+           RESET PREVIEW
+        ========================= */
+
+        function resetPreview() {
+
+            document.getElementById(
+                "previewContent"
+            ).innerHTML = `
+
+                <div class="no-preview">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <p>
+                        Start filling the form to preview
+                        your property listing.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           SECURITY HELPERS
+        ========================= */
+
+        function escapeHTML(
+            value
+        ) {
+
+            return String(value)
+
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+        function escapeAttribute(
+            value
+        ) {
+
+            return String(value)
+
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+    </script>
 
 </body>
 
