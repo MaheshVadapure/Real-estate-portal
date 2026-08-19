@@ -3,87 +3,1583 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | DreamHome</title>
 
-<title>Admin Login</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-href="style.css">
+    <style>
 
-<link rel="stylesheet"
+        * {
+            box-sizing: border-box;
+        }
 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e0f2fe,
+                    #f8fafc
+                );
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        /* =========================
+           LOGIN PAGE
+        ========================= */
+
+        .admin-login-page {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 25px;
+
+        }
+
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 430px;
+
+        }
+
+
+        /* =========================
+           BRAND
+        ========================= */
+
+        .brand {
+
+            text-align: center;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .brand-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            margin: 0 auto 12px;
+
+            border-radius: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #0ea5e9;
+
+            color: white;
+
+            font-size: 30px;
+
+            box-shadow:
+                0 10px 25px rgba(
+                    14,
+                    165,
+                    233,
+                    0.25
+                );
+
+        }
+
+
+        .brand h1 {
+
+            color: #0f172a;
+
+            font-size: 30px;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .brand p {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .login-card {
+
+            background: white;
+
+            padding: 32px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px rgba(
+                    15,
+                    23,
+                    42,
+                    0.12
+                );
+
+        }
+
+
+        .login-card h2 {
+
+            color: #0f172a;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .login-subtitle {
+
+            color: #64748b;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            color: #334155;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+
+            font-size: 14px;
+
+        }
+
+
+        .input-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .input-wrapper > i {
+
+            position: absolute;
+
+            left: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #94a3b8;
+
+        }
+
+
+        .input-wrapper input {
+
+            width: 100%;
+
+            padding: 13px 42px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-size: 14px;
+
+        }
+
+
+        .input-wrapper input:focus {
+
+            border-color: #0ea5e9;
+
+            box-shadow:
+                0 0 0 3px rgba(
+                    14,
+                    165,
+                    233,
+                    0.10
+                );
+
+        }
+
+
+        .password-toggle {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            color: #64748b;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+        }
+
+
+        .password-toggle:hover {
+
+            color: #0ea5e9;
+
+        }
+
+
+        /* =========================
+           REMEMBER
+        ========================= */
+
+        .remember-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin: 5px 0 20px;
+
+        }
+
+
+        .remember-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+        }
+
+
+        .remember-label input {
+
+            accent-color: #0ea5e9;
+
+        }
+
+
+        /* =========================
+           MESSAGES
+        ========================= */
+
+        .message {
+
+            display: none;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            margin-bottom: 17px;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .error-message {
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+            border:
+                1px solid #fecaca;
+
+        }
+
+
+        .warning-message {
+
+            background: #fef3c7;
+
+            color: #92400e;
+
+            border:
+                1px solid #fde68a;
+
+        }
+
+
+        .success-message {
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            border:
+                1px solid #bbf7d0;
+
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #0ea5e9;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease;
+
+        }
+
+
+        .login-btn:hover {
+
+            background: #0284c7;
+
+        }
+
+
+        .login-btn:disabled {
+
+            background: #94a3b8;
+
+            cursor: not-allowed;
+
+        }
+
+
+        /* =========================
+           DEMO INFO
+        ========================= */
+
+        .demo-info {
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+        }
+
+
+        .demo-info h4 {
+
+            color: #334155;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+        }
+
+
+        .demo-info p {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            margin: 3px 0;
+
+        }
+
+
+        .demo-info code {
+
+            color: #0369a1;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================
+           BACK LINK
+        ========================= */
+
+        .back-link {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            text-decoration: none;
+
+        }
+
+
+        .back-link:hover {
+
+            color: #0ea5e9;
+
+        }
+
+
+        /* =========================
+           SECURITY STATUS
+        ========================= */
+
+        .security-status {
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #94a3b8;
+
+            font-size: 11px;
+
+        }
+
+
+        .security-status i {
+
+            color: #16a34a;
+
+            margin-right: 4px;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 500px) {
+
+            .login-card {
+
+                padding: 24px;
+
+            }
+
+
+            .brand h1 {
+
+                font-size: 26px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<div class="container">
+    <main class="admin-login-page">
 
-<div class="logo">
 
-<i class="fa-solid fa-house"></i>
+        <div class="login-container">
 
-DreamHome Admin
 
-</div>
+            <!-- BRAND -->
 
-</div>
+            <div class="brand">
 
-</header>
+                <div class="brand-icon">
 
-<div class="form-container">
+                    <i class="fa-solid fa-shield-halved"></i>
 
-<h2>Admin Login</h2>
+                </div>
 
-<form>
 
-<div class="form-group">
+                <h1>
+                    DreamHome
+                </h1>
 
-<label>Admin ID</label>
 
-<input
-type="text"
-id="adminId"
-placeholder="Enter Admin ID">
+                <p>
+                    Secure Administrator Portal
+                </p>
 
-</div>
+            </div>
 
-<div class="form-group">
 
-<label>Password</label>
+            <!-- LOGIN CARD -->
 
-<input
-type="password"
-id="adminPassword"
-placeholder="Enter Password">
+            <section class="login-card">
 
-</div>
 
-<button
+                <h2>
+                    Admin Login
+                </h2>
 
-type="button"
 
-class="submit-btn"
+                <p class="login-subtitle">
 
-onclick="adminLogin()">
+                    Sign in to manage properties,
+                    users and inquiries.
 
-Login
+                </p>
 
-</button>
 
-</form>
+                <!-- ERROR -->
 
-</div>
+                <div
+                    id="errorMessage"
+                    class="message error-message">
 
-<script src="script.js"></script>
+                </div>
+
+
+                <!-- WARNING -->
+
+                <div
+                    id="warningMessage"
+                    class="message warning-message">
+
+                </div>
+
+
+                <!-- SUCCESS -->
+
+                <div
+                    id="successMessage"
+                    class="message success-message">
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form id="adminLoginForm">
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Admin Email
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i
+                                class="fa-solid fa-envelope">
+                            </i>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter admin email"
+                                autocomplete="username"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <i
+                                class="fa-solid fa-lock">
+                            </i>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter password"
+                                autocomplete="current-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Show password">
+
+                                <i class="fa-solid fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REMEMBER -->
+
+                    <div class="remember-row">
+
+
+                        <label
+                            class="remember-label">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe">
+
+                            Remember me
+
+                        </label>
+
+
+                        <span
+                            id="attemptText"
+                            style="
+                                color:#94a3b8;
+                                font-size:12px;
+                            ">
+
+                            0 failed attempts
+
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                        id="loginButton">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login as Administrator
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- DEMO CREDENTIALS -->
+
+                <div class="demo-info">
+
+                    <h4>
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        Demo Credentials
+
+                    </h4>
+
+
+                    <p>
+
+                        Email:
+                        <code>
+                            admin@dreamhome.com
+                        </code>
+
+                    </p>
+
+
+                    <p>
+
+                        Password:
+                        <code>
+                            admin123
+                        </code>
+
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- BACK -->
+
+            <a
+                href="index.html"
+                class="back-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to DreamHome
+
+            </a>
+
+
+            <div class="security-status">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Protected administrator access
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           CONFIGURATION
+        ========================= */
+
+        const ADMIN_EMAIL =
+            "admin@dreamhome.com";
+
+
+        const ADMIN_PASSWORD =
+            "admin123";
+
+
+        const MAX_ATTEMPTS =
+            5;
+
+
+        const LOCK_TIME =
+            60 * 1000;
+
+
+        /* =========================
+           ELEMENTS
+        ========================= */
+
+        const form =
+            document.getElementById(
+                "adminLoginForm"
+            );
+
+
+        const emailInput =
+            document.getElementById(
+                "email"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "password"
+            );
+
+
+        const togglePassword =
+            document.getElementById(
+                "togglePassword"
+            );
+
+
+        const loginButton =
+            document.getElementById(
+                "loginButton"
+            );
+
+
+        const errorMessage =
+            document.getElementById(
+                "errorMessage"
+            );
+
+
+        const warningMessage =
+            document.getElementById(
+                "warningMessage"
+            );
+
+
+        const successMessage =
+            document.getElementById(
+                "successMessage"
+            );
+
+
+        const attemptText =
+            document.getElementById(
+                "attemptText"
+            );
+
+
+        /* =========================
+           PASSWORD TOGGLE
+        ========================= */
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+
+                if (
+                    passwordInput.type ===
+                    "password"
+                ) {
+
+                    passwordInput.type =
+                        "text";
+
+
+                    togglePassword.innerHTML =
+                        '<i class="fa-solid fa-eye-slash"></i>';
+
+
+                    togglePassword
+                        .setAttribute(
+                            "aria-label",
+                            "Hide password"
+                        );
+
+                }
+
+                else {
+
+                    passwordInput.type =
+                        "password";
+
+
+                    togglePassword.innerHTML =
+                        '<i class="fa-solid fa-eye"></i>';
+
+
+                    togglePassword
+                        .setAttribute(
+                            "aria-label",
+                            "Show password"
+                        );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           LOAD LOGIN STATE
+        ========================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadLoginState();
+
+                checkExistingSession();
+
+            }
+        );
+
+
+        function loadLoginState() {
+
+
+            let attempts =
+                Number(
+                    localStorage.getItem(
+                        "adminLoginAttempts"
+                    )
+                ) || 0;
+
+
+            updateAttemptText(
+                attempts
+            );
+
+
+            checkLockStatus();
+
+        }
+
+
+        /* =========================
+           EXISTING SESSION
+        ========================= */
+
+        function checkExistingSession() {
+
+
+            let loggedIn =
+                localStorage.getItem(
+                    "adminLoggedIn"
+                );
+
+
+            if (
+                loggedIn === "true"
+            ) {
+
+
+                warningMessage.textContent =
+                    "You are already logged in as an administrator. Redirecting to dashboard...";
+
+
+                warningMessage.style.display =
+                    "block";
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "admin-dashboard.html";
+
+                    },
+                    1200
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        form.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                hideMessages();
+
+
+                if (
+                    isLocked()
+                ) {
+
+                    showLockMessage();
+
+                    return;
+
+                }
+
+
+                let email =
+                    emailInput.value
+                    .trim()
+                    .toLowerCase();
+
+
+                let password =
+                    passwordInput.value;
+
+
+                /* EMAIL VALIDATION */
+
+                if (
+                    !isValidEmail(email)
+                ) {
+
+                    showError(
+                        "Please enter a valid administrator email address."
+                    );
+
+                    return;
+
+                }
+
+
+                /* EMPTY PASSWORD */
+
+                if (
+                    password.length === 0
+                ) {
+
+                    showError(
+                        "Please enter your password."
+                    );
+
+                    return;
+
+                }
+
+
+                /* CHECK CREDENTIALS */
+
+                if (
+                    email ===
+                    ADMIN_EMAIL &&
+                    password ===
+                    ADMIN_PASSWORD
+                ) {
+
+                    adminLoginSuccess();
+
+                }
+
+                else {
+
+                    adminLoginFailed();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           SUCCESS
+        ========================= */
+
+        function adminLoginSuccess() {
+
+
+            /*
+             * Reset failed attempts.
+             */
+
+            localStorage.removeItem(
+                "adminLoginAttempts"
+            );
+
+
+            localStorage.removeItem(
+                "adminLockUntil"
+            );
+
+
+            /*
+             * Create admin session.
+             */
+
+            localStorage.setItem(
+                "adminLoggedIn",
+                "true"
+            );
+
+
+            localStorage.setItem(
+                "adminEmail",
+                ADMIN_EMAIL
+            );
+
+
+            localStorage.setItem(
+                "adminLoginTime",
+                new Date().toISOString()
+            );
+
+
+            /*
+             * Remember option.
+             */
+
+            let remember =
+                document.getElementById(
+                    "rememberMe"
+                ).checked;
+
+
+            if (remember) {
+
+                localStorage.setItem(
+                    "rememberAdmin",
+                    "true"
+                );
+
+            }
+
+            else {
+
+                localStorage.removeItem(
+                    "rememberAdmin"
+                );
+
+            }
+
+
+            successMessage.textContent =
+                "Login successful! Redirecting to admin dashboard...";
+
+
+            successMessage.style.display =
+                "block";
+
+
+            loginButton.disabled =
+                true;
+
+
+            setTimeout(
+                function () {
+
+                    window.location.href =
+                        "admin-dashboard.html";
+
+                },
+                900
+            );
+
+        }
+
+
+        /* =========================
+           FAILED LOGIN
+        ========================= */
+
+        function adminLoginFailed() {
+
+
+            let attempts =
+                Number(
+                    localStorage.getItem(
+                        "adminLoginAttempts"
+                    )
+                ) || 0;
+
+
+            attempts++;
+
+
+            localStorage.setItem(
+                "adminLoginAttempts",
+                attempts
+            );
+
+
+            updateAttemptText(
+                attempts
+            );
+
+
+            /*
+             * Lock after 5 failed attempts.
+             */
+
+            if (
+                attempts >=
+                MAX_ATTEMPTS
+            ) {
+
+
+                let lockUntil =
+                    Date.now() +
+                    LOCK_TIME;
+
+
+                localStorage.setItem(
+                    "adminLockUntil",
+                    String(
+                        lockUntil
+                    )
+                );
+
+
+                showLockMessage();
+
+
+                checkLockStatus();
+
+
+                return;
+
+            }
+
+
+            let remaining =
+                MAX_ATTEMPTS -
+                attempts;
+
+
+            showError(
+                `Invalid admin email or password. ${remaining} attempt(s) remaining.`
+            );
+
+
+            passwordInput.value =
+                "";
+
+
+            passwordInput.focus();
+
+        }
+
+
+        /* =========================
+           LOCK CHECK
+        ========================= */
+
+        function isLocked() {
+
+
+            let lockUntil =
+                Number(
+                    localStorage.getItem(
+                        "adminLockUntil"
+                    )
+                ) || 0;
+
+
+            if (
+                lockUntil === 0
+            ) {
+
+                return false;
+
+            }
+
+
+            if (
+                Date.now() >=
+                lockUntil
+            ) {
+
+                localStorage.removeItem(
+                    "adminLockUntil"
+                );
+
+
+                localStorage.removeItem(
+                    "adminLoginAttempts"
+                );
+
+
+                updateAttemptText(
+                    0
+                );
+
+
+                enableLogin();
+
+                return false;
+
+            }
+
+
+            return true;
+
+        }
+
+
+        /* =========================
+           LOCK MESSAGE
+        ========================= */
+
+        function showLockMessage() {
+
+
+            let lockUntil =
+                Number(
+                    localStorage.getItem(
+                        "adminLockUntil"
+                    )
+                );
+
+
+            let remaining =
+                Math.ceil(
+                    (
+                        lockUntil -
+                        Date.now()
+                    ) / 1000
+                );
+
+
+            if (
+                remaining < 0
+            ) {
+
+                remaining = 0;
+
+            }
+
+
+            warningMessage.textContent =
+                `Too many failed login attempts. Please wait ${remaining} seconds before trying again.`;
+
+
+            warningMessage.style.display =
+                "block";
+
+
+            disableLogin();
+
+        }
+
+
+        /* =========================
+           CHECK LOCK STATUS
+        ========================= */
+
+        function checkLockStatus() {
+
+
+            if (
+                !isLocked()
+            ) {
+
+                return;
+
+            }
+
+
+            disableLogin();
+
+
+            updateLockCountdown();
+
+        }
+
+
+        function updateLockCountdown() {
+
+
+            if (
+                !isLocked()
+            ) {
+
+                hideMessages();
+
+                enableLogin();
+
+                return;
+
+            }
+
+
+            showLockMessage();
+
+
+            setTimeout(
+                updateLockCountdown,
+                1000
+            );
+
+        }
+
+
+        /* =========================
+           ENABLE / DISABLE
+        ========================= */
+
+        function disableLogin() {
+
+
+            loginButton.disabled =
+                true;
+
+
+            emailInput.disabled =
+                true;
+
+
+            passwordInput.disabled =
+                true;
+
+
+            document.getElementById(
+                "rememberMe"
+            ).disabled =
+                true;
+
+        }
+
+
+        function enableLogin() {
+
+
+            loginButton.disabled =
+                false;
+
+
+            emailInput.disabled =
+                false;
+
+
+            passwordInput.disabled =
+                false;
+
+
+            document.getElementById(
+                "rememberMe"
+            ).disabled =
+                false;
+
+        }
+
+
+        /* =========================
+           ATTEMPT COUNTER
+        ========================= */
+
+        function updateAttemptText(
+            attempts
+        ) {
+
+
+            attemptText.textContent =
+                `${attempts} failed attempt${
+                    attempts === 1
+                    ? ""
+                    : "s"
+                }`;
+
+        }
+
+
+        /* =========================
+           VALIDATION
+        ========================= */
+
+        function isValidEmail(
+            email
+        ) {
+
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                .test(email);
+
+        }
+
+
+        /* =========================
+           MESSAGES
+        ========================= */
+
+        function hideMessages() {
+
+            errorMessage.style.display =
+                "none";
+
+
+            warningMessage.style.display =
+                "none";
+
+
+            successMessage.style.display =
+                "none";
+
+        }
+
+
+        function showError(
+            message
+        ) {
+
+            errorMessage.textContent =
+                message;
+
+
+            errorMessage.style.display =
+                "block";
+
+        }
+
+    </script>
 
 </body>
 
