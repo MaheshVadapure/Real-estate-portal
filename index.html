@@ -260,6 +260,217 @@ Dedicated support for buyers and sellers.
 </div>
 
 </section>
+<section class="featured-properties">
+
+    <div class="container">
+
+        <h2>Featured Properties</h2>
+
+        <p class="section-subtitle">
+            Explore some of our best properties
+        </p>
+
+        <div class="featured-grid">
+
+            <div class="featured-card">
+
+                <i class="fa-solid fa-house"></i>
+
+                <h3>Luxury Villa</h3>
+
+                <p>
+                    Spacious villa with modern facilities
+                    and beautiful surroundings.
+                </p>
+
+                <a href="properties.html">
+                    View Property
+                </a>
+
+            </div>
+
+
+            <div class="featured-card">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>Modern Apartment</h3>
+
+                <p>
+                    Comfortable apartment located in
+                    a prime city location.
+                </p>
+
+                <a href="properties.html">
+                    View Property
+                </a>
+
+            </div>
+
+
+            <div class="featured-card">
+
+                <i class="fa-solid fa-city"></i>
+
+                <h3>Premium House</h3>
+
+                <p>
+                    A beautiful family home with
+                    excellent amenities.
+                </p>
+
+                <a href="properties.html">
+                    View Property
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+.featured-properties {
+
+    padding: 60px 20px;
+
+    background: #f8fafc;
+
+}
+
+
+.featured-properties h2 {
+
+    text-align: center;
+
+    color: #0f172a;
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.section-subtitle {
+
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 30px;
+
+}
+
+
+.featured-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.featured-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.featured-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.featured-card i {
+
+    font-size: 35px;
+
+    color: #0ea5e9;
+
+    margin-bottom: 15px;
+
+}
+
+
+.featured-card h3 {
+
+    color: #0f172a;
+
+    margin-bottom: 10px;
+
+}
+
+
+.featured-card p {
+
+    color: #64748b;
+
+    line-height: 1.6;
+
+    margin-bottom: 18px;
+
+}
+
+
+.featured-card a {
+
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    background: #0ea5e9;
+
+    color: white;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+}
+
+
+.featured-card a:hover {
+
+    background: #0284c7;
+
+}
+
+
+@media (max-width: 700px) {
+
+    .featured-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
 
 <!-- Footer -->
 
@@ -298,7 +509,9 @@ and renting properties.
 
 </footer>
 
+
 <script src="script.js"></script>
+
 
 </body>
 
