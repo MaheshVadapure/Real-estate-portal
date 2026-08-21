@@ -5,16 +5,21 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-99GD0YG43D"></script>
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-99GD0YG43D');
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-99GD0YG43D');
 </script>
-
 
 <title>DreamHome | Real Estate Portal</title>
 
@@ -27,7 +32,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <body>
 
-<!-- Navigation -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <header>
 
@@ -41,19 +49,40 @@ DreamHome
 
 </div>
 
+
 <nav>
 
 <ul>
 
-<li><a href="index.html">Home</a></li>
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
 
-<li><a href="properties.html">Properties</a></li>
+<li>
+<a href="properties.html">
+Properties
+</a>
+</li>
 
-<li><a href="favorites.html">Favorites</a></li>
+<li>
+<a href="favorites.html">
+Favorites
+</a>
+</li>
 
-<li><a href="profile.html">Profile</a></li>
+<li>
+<a href="profile.html">
+Profile
+</a>
+</li>
 
-<li><a href="login.html">Login</a></li>
+<li>
+<a href="login.html">
+Login
+</a>
+</li>
 
 </ul>
 
@@ -63,22 +92,32 @@ DreamHome
 
 </header>
 
-<!-- Hero Section -->
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
 
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>Find Your Dream Home</h1>
+<h1>
+Find Your Dream Home
+</h1>
+
 
 <p>
 
-Search from thousands of apartments, villas,
-plots and commercial properties.
+Search from thousands of apartments,
+villas, plots and commercial properties.
 
 </p>
 
-<a href="properties.html" class="btn">
+
+<a
+href="properties.html"
+class="btn">
 
 Browse Properties
 
@@ -88,50 +127,85 @@ Browse Properties
 
 </section>
 
-<!-- Search Section -->
+
+
+<!-- =========================
+     SEARCH SECTION
+========================= -->
 
 <section class="search-section">
 
-<h2>Search Properties</h2>
+<h2>
+Search Properties
+</h2>
+
 
 <div class="search-box">
 
+
 <select id="propertyType">
 
-<option value="">Property Type</option>
+<option value="">
+Property Type
+</option>
 
-<option>Apartment</option>
+<option>
+Apartment
+</option>
 
-<option>Villa</option>
+<option>
+Villa
+</option>
 
-<option>House</option>
+<option>
+House
+</option>
 
-<option>Commercial</option>
+<option>
+Commercial
+</option>
 
-<option>Office</option>
+<option>
+Office
+</option>
 
-<option>Land</option>
+<option>
+Land
+</option>
 
 </select>
+
 
 <input
 type="text"
 id="location"
 placeholder="Enter Location">
 
+
 <select id="priceRange">
 
-<option value="">Budget</option>
+<option value="">
+Budget
+</option>
 
-<option>Under $50,000</option>
+<option>
+Under $50,000
+</option>
 
-<option>$50,000 - $100,000</option>
+<option>
+$50,000 - $100,000
+</option>
 
-<option>$100,000 - $250,000</option>
+<option>
+$100,000 - $250,000
+</option>
 
-<option>Above $250,000</option>
+<option>
+Above $250,000
+</option>
 
 </select>
+
 
 <button onclick="searchProperty()">
 
@@ -141,31 +215,63 @@ Search
 
 </button>
 
+
 </div>
 
 </section>
 
-<!-- Featured Properties -->
+
+
+<!-- =========================
+     FEATURED PROPERTIES
+========================= -->
 
 <section class="properties">
 
-<h2>Featured Properties</h2>
+<h2>
+Featured Properties
+</h2>
+
 
 <div class="property-grid">
 
+
+<!-- PROPERTY 1 -->
+
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600">
+<img
+src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
+alt="Luxury Villa">
 
-<h3>Luxury Villa</h3>
 
-<p><i class="fa-solid fa-location-dot"></i> Los Angeles</p>
+<h3>
+Luxury Villa
+</h3>
 
-<p>4 Bedrooms | 3 Bathrooms</p>
 
-<p class="price">$350,000</p>
+<p>
 
-<a href="property-details.html" class="card-btn">
+<i class="fa-solid fa-location-dot"></i>
+
+Los Angeles
+
+</p>
+
+
+<p>
+4 Bedrooms | 3 Bathrooms
+</p>
+
+
+<p class="price">
+$350,000
+</p>
+
+
+<a
+href="property-details.html"
+class="card-btn">
 
 View Details
 
@@ -173,19 +279,44 @@ View Details
 
 </div>
 
+
+
+<!-- PROPERTY 2 -->
+
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600">
+<img
+src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
+alt="Modern Apartment">
 
-<h3>Modern Apartment</h3>
 
-<p><i class="fa-solid fa-location-dot"></i> New York</p>
+<h3>
+Modern Apartment
+</h3>
 
-<p>3 Bedrooms | 2 Bathrooms</p>
 
-<p class="price">$220,000</p>
+<p>
 
-<a href="property-details.html" class="card-btn">
+<i class="fa-solid fa-location-dot"></i>
+
+New York
+
+</p>
+
+
+<p>
+3 Bedrooms | 2 Bathrooms
+</p>
+
+
+<p class="price">
+$220,000
+</p>
+
+
+<a
+href="property-details.html"
+class="card-btn">
 
 View Details
 
@@ -193,43 +324,83 @@ View Details
 
 </div>
 
+
+
+<!-- PROPERTY 3 -->
+
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600">
+<img
+src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
+alt="Family House">
 
-<h3>Family House</h3>
 
-<p><i class="fa-solid fa-location-dot"></i> Chicago</p>
+<h3>
+Family House
+</h3>
 
-<p>5 Bedrooms | 4 Bathrooms</p>
 
-<p class="price">$420,000</p>
+<p>
 
-<a href="property-details.html" class="card-btn">
+<i class="fa-solid fa-location-dot"></i>
+
+Chicago
+
+</p>
+
+
+<p>
+5 Bedrooms | 4 Bathrooms
+</p>
+
+
+<p class="price">
+$420,000
+</p>
+
+
+<a
+href="property-details.html"
+class="card-btn">
 
 View Details
 
 </a>
 
 </div>
+
 
 </div>
 
 </section>
 
-<!-- Why Choose Us -->
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
 
 <section class="about">
 
-<h2>Why Choose DreamHome?</h2>
+<h2>
+Why Choose DreamHome?
+</h2>
+
 
 <div class="about-grid">
+
+
+<!-- VERIFIED -->
 
 <div>
 
 <i class="fa-solid fa-house-circle-check fa-3x"></i>
 
-<h3>Verified Properties</h3>
+
+<h3>
+Verified Properties
+</h3>
+
 
 <p>
 
@@ -239,11 +410,19 @@ Every property is verified before listing.
 
 </div>
 
+
+
+<!-- BEST PRICES -->
+
 <div>
 
 <i class="fa-solid fa-money-bill-wave fa-3x"></i>
 
-<h3>Best Prices</h3>
+
+<h3>
+Best Prices
+</h3>
+
 
 <p>
 
@@ -253,11 +432,19 @@ Affordable homes with transparent pricing.
 
 </div>
 
+
+
+<!-- SUPPORT -->
+
 <div>
 
 <i class="fa-solid fa-headset fa-3x"></i>
 
-<h3>24×7 Support</h3>
+
+<h3>
+24×7 Support
+</h3>
+
 
 <p>
 
@@ -267,237 +454,37 @@ Dedicated support for buyers and sellers.
 
 </div>
 
+
 </div>
 
 </section>
-<section class="featured-properties">
 
-    <div class="container">
 
-        <h2>Featured Properties</h2>
 
-        <p class="section-subtitle">
-            Explore some of our best properties
-        </p>
-
-        <div class="featured-grid">
-
-            <div class="featured-card">
-
-                <i class="fa-solid fa-house"></i>
-
-                <h3>Luxury Villa</h3>
-
-                <p>
-                    Spacious villa with modern facilities
-                    and beautiful surroundings.
-                </p>
-
-                <a href="properties.html">
-                    View Property
-                </a>
-
-            </div>
-
-
-            <div class="featured-card">
-
-                <i class="fa-solid fa-building"></i>
-
-                <h3>Modern Apartment</h3>
-
-                <p>
-                    Comfortable apartment located in
-                    a prime city location.
-                </p>
-
-                <a href="properties.html">
-                    View Property
-                </a>
-
-            </div>
-
-
-            <div class="featured-card">
-
-                <i class="fa-solid fa-city"></i>
-
-                <h3>Premium House</h3>
-
-                <p>
-                    A beautiful family home with
-                    excellent amenities.
-                </p>
-
-                <a href="properties.html">
-                    View Property
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<style>
-
-.featured-properties {
-
-    padding: 60px 20px;
-
-    background: #f8fafc;
-
-}
-
-
-.featured-properties h2 {
-
-    text-align: center;
-
-    color: #0f172a;
-
-    font-size: 32px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.section-subtitle {
-
-    text-align: center;
-
-    color: #64748b;
-
-    margin-bottom: 30px;
-
-}
-
-
-.featured-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 25px;
-
-}
-
-
-.featured-card {
-
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
-
-    transition:
-        transform 0.2s ease;
-
-}
-
-
-.featured-card:hover {
-
-    transform: translateY(-5px);
-
-}
-
-
-.featured-card i {
-
-    font-size: 35px;
-
-    color: #0ea5e9;
-
-    margin-bottom: 15px;
-
-}
-
-
-.featured-card h3 {
-
-    color: #0f172a;
-
-    margin-bottom: 10px;
-
-}
-
-
-.featured-card p {
-
-    color: #64748b;
-
-    line-height: 1.6;
-
-    margin-bottom: 18px;
-
-}
-
-
-.featured-card a {
-
-    display: inline-block;
-
-    padding: 9px 16px;
-
-    background: #0ea5e9;
-
-    color: white;
-
-    border-radius: 7px;
-
-    text-decoration: none;
-
-}
-
-
-.featured-card a:hover {
-
-    background: #0284c7;
-
-}
-
-
-@media (max-width: 700px) {
-
-    .featured-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-</style>
-
-<!-- Footer -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
 <div class="footer-content">
 
-<h2>DreamHome</h2>
+
+<h2>
+DreamHome
+</h2>
+
 
 <p>
 
-Your trusted partner for buying, selling,
-and renting properties.
+Your trusted partner for buying,
+selling, and renting properties.
 
 </p>
 
+
 <div class="social">
+
 
 <i class="fab fa-facebook"></i>
 
@@ -507,7 +494,9 @@ and renting properties.
 
 <i class="fab fa-linkedin"></i>
 
+
 </div>
+
 
 <p>
 
@@ -515,10 +504,16 @@ and renting properties.
 
 </p>
 
+
 </div>
 
 </footer>
 
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script src="script.js"></script>
 
