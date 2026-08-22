@@ -829,3 +829,53 @@ nav ul{
 .hidden{
     display:none;
 }
+/* =========================
+   PHASE 14 - UI IMPROVEMENTS
+========================= */
+
+/* Smooth button animation */
+button,
+.btn,
+.card-btn {
+    transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover,
+.btn:hover,
+.card-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Property card animation */
+.card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Property image hover */
+.card img {
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
+}
+
+/* Navigation link transition */
+nav a {
+    transition:
+        color 0.3s ease;
+}
+
+nav a:hover {
+    color: #0ea5e9;
+}
