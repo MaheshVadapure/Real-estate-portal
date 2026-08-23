@@ -879,3 +879,71 @@ nav a {
 nav a:hover {
     color: #0ea5e9;
 }
+/* =========================
+   PHASE 15 - FORM UI
+========================= */
+
+/* Smooth form transitions */
+input,
+select,
+textarea {
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+/* Better focus effect */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 3px rgba(14, 165, 233, 0.12);
+
+    outline: none;
+}
+
+
+/* Slight input interaction */
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #94a3b8;
+}
+
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Better textarea behavior */
+textarea {
+    line-height: 1.6;
+}
+
+
+/* Better checkbox and radio interaction */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: #0ea5e9;
+
+    cursor: pointer;
+}
+
+
+/* Better form labels */
+label {
+    transition: color 0.2s ease;
+}
+
+
+/* Form group hover */
+.form-group:hover label {
+    color: #0369a1;
+}
