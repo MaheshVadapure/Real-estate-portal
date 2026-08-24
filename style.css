@@ -947,3 +947,55 @@ label {
 .form-group:hover label {
     color: #0369a1;
 }
+/* =========================
+   PHASE 16 - PROPERTY CARDS
+========================= */
+
+/* Better property card border */
+.card {
+    border: 1px solid transparent;
+    overflow: hidden;
+}
+
+/* Card hover effect */
+.card:hover {
+    border-color: #bae6fd;
+}
+
+/* Price emphasis */
+.card .price {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .price {
+    transform: scale(1.05);
+}
+
+/* Card button animation */
+.card-btn {
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.card-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Property image smooth zoom */
+.card img {
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Better card text transition */
+.card h3 {
+    transition: color 0.3s ease;
+}
+
+.card:hover h3 {
+    color: #0ea5e9;
+}
