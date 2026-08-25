@@ -999,3 +999,42 @@ label {
 .card:hover h3 {
     color: #0ea5e9;
 }
+/* =========================
+   PHASE 17 - NAVIGATION UI
+========================= */
+
+/* Navigation links */
+nav ul li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+
+/* Hover color */
+nav ul li a:hover {
+    color: #0ea5e9;
+}
+
+
+/* Animated underline */
+nav ul li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #0ea5e9;
+
+    transition: width 0.3s ease;
+}
+
+
+/* Show underline on hover */
+nav ul li a:hover::after {
+    width: 100%;
+}
