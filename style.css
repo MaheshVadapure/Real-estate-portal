@@ -1038,3 +1038,56 @@ nav ul li a::after {
 nav ul li a:hover::after {
     width: 100%;
 }
+/* =========================
+   PHASE 18 - FOOTER UI
+========================= */
+
+footer {
+    transition: box-shadow 0.3s ease;
+}
+
+footer .footer-content {
+    transition: transform 0.3s ease;
+}
+
+footer .footer-content:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Social media icons */
+
+footer .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 15px 0;
+}
+
+
+footer .social i {
+    font-size: 20px;
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+footer .social i:hover {
+    transform: translateY(-4px) scale(1.15);
+    color: #0ea5e9;
+}
+
+
+/* Footer links and text */
+
+footer p {
+    transition: color 0.3s ease;
+}
+
+footer p:hover {
+    color: #0ea5e9;
+}
