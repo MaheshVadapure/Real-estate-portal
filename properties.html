@@ -2,1034 +2,978 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Properties | DreamHome Pune</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Properties | DreamHome Pune</title>
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 
-    <style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* =========================
-           PROPERTY PAGE
-        ========================= */
-
-        .property-header {
-            text-align: center;
-            padding: 50px 20px 25px;
-        }
-
-        .property-header h1 {
-            font-size: 40px;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-
-        .property-header p {
-            color: #64748b;
-            font-size: 17px;
-        }
-
-        /* FILTER BOX */
-
-        .filter-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto 40px;
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-        }
-
-        .filter-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #0f172a;
-        }
-
-        .filter-box {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .filter-box input,
-        .filter-box select {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .filter-box input:focus,
-        .filter-box select:focus {
-            border-color: #0ea5e9;
-        }
-
-        .filter-btn {
-            padding: 13px;
-            border: none;
-            border-radius: 8px;
-            background: #0ea5e9;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .filter-btn:hover {
-            background: #0284c7;
-        }
-
-        .reset-btn {
-            background: #64748b;
-        }
-
-        .reset-btn:hover {
-            background: #475569;
-        }
-
-        /* PROPERTY INFO */
-
-        .property-info {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .property-info h3 {
-            color: #0f172a;
-        }
-
-        .property-info span {
-            color: #0ea5e9;
-        }
-
-        /* PROPERTY GRID */
-
-        .property-grid {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* CARD */
-
-        .property-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-            transition: 0.3s;
-        }
-
-        .property-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .property-image {
-            position: relative;
-        }
-
-        .property-image img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .property-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #0ea5e9;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .property-content {
-            padding: 20px;
-        }
-
-        .property-content h3 {
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
-
-        .location {
-            color: #64748b;
-            margin-bottom: 10px;
-        }
-
-        .location i {
-            color: #ef4444;
-            margin-right: 5px;
-        }
-
-        .property-features {
-            display: flex;
-            gap: 15px;
-            margin: 15px 0;
-            font-size: 14px;
-            color: #475569;
-        }
-
-        .property-features i {
-            color: #0ea5e9;
-            margin-right: 4px;
-        }
-
-        .property-price {
-            font-size: 22px;
-            font-weight: 700;
-            color: #0ea5e9;
-            margin-bottom: 15px;
-        }
-
-        .view-btn {
-            display: block;
-            text-align: center;
-            background: #0ea5e9;
-            color: white;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .view-btn:hover {
-            background: #0284c7;
-        }
-
-        /* NO PROPERTY */
-
-        .no-property {
-            display: none;
-            width: 90%;
-            max-width: 600px;
-            margin: 60px auto;
-            text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .no-property i {
-            font-size: 50px;
-            color: #94a3b8;
-            margin-bottom: 15px;
-        }
-
-        .no-property h3 {
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .no-property p {
-            color: #64748b;
-        }
-
-        /* RESPONSIVE */
-
-        @media(max-width: 600px) {
-
-            .property-header h1 {
-                font-size: 30px;
-            }
-
-            .property-info {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .property-features {
-                flex-wrap: wrap;
-            }
-
-        }
-
-    </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 
-    <header>
+<header>
 
-        <div class="container">
+<div class="container">
 
-            <div class="logo">
-                <i class="fa-solid fa-house"></i>
-                DreamHome Pune
-            </div>
+<div class="logo">
+<i class="fa-solid fa-house"></i>
+DreamHome Pune
+</div>
 
-            <nav>
-                <ul>
+<nav>
 
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
+<ul>
 
-                    <li>
-                        <a href="properties.html">Properties</a>
-                    </li>
+<li>
+<a href="index.html">Home</a>
+</li>
 
-                    <li>
-                        <a href="favorites.html">Favorites</a>
-                    </li>
+<li>
+<a href="properties.html">Properties</a>
+</li>
 
-                    <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
+<li>
+<a href="favorites.html">Favorites</a>
+</li>
 
-                </ul>
-            </nav>
+<li>
+<a href="profile.html">Profile</a>
+</li>
 
-        </div>
+<li>
+<a href="login.html">Login</a>
+</li>
 
-    </header>
+</ul>
 
+</nav>
 
-    <!-- PAGE HEADER -->
+</div>
 
-    <section class="property-header">
+</header>
 
-        <h1>Explore Properties in Pune</h1>
 
-        <p>
-            Find your perfect home in Nigdi, Pradhikaran, Akurdi and nearby areas
-        </p>
+<!-- PAGE HEADER -->
 
-    </section>
+<section class="property-header">
 
+<h1>Properties in Pune</h1>
 
-    <!-- FILTER SECTION -->
+<p>
+Find apartments, houses, villas and plots in Pune and Pimpri-Chinchwad
+</p>
 
-    <section class="filter-container">
+</section>
 
-        <div class="filter-title">
-            <i class="fa-solid fa-sliders"></i>
-            Search & Filter Pune Properties
-        </div>
 
-        <div class="filter-box">
+<!-- FILTER -->
 
-            <!-- Search -->
+<section class="filter-container">
 
-            <input
-                type="text"
-                id="propertySearch"
-                placeholder="Search by property or location"
-            >
+<div class="filter-title">
+<i class="fa-solid fa-sliders"></i>
+Search Properties
+</div>
 
+<div class="filter-box">
 
-            <!-- Category -->
+<input
+type="text"
+id="propertySearch"
+placeholder="Search property or location">
 
-            <select id="filterCategory">
+<select id="filterCategory">
 
-                <option value="">
-                    All Property Types
-                </option>
+<option value="">All Property Types</option>
 
-                <option value="Apartment">
-                    Apartment
-                </option>
+<option value="Apartment">Apartment</option>
 
-                <option value="Villa">
-                    Villa
-                </option>
+<option value="Villa">Villa</option>
 
-                <option value="House">
-                    House
-                </option>
+<option value="House">House</option>
 
-                <option value="Commercial">
-                    Commercial
-                </option>
+<option value="Commercial">Commercial</option>
 
-                <option value="Land">
-                    Land
-                </option>
+<option value="Land">Land</option>
 
-            </select>
+</select>
 
 
-            <!-- Price -->
+<select id="filterLocation">
 
-            <select id="filterPrice">
+<option value="">All Locations</option>
 
-                <option value="">
-                    All Prices
-                </option>
+<option value="Nigdi">Nigdi</option>
 
-                <option value="5000000">
-                    Under ₹50 Lakhs
-                </option>
+<option value="Pradhikaran">Pradhikaran</option>
 
-                <option value="10000000">
-                    Under ₹1 Crore
-                </option>
+<option value="Akurdi">Akurdi</option>
 
-                <option value="15000000">
-                    Under ₹1.5 Crore
-                </option>
+<option value="Chinchwad">Chinchwad</option>
 
-                <option value="25000000">
-                    Under ₹2.5 Crore
-                </option>
+<option value="Ravet">Ravet</option>
 
-            </select>
+<option value="Tathawade">Tathawade</option>
 
+<option value="Wakad">Wakad</option>
 
-            <!-- Sort -->
+<option value="Pimpri">Pimpri</option>
 
-            <select id="sortProperty">
+</select>
 
-                <option value="">
-                    Sort By
-                </option>
 
-                <option value="low">
-                    Price: Low to High
-                </option>
+<select id="filterPrice">
 
-                <option value="high">
-                    Price: High to Low
-                </option>
+<option value="">All Prices</option>
 
-            </select>
+<option value="5000000">Under ₹50 Lakhs</option>
 
+<option value="10000000">Under ₹1 Crore</option>
 
-            <button
-                class="filter-btn"
-                onclick="filterProperties()">
+<option value="15000000">Under ₹1.5 Crore</option>
 
-                <i class="fa-solid fa-filter"></i>
-                Apply Filter
+<option value="25000000">Under ₹2.5 Crore</option>
 
-            </button>
+</select>
 
 
-            <button
-                class="filter-btn reset-btn"
-                onclick="resetFilters()">
+<select id="sortProperty">
 
-                <i class="fa-solid fa-rotate-left"></i>
-                Reset
+<option value="">Sort By</option>
 
-            </button>
+<option value="low">Price: Low to High</option>
 
-        </div>
+<option value="high">Price: High to Low</option>
 
-    </section>
+</select>
 
 
-    <!-- PROPERTY COUNT -->
+<button
+class="filter-btn"
+onclick="filterProperties()">
 
-    <div class="property-info">
+<i class="fa-solid fa-filter"></i>
+Apply Filter
 
-        <h3>
-            Available Properties:
-            <span id="propertyCount">5</span>
-        </h3>
+</button>
 
-    </div>
 
+<button
+class="filter-btn reset-btn"
+onclick="resetFilters()">
 
-    <!-- PROPERTY LIST -->
+<i class="fa-solid fa-rotate-left"></i>
+Reset
 
-    <section>
+</button>
 
-        <div class="property-grid" id="propertyGrid">
+</div>
 
+</section>
 
-            <!-- PROPERTY 1 -->
 
-            <div
-                class="property-card"
-                data-category="Apartment"
-                data-price="7500000"
-                data-name="2 BHK Apartment"
-                data-location="Nigdi, Pune">
+<!-- PROPERTY COUNT -->
 
-                <div class="property-image">
+<div class="property-info">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
-                        alt="2 BHK Apartment in Nigdi">
+<h3>
+Available Properties:
+<span id="propertyCount">8</span>
+</h3>
 
-                    <span class="property-badge">
-                        Apartment
-                    </span>
+</div>
 
-                </div>
 
-                <div class="property-content">
+<!-- PROPERTY GRID -->
 
-                    <h3>
-                        2 BHK Apartment
-                    </h3>
+<section>
 
-                    <p class="location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Nigdi, Pune
-                    </p>
+<div class="property-grid" id="propertyGrid">
 
-                    <div class="property-features">
 
-                        <span>
-                            <i class="fa-solid fa-bed"></i>
-                            2 Beds
-                        </span>
+<!-- 1 NIGDI -->
 
-                        <span>
-                            <i class="fa-solid fa-bath"></i>
-                            2 Baths
-                        </span>
+<div
+class="property-card"
+data-category="Apartment"
+data-location="Nigdi"
+data-price="7500000"
+data-name="2 BHK Apartment">
 
-                    </div>
+<div class="property-image">
 
-                    <div class="property-price">
-                        ₹75 Lakhs
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
+alt="2 BHK Apartment">
 
-                    <button
-                        class="view-btn"
-                        onclick="viewProperty(
-                            '2 BHK Apartment',
-                            '₹75 Lakhs',
-                            'Nigdi, Pune',
-                            'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600'
-                        )">
+<span class="property-badge">
+Apartment
+</span>
 
-                        View Details
+</div>
 
-                    </button>
+<div class="property-content">
 
-                </div>
+<h3>2 BHK Apartment</h3>
 
-            </div>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Nigdi, Pune
+</p>
 
+<div class="property-features">
 
-            <!-- PROPERTY 2 -->
+<span>
+<i class="fa-solid fa-bed"></i>
+2 Beds
+</span>
 
-            <div
-                class="property-card"
-                data-category="Apartment"
-                data-price="11500000"
-                data-name="3 BHK Apartment"
-                data-location="Pradhikaran, Pune">
+<span>
+<i class="fa-solid fa-bath"></i>
+2 Baths
+</span>
 
-                <div class="property-image">
+</div>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
-                        alt="3 BHK Apartment in Pradhikaran">
+<div class="property-price">
+₹75 Lakhs
+</div>
 
-                    <span class="property-badge">
-                        Apartment
-                    </span>
+<button
+class="view-btn"
+onclick="viewProperty(
+'2 BHK Apartment',
+'₹75 Lakhs',
+'Nigdi, Pune',
+'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600'
+)">
 
-                </div>
+View Details
 
-                <div class="property-content">
+</button>
 
-                    <h3>
-                        3 BHK Apartment
-                    </h3>
+</div>
 
-                    <p class="location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Pradhikaran, Pune
-                    </p>
+</div>
 
-                    <div class="property-features">
 
-                        <span>
-                            <i class="fa-solid fa-bed"></i>
-                            3 Beds
-                        </span>
+<!-- 2 PRADHIKARAN -->
 
-                        <span>
-                            <i class="fa-solid fa-bath"></i>
-                            2 Baths
-                        </span>
+<div
+class="property-card"
+data-category="Apartment"
+data-location="Pradhikaran"
+data-price="11500000"
+data-name="3 BHK Apartment">
 
-                    </div>
+<div class="property-image">
 
-                    <div class="property-price">
-                        ₹1.15 Crore
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
+alt="3 BHK Apartment">
 
-                    <button
-                        class="view-btn"
-                        onclick="viewProperty(
-                            '3 BHK Apartment',
-                            '₹1.15 Crore',
-                            'Pradhikaran, Pune',
-                            'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600'
-                        )">
+<span class="property-badge">
+Apartment
+</span>
 
-                        View Details
+</div>
 
-                    </button>
+<div class="property-content">
 
-                </div>
+<h3>3 BHK Apartment</h3>
 
-            </div>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Pradhikaran, Pune
+</p>
 
+<div class="property-features">
 
-            <!-- PROPERTY 3 -->
+<span>
+<i class="fa-solid fa-bed"></i>
+3 Beds
+</span>
 
-            <div
-                class="property-card"
-                data-category="House"
-                data-price="9500000"
-                data-name="3 BHK Family Home"
-                data-location="Akurdi, Pune">
+<span>
+<i class="fa-solid fa-bath"></i>
+2 Baths
+</span>
 
-                <div class="property-image">
+</div>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
-                        alt="3 BHK Family Home in Akurdi">
+<div class="property-price">
+₹1.15 Crore
+</div>
 
-                    <span class="property-badge">
-                        House
-                    </span>
+<button
+class="view-btn"
+onclick="viewProperty(
+'3 BHK Apartment',
+'₹1.15 Crore',
+'Pradhikaran, Pune',
+'https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600'
+)">
 
-                </div>
+View Details
 
-                <div class="property-content">
+</button>
 
-                    <h3>
-                        3 BHK Family Home
-                    </h3>
+</div>
 
-                    <p class="location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Akurdi, Pune
-                    </p>
+</div>
 
-                    <div class="property-features">
 
-                        <span>
-                            <i class="fa-solid fa-bed"></i>
-                            3 Beds
-                        </span>
+<!-- 3 AKURDI -->
 
-                        <span>
-                            <i class="fa-solid fa-bath"></i>
-                            3 Baths
-                        </span>
+<div
+class="property-card"
+data-category="House"
+data-location="Akurdi"
+data-price="9500000"
+data-name="3 BHK Family Home">
 
-                    </div>
+<div class="property-image">
 
-                    <div class="property-price">
-                        ₹95 Lakhs
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
+alt="Family House">
 
-                    <button
-                        class="view-btn"
-                        onclick="viewProperty(
-                            '3 BHK Family Home',
-                            '₹95 Lakhs',
-                            'Akurdi, Pune',
-                            'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600'
-                        )">
+<span class="property-badge">
+House
+</span>
 
-                        View Details
+</div>
 
-                    </button>
+<div class="property-content">
 
-                </div>
+<h3>3 BHK Family Home</h3>
 
-            </div>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Akurdi, Pune
+</p>
 
+<div class="property-features">
 
-            <!-- PROPERTY 4 -->
+<span>
+<i class="fa-solid fa-bed"></i>
+3 Beds
+</span>
 
-            <div
-                class="property-card"
-                data-category="Commercial"
-                data-price="6500000"
-                data-name="Commercial Office"
-                data-location="Nigdi, Pune">
+<span>
+<i class="fa-solid fa-bath"></i>
+3 Baths
+</span>
 
-                <div class="property-image">
+</div>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600"
-                        alt="Commercial Office in Nigdi">
+<div class="property-price">
+₹95 Lakhs
+</div>
 
-                    <span class="property-badge">
-                        Commercial
-                    </span>
+<button
+class="view-btn"
+onclick="viewProperty(
+'3 BHK Family Home',
+'₹95 Lakhs',
+'Akurdi, Pune',
+'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600'
+)">
 
-                </div>
+View Details
 
-                <div class="property-content">
+</button>
 
-                    <h3>
-                        Commercial Office
-                    </h3>
+</div>
 
-                    <p class="location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Nigdi, Pune
-                    </p>
+</div>
 
-                    <div class="property-features">
 
-                        <span>
-                            <i class="fa-solid fa-building"></i>
-                            Office
-                        </span>
+<!-- 4 CHINCHWAD -->
 
-                        <span>
-                            <i class="fa-solid fa-car"></i>
-                            Parking
-                        </span>
+<div
+class="property-card"
+data-category="Apartment"
+data-location="Chinchwad"
+data-price="6800000"
+data-name="2 BHK Modern Apartment">
 
-                    </div>
+<div class="property-image">
 
-                    <div class="property-price">
-                        ₹65 Lakhs
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"
+alt="Modern Apartment">
 
-                    <button
-                        class="view-btn"
-                        onclick="viewProperty(
-                            'Commercial Office',
-                            '₹65 Lakhs',
-                            'Nigdi, Pune',
-                            'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600'
-                        )">
+<span class="property-badge">
+Apartment
+</span>
 
-                        View Details
+</div>
 
-                    </button>
+<div class="property-content">
 
-                </div>
+<h3>2 BHK Modern Apartment</h3>
 
-            </div>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Chinchwad, Pune
+</p>
 
+<div class="property-features">
 
-            <!-- PROPERTY 5 -->
+<span>
+<i class="fa-solid fa-bed"></i>
+2 Beds
+</span>
 
-            <div
-                class="property-card"
-                data-category="Land"
-                data-price="3500000"
-                data-name="Residential Plot"
-                data-location="Ravet, Pune">
+<span>
+<i class="fa-solid fa-bath"></i>
+2 Baths
+</span>
 
-                <div class="property-image">
+</div>
 
-                    <img
-                        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600"
-                        alt="Residential Plot in Ravet">
+<div class="property-price">
+₹68 Lakhs
+</div>
 
-                    <span class="property-badge">
-                        Land
-                    </span>
+<button
+class="view-btn"
+onclick="viewProperty(
+'2 BHK Modern Apartment',
+'₹68 Lakhs',
+'Chinchwad, Pune',
+'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600'
+)">
 
-                </div>
+View Details
 
-                <div class="property-content">
+</button>
 
-                    <h3>
-                        Residential Plot
-                    </h3>
+</div>
 
-                    <p class="location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Ravet, Pune
-                    </p>
+</div>
 
-                    <div class="property-features">
 
-                        <span>
-                            <i class="fa-solid fa-tree"></i>
-                            Open Land
-                        </span>
+<!-- 5 RAVET -->
 
-                        <span>
-                            <i class="fa-solid fa-road"></i>
-                            Road Access
-                        </span>
+<div
+class="property-card"
+data-category="Land"
+data-location="Ravet"
+data-price="3500000"
+data-name="Residential Plot">
 
-                    </div>
+<div class="property-image">
 
-                    <div class="property-price">
-                        ₹35 Lakhs
-                    </div>
+<img
+src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600"
+alt="Residential Plot">
 
-                    <button
-                        class="view-btn"
-                        onclick="viewProperty(
-                            'Residential Plot',
-                            '₹35 Lakhs',
-                            'Ravet, Pune',
-                            'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600'
-                        )">
+<span class="property-badge">
+Land
+</span>
 
-                        View Details
+</div>
 
-                    </button>
+<div class="property-content">
 
-                </div>
+<h3>Residential Plot</h3>
 
-            </div>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Ravet, Pune
+</p>
 
+<div class="property-features">
 
-        </div>
+<span>
+<i class="fa-solid fa-tree"></i>
+Open Land
+</span>
 
+<span>
+<i class="fa-solid fa-road"></i>
+Road Access
+</span>
 
-        <!-- NO RESULT -->
+</div>
 
-        <div
-            class="no-property"
-            id="noProperty">
+<div class="property-price">
+₹35 Lakhs
+</div>
 
-            <i class="fa-solid fa-house-circle-xmark"></i>
+<button
+class="view-btn"
+onclick="viewProperty(
+'Residential Plot',
+'₹35 Lakhs',
+'Ravet, Pune',
+'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600'
+)">
 
-            <h3>
-                No Properties Found
-            </h3>
+View Details
 
-            <p>
-                Try changing your search or filter options.
-            </p>
+</button>
 
-        </div>
+</div>
 
-    </section>
+</div>
 
 
-    <!-- FOOTER -->
+<!-- 6 TATHAWADE -->
 
-    <footer>
+<div
+class="property-card"
+data-category="Apartment"
+data-location="Tathawade"
+data-price="7200000"
+data-name="2 BHK Premium Apartment">
 
-        <div class="footer-content">
+<div class="property-image">
 
-            <h2>DreamHome Pune</h2>
+<img
+src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600"
+alt="Premium Apartment">
 
-            <p>
-                Your trusted partner for buying,
-                selling, and renting properties in Pune.
-            </p>
+<span class="property-badge">
+Apartment
+</span>
 
-            <div class="social">
+</div>
 
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-linkedin"></i>
+<div class="property-content">
 
-            </div>
+<h3>2 BHK Premium Apartment</h3>
 
-            <p>
-                © 2026 DreamHome Pune. All Rights Reserved.
-            </p>
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Tathawade, Pune
+</p>
 
-        </div>
+<div class="property-features">
 
-    </footer>
+<span>
+<i class="fa-solid fa-bed"></i>
+2 Beds
+</span>
 
+<span>
+<i class="fa-solid fa-bath"></i>
+2 Baths
+</span>
 
-    <script src="script.js"></script>
+</div>
 
+<div class="property-price">
+₹72 Lakhs
+</div>
 
-    <!-- PROPERTY FILTER SCRIPT -->
+<button
+class="view-btn"
+onclick="viewProperty(
+'2 BHK Premium Apartment',
+'₹72 Lakhs',
+'Tathawade, Pune',
+'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600'
+)">
 
-    <script>
+View Details
 
-        function filterProperties() {
+</button>
 
-            let search =
-                document.getElementById("propertySearch")
-                    .value
-                    .toLowerCase()
-                    .trim();
+</div>
 
-            let category =
-                document.getElementById("filterCategory").value;
+</div>
 
-            let price =
-                document.getElementById("filterPrice").value;
 
-            let sort =
-                document.getElementById("sortProperty").value;
+<!-- 7 WAKAD -->
 
-            let grid =
-                document.getElementById("propertyGrid");
+<div
+class="property-card"
+data-category="Villa"
+data-location="Wakad"
+data-price="14500000"
+data-name="4 BHK Luxury Villa">
 
-            let cards =
-                Array.from(
-                    document.querySelectorAll(".property-card")
-                );
+<div class="property-image">
 
-            let visibleCards = [];
+<img
+src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600"
+alt="Luxury Villa">
 
-            cards.forEach(function(card) {
+<span class="property-badge">
+Villa
+</span>
 
-                let name =
-                    card.dataset.name.toLowerCase();
+</div>
 
-                let location =
-                    card.dataset.location.toLowerCase();
+<div class="property-content">
 
-                let cardCategory =
-                    card.dataset.category;
+<h3>4 BHK Luxury Villa</h3>
 
-                let cardPrice =
-                    Number(card.dataset.price);
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Wakad, Pune
+</p>
 
-                let searchMatch =
-                    name.includes(search) ||
-                    location.includes(search);
+<div class="property-features">
 
-                let categoryMatch =
-                    category === "" ||
-                    cardCategory === category;
+<span>
+<i class="fa-solid fa-bed"></i>
+4 Beds
+</span>
 
-                let priceMatch =
-                    price === "" ||
-                    cardPrice <= Number(price);
+<span>
+<i class="fa-solid fa-bath"></i>
+4 Baths
+</span>
 
-                if (
-                    searchMatch &&
-                    categoryMatch &&
-                    priceMatch
-                ) {
+</div>
 
-                    card.style.display = "block";
+<div class="property-price">
+₹1.45 Crore
+</div>
 
-                    visibleCards.push(card);
+<button
+class="view-btn"
+onclick="viewProperty(
+'4 BHK Luxury Villa',
+'₹1.45 Crore',
+'Wakad, Pune',
+'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600'
+)">
 
-                } else {
+View Details
 
-                    card.style.display = "none";
+</button>
 
-                }
+</div>
 
-            });
+</div>
 
 
-            /* SORT */
+<!-- 8 PIMPRI -->
 
-            if (sort === "low") {
+<div
+class="property-card"
+data-category="Commercial"
+data-location="Pimpri"
+data-price="6200000"
+data-name="Commercial Office Space">
 
-                visibleCards.sort(function(a, b) {
+<div class="property-image">
 
-                    return Number(a.dataset.price) -
-                           Number(b.dataset.price);
+<img
+src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600"
+alt="Commercial Office">
 
-                });
+<span class="property-badge">
+Commercial
+</span>
 
-            }
+</div>
 
-            if (sort === "high") {
+<div class="property-content">
 
-                visibleCards.sort(function(a, b) {
+<h3>Commercial Office Space</h3>
 
-                    return Number(b.dataset.price) -
-                           Number(a.dataset.price);
+<p class="location">
+<i class="fa-solid fa-location-dot"></i>
+Pimpri, Pune
+</p>
 
-                });
+<div class="property-features">
 
-            }
+<span>
+<i class="fa-solid fa-building"></i>
+Office
+</span>
 
+<span>
+<i class="fa-solid fa-car"></i>
+Parking
+</span>
 
-            /* Reorder cards */
+</div>
 
-            visibleCards.forEach(function(card) {
+<div class="property-price">
+₹62 Lakhs
+</div>
 
-                grid.appendChild(card);
+<button
+class="view-btn"
+onclick="viewProperty(
+'Commercial Office Space',
+'₹62 Lakhs',
+'Pimpri, Pune',
+'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600'
+)">
 
-            });
+View Details
 
+</button>
 
-            /* Property count */
+</div>
 
-            document.getElementById("propertyCount")
-                .textContent = visibleCards.length;
+</div>
 
 
-            /* No result */
+</div>
 
-            if (visibleCards.length === 0) {
 
-                document.getElementById("noProperty")
-                    .style.display = "block";
+<!-- NO RESULTS -->
 
-            } else {
+<div
+class="no-property"
+id="noProperty">
 
-                document.getElementById("noProperty")
-                    .style.display = "none";
+<i class="fa-solid fa-house-circle-xmark"></i>
 
-            }
+<h3>
+No Properties Found
+</h3>
 
-        }
+<p>
+Try changing your search or filter options.
+</p>
 
+</div>
 
-        /* RESET */
+</section>
 
-        function resetFilters() {
 
-            document.getElementById("propertySearch")
-                .value = "";
+<!-- FOOTER -->
 
-            document.getElementById("filterCategory")
-                .value = "";
+<footer>
 
-            document.getElementById("filterPrice")
-                .value = "";
+<div class="footer-content">
 
-            document.getElementById("sortProperty")
-                .value = "";
+<h2>
+DreamHome Pune
+</h2>
 
-            filterProperties();
+<p>
+Your local real estate portal for buying,
+selling and renting properties in Pune.
+</p>
 
-        }
+<div class="social">
 
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-linkedin"></i>
 
-        /* LIVE SEARCH */
+</div>
 
+<p>
+© 2026 DreamHome Pune. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- EXISTING JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+
+<!-- FILTER JAVASCRIPT -->
+
+<script>
+
+function filterProperties() {
+
+    const search =
         document.getElementById("propertySearch")
-            .addEventListener("input", function() {
+        .value
+        .toLowerCase()
+        .trim();
 
-                filterProperties();
+    const category =
+        document.getElementById("filterCategory").value;
 
-            });
+    const location =
+        document.getElementById("filterLocation").value;
 
-    </script>
+    const price =
+        document.getElementById("filterPrice").value;
+
+    const sort =
+        document.getElementById("sortProperty").value;
+
+    const grid =
+        document.getElementById("propertyGrid");
+
+    let cards =
+        Array.from(
+            document.querySelectorAll(".property-card")
+        );
+
+
+    let visibleCards = cards.filter(function(card) {
+
+        const name =
+            card.dataset.name.toLowerCase();
+
+        const cardLocation =
+            card.dataset.location.toLowerCase();
+
+        const cardCategory =
+            card.dataset.category;
+
+        const cardPrice =
+            Number(card.dataset.price);
+
+
+        const searchMatch =
+            search === "" ||
+            name.includes(search) ||
+            cardLocation.includes(search);
+
+
+        const categoryMatch =
+            category === "" ||
+            cardCategory === category;
+
+
+        const locationMatch =
+            location === "" ||
+            cardLocation.includes(
+                location.toLowerCase()
+            );
+
+
+        const priceMatch =
+            price === "" ||
+            cardPrice <= Number(price);
+
+
+        return (
+            searchMatch &&
+            categoryMatch &&
+            locationMatch &&
+            priceMatch
+        );
+
+    });
+
+
+    /* SORT */
+
+    if (sort === "low") {
+
+        visibleCards.sort(function(a, b) {
+
+            return Number(a.dataset.price) -
+                   Number(b.dataset.price);
+
+        });
+
+    }
+
+
+    if (sort === "high") {
+
+        visibleCards.sort(function(a, b) {
+
+            return Number(b.dataset.price) -
+                   Number(a.dataset.price);
+
+        });
+
+    }
+
+
+    /* HIDE ALL */
+
+    cards.forEach(function(card) {
+
+        card.style.display = "none";
+
+    });
+
+
+    /* SHOW MATCHING */
+
+    visibleCards.forEach(function(card) {
+
+        card.style.display = "block";
+
+        grid.appendChild(card);
+
+    });
+
+
+    /* COUNT */
+
+    document.getElementById("propertyCount")
+        .textContent = visibleCards.length;
+
+
+    /* NO RESULT */
+
+    if (visibleCards.length === 0) {
+
+        document.getElementById("noProperty")
+            .style.display = "block";
+
+    } else {
+
+        document.getElementById("noProperty")
+            .style.display = "none";
+
+    }
+
+}
+
+
+/* RESET */
+
+function resetFilters() {
+
+    document.getElementById("propertySearch")
+        .value = "";
+
+    document.getElementById("filterCategory")
+        .value = "";
+
+    document.getElementById("filterLocation")
+        .value = "";
+
+    document.getElementById("filterPrice")
+        .value = "";
+
+    document.getElementById("sortProperty")
+        .value = "";
+
+    filterProperties();
+
+}
+
+
+/* LIVE SEARCH */
+
+document.getElementById("propertySearch")
+    .addEventListener("input", function() {
+
+        filterProperties();
+
+    });
+
+</script>
+
 
 </body>
 
