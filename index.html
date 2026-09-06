@@ -33,9 +33,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAVIGATION -->
 
 <header>
 
@@ -94,9 +92,7 @@ Login
 
 
 
-<!-- =========================
-     HERO SECTION
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -106,12 +102,10 @@ Login
 Find Your Dream Home in Pune
 </h1>
 
-
 <p>
 
-Discover apartments, houses, villas and
-plots across Nigdi, Pradhikaran, Akurdi
-and nearby Pimpri-Chinchwad areas.
+Discover apartments, villas, houses and plots
+in Pune and Pimpri-Chinchwad.
 
 </p>
 
@@ -130,9 +124,7 @@ Browse Properties
 
 
 
-<!-- =========================
-     SEARCH SECTION
-========================= -->
+<!-- SEARCH -->
 
 <section class="search-section">
 
@@ -177,10 +169,47 @@ Land
 </select>
 
 
-<input
-type="text"
-id="location"
-placeholder="Enter location e.g. Nigdi">
+
+<select id="location">
+
+<option value="">
+Select Location
+</option>
+
+<option>
+Nigdi
+</option>
+
+<option>
+Pradhikaran
+</option>
+
+<option>
+Akurdi
+</option>
+
+<option>
+Chinchwad
+</option>
+
+<option>
+Ravet
+</option>
+
+<option>
+Tathawade
+</option>
+
+<option>
+Wakad
+</option>
+
+<option>
+Pimpri
+</option>
+
+</select>
+
 
 
 <select id="priceRange">
@@ -198,14 +227,15 @@ Under ₹50 Lakhs
 </option>
 
 <option>
-₹1 Crore - ₹2 Crore
+₹1 Crore - ₹1.5 Crore
 </option>
 
 <option>
-Above ₹2 Crore
+Above ₹1.5 Crore
 </option>
 
 </select>
+
 
 
 <button onclick="searchProperty()">
@@ -223,9 +253,7 @@ Search
 
 
 
-<!-- =========================
-     FEATURED PROPERTIES
-========================= -->
+<!-- FEATURED PROPERTIES -->
 
 <section class="properties">
 
@@ -237,13 +265,13 @@ Featured Properties in Pune
 <div class="property-grid">
 
 
-<!-- PROPERTY 1 -->
+<!-- NIGDI -->
 
 <div class="card">
 
 <img
 src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
-alt="Apartment in Nigdi">
+alt="2 BHK Apartment in Nigdi">
 
 
 <h3>
@@ -282,13 +310,13 @@ View Details
 
 
 
-<!-- PROPERTY 2 -->
+<!-- PRADHIKARAN -->
 
 <div class="card">
 
 <img
 src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
-alt="Apartment in Pradhikaran">
+alt="3 BHK Apartment in Pradhikaran">
 
 
 <h3>
@@ -327,17 +355,17 @@ View Details
 
 
 
-<!-- PROPERTY 3 -->
+<!-- WAKAD -->
 
 <div class="card">
 
 <img
-src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600"
-alt="Family house in Akurdi">
+src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600"
+alt="4 BHK Villa in Wakad">
 
 
 <h3>
-Family House
+4 BHK Luxury Villa
 </h3>
 
 
@@ -345,18 +373,18 @@ Family House
 
 <i class="fa-solid fa-location-dot"></i>
 
-Akurdi, Pune
+Wakad, Pune
 
 </p>
 
 
 <p>
-3 Bedrooms | 3 Bathrooms
+4 Bedrooms | 4 Bathrooms
 </p>
 
 
 <p class="price">
-₹95 Lakhs
+₹1.45 Crore
 </p>
 
 
@@ -373,26 +401,11 @@ View Details
 
 </div>
 
-
-<p style="
-text-align:center;
-margin-top:20px;
-color:#64748b;
-font-size:13px;
-">
-
-Sample listings for project demonstration.
-Prices and availability should be verified before making decisions.
-
-</p>
-
 </section>
 
 
 
-<!-- =========================
-     WHY CHOOSE US
-========================= -->
+<!-- WHY CHOOSE US -->
 
 <section class="about">
 
@@ -404,69 +417,51 @@ Why Choose DreamHome Pune?
 <div class="about-grid">
 
 
-<!-- LOCAL PROPERTIES -->
-
 <div>
 
 <i class="fa-solid fa-location-dot fa-3x"></i>
 
-
 <h3>
-Local Properties
+Pune Local Listings
 </h3>
 
-
 <p>
-
-Explore properties across Pune
-and Pimpri-Chinchwad.
-
+Find properties across Pune and
+Pimpri-Chinchwad.
 </p>
 
 </div>
 
 
-
-<!-- PROPERTY INFORMATION -->
 
 <div>
 
 <i class="fa-solid fa-house-circle-check fa-3x"></i>
 
-
 <h3>
-Property Information
+Verified Properties
 </h3>
 
-
 <p>
-
-Get useful information about
-properties and local areas.
-
+Property information is organized
+for easy comparison.
 </p>
 
 </div>
 
 
 
-<!-- SUPPORT -->
-
 <div>
 
 <i class="fa-solid fa-headset fa-3x"></i>
 
-
 <h3>
-Buyer Support
+Easy Enquiry
 </h3>
 
-
 <p>
-
-Find useful resources for
-buyers and property seekers.
-
+Contact property owners directly
+through the enquiry form.
 </p>
 
 </div>
@@ -478,14 +473,11 @@ buyers and property seekers.
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="footer-content">
-
 
 <h2>
 DreamHome Pune
@@ -494,8 +486,8 @@ DreamHome Pune
 
 <p>
 
-Your local real estate portal for
-Pune and Pimpri-Chinchwad.
+Your local real estate portal for buying,
+selling and renting properties in Pune.
 
 </p>
 
@@ -515,7 +507,7 @@ Pune and Pimpri-Chinchwad.
 
 <p>
 
-© 2026 DreamHome. All Rights Reserved.
+© 2026 DreamHome Pune. All Rights Reserved.
 
 </p>
 
@@ -526,11 +518,58 @@ Pune and Pimpri-Chinchwad.
 
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script src="script.js"></script>
+
+
+<!-- SEARCH FUNCTION -->
+
+<script>
+
+function searchProperty() {
+
+    const location =
+        document.getElementById("location").value;
+
+    const propertyType =
+        document.getElementById("propertyType").value;
+
+    const priceRange =
+        document.getElementById("priceRange").value;
+
+
+    let url = "properties.html";
+
+
+    const params = new URLSearchParams();
+
+
+    if (location !== "") {
+        params.append("location", location);
+    }
+
+
+    if (propertyType !== "") {
+        params.append("type", propertyType);
+    }
+
+
+    if (priceRange !== "") {
+        params.append("price", priceRange);
+    }
+
+
+    if (params.toString() !== "") {
+
+        url += "?" + params.toString();
+
+    }
+
+
+    window.location.href = url;
+
+}
+
+</script>
 
 
 </body>
