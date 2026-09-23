@@ -3,669 +3,400 @@
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>Login | DreamHome</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-
-        .auth-page {
-            min-height: 80vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 50px 20px;
-        }
-
-        .auth-card {
-
-            width: 100%;
-            max-width: 450px;
-
-            background: white;
-
-            padding: 35px;
-
-            border-radius: 16px;
-
-            box-shadow:
-                0 10px 35px rgba(0,0,0,0.12);
-
-        }
-
-        .auth-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .auth-header i {
-            font-size: 42px;
-            color: #0ea5e9;
-            margin-bottom: 12px;
-        }
-
-        .auth-header h1 {
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .auth-header p {
-            color: #64748b;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-
-            display: block;
-
-            margin-bottom: 7px;
-
-            color: #334155;
-
-            font-weight: 600;
-        }
-
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper input {
-
-            width: 100%;
-
-            padding: 13px 45px 13px 13px;
-
-            border:
-                1px solid #cbd5e1;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-
-            box-sizing: border-box;
-        }
-
-        .input-wrapper input:focus {
-            border-color: #0ea5e9;
-        }
-
-        .input-icon {
-
-            position: absolute;
-
-            right: 14px;
-
-            top: 50%;
-
-            transform: translateY(-50%);
-
-            cursor: pointer;
-
-            color: #64748b;
-        }
-
-        .remember-row {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-bottom: 20px;
-
-            font-size: 14px;
-        }
-
-        .remember {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            color: #475569;
-        }
-
-        .remember input {
-            accent-color: #0ea5e9;
-        }
-
-        .auth-btn {
-
-            width: 100%;
-
-            padding: 14px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background: #0ea5e9;
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-        }
-
-        .auth-btn:hover {
-            background: #0284c7;
-        }
-
-        .error-message {
-
-            display: none;
-
-            background: #fee2e2;
-
-            color: #b91c1c;
-
-            padding: 11px;
-
-            border-radius: 8px;
-
-            margin-bottom: 18px;
-
-            font-size: 14px;
-        }
-
-        .success-message {
-
-            display: none;
-
-            background: #dcfce7;
-
-            color: #15803d;
-
-            padding: 11px;
-
-            border-radius: 8px;
-
-            margin-bottom: 18px;
-
-            font-size: 14px;
-        }
-
-        .auth-footer {
-
-            text-align: center;
-
-            margin-top: 22px;
-
-            color: #64748b;
-        }
-
-        .auth-footer a {
-
-            color: #0ea5e9;
-
-            font-weight: 600;
-        }
-
-        @media(max-width:500px) {
-
-            .auth-card {
-                padding: 25px 20px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | DreamHome Pune</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+.login-container {
+    width: 90%;
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+.login-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-icon {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    border-radius: 50%;
+    background: #e0f2fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-icon i {
+    font-size: 32px;
+    color: #0ea5e9;
+}
+
+.login-header h1 {
+    color: #0f172a;
+    margin: 15px 0 8px;
+}
+
+.login-header p {
+    color: #64748b;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.input-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.input-box input:focus {
+    outline: none;
+    border-color: #0ea5e9;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.remember {
+    color: #475569;
+}
+
+.forgot {
+    color: #0ea5e9;
+    text-decoration: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #0ea5e9;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: #0284c7;
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 22px;
+    color: #64748b;
+}
+
+.register-text a {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #dcfce7;
+    color: #166534;
+    text-align: center;
+}
+
+</style>
 
 </head>
-
 
 <body>
 
 
-    <!-- HEADER -->
+<!-- NAVIGATION -->
 
-    <header>
+<header>
 
-        <div class="container">
+<div class="container">
 
-            <div class="logo">
+<div class="logo">
 
-                <i class="fa-solid fa-house"></i>
+<i class="fa-solid fa-house"></i>
 
-                DreamHome
+DreamHome Pune
 
-            </div>
+</div>
 
-            <nav>
+<nav>
 
-                <ul>
+<ul>
 
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
+<li>
+<a href="index.html">Home</a>
+</li>
 
-                    <li>
-                        <a href="properties.html">
-                            Properties
-                        </a>
-                    </li>
+<li>
+<a href="properties.html">Properties</a>
+</li>
 
-                    <li>
-                        <a href="register.html">
-                            Register
-                        </a>
-                    </li>
+<li>
+<a href="favorites.html">Favorites</a>
+</li>
 
-                </ul>
+<li>
+<a href="profile.html">Profile</a>
+</li>
 
-            </nav>
+<li>
+<a href="login.html">Login</a>
+</li>
 
-        </div>
+</ul>
 
-    </header>
+</nav>
 
+</div>
 
-    <!-- LOGIN -->
+</header>
 
-    <main class="auth-page">
 
-        <div class="auth-card">
+<!-- LOGIN -->
 
+<section class="login-container">
 
-            <div class="auth-header">
+<div class="login-card">
 
-                <i class="fa-solid fa-right-to-bracket"></i>
 
-                <h1>
-                    Welcome Back
-                </h1>
+<div class="login-header">
 
-                <p>
-                    Login to access your DreamHome account.
-                </p>
+<div class="login-icon">
 
-            </div>
+<i class="fa-solid fa-user"></i>
 
+</div>
 
-            <div
-                id="errorMessage"
-                class="error-message">
-            </div>
+<h1>
+Welcome Back
+</h1>
 
+<p>
+Login to your DreamHome Pune account
+</p>
 
-            <div
-                id="successMessage"
-                class="success-message">
-            </div>
+</div>
 
 
-            <form id="loginForm">
+<form id="loginForm">
 
 
-                <!-- EMAIL -->
+<!-- EMAIL -->
 
-                <div class="form-group">
+<div class="form-group">
 
-                    <label for="email">
-                        Email Address
-                    </label>
+<label for="email">
+Email Address
+</label>
 
-                    <div class="input-wrapper">
+<div class="input-box">
 
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            required>
+<i class="fa-solid fa-envelope"></i>
 
-                    </div>
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required>
 
-                </div>
+</div>
 
+</div>
 
-                <!-- PASSWORD -->
 
-                <div class="form-group">
+<!-- PASSWORD -->
 
-                    <label for="password">
-                        Password
-                    </label>
+<div class="form-group">
 
-                    <div class="input-wrapper">
+<label for="password">
+Password
+</label>
 
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter your password"
-                            required>
+<div class="input-box">
 
-                        <i
-                            class="fa-solid fa-eye input-icon"
-                            id="togglePassword"
-                            onclick="togglePassword()">
-                        </i>
+<i class="fa-solid fa-lock"></i>
 
-                    </div>
+<input
+type="password"
+id="password"
+placeholder="Enter your password"
+required>
 
-                </div>
+</div>
 
+</div>
 
-                <!-- REMEMBER -->
 
-                <div class="remember-row">
+<!-- OPTIONS -->
 
-                    <label class="remember">
+<div class="login-options">
 
-                        <input
-                            type="checkbox"
-                            id="rememberMe">
+<label class="remember">
 
-                        Remember Me
+<input
+type="checkbox"
+id="remember">
 
-                    </label>
+Remember me
 
-                </div>
+</label>
 
 
-                <!-- LOGIN BUTTON -->
+<a
+href="#"
+class="forgot">
 
-                <button
-                    type="submit"
-                    class="auth-btn">
+Forgot Password?
 
-                    <i class="fa-solid fa-right-to-bracket"></i>
+</a>
 
-                    Login
+</div>
 
-                </button>
 
+<!-- LOGIN BUTTON -->
 
-            </form>
+<button
+type="submit"
+class="login-button">
 
+<i class="fa-solid fa-right-to-bracket"></i>
 
-            <div class="auth-footer">
+Login
 
-                Don't have an account?
+</button>
 
-                <a href="register.html">
-                    Create Account
-                </a>
 
-            </div>
+</form>
 
-        </div>
 
-    </main>
+<div
+id="loginMessage"
+class="login-message">
 
+<i class="fa-solid fa-circle-check"></i>
 
-    <!-- FOOTER -->
+Login submitted successfully.
 
-    <footer>
+</div>
 
-        <div class="footer-content">
 
-            <h2>
-                DreamHome
-            </h2>
+<div class="register-text">
 
-            <p>
-                Your trusted partner for buying,
-                selling, and renting properties.
-            </p>
+Don't have an account?
 
-            <p>
-                © 2026 DreamHome. All Rights Reserved.
-            </p>
+<a href="register.html">
+Create Account
+</a>
 
-        </div>
+</div>
 
-    </footer>
 
+</div>
 
-    <script src="script.js"></script>
+</section>
 
 
-    <script>
+<!-- FOOTER -->
 
-        /* =========================
-           SHOW / HIDE PASSWORD
-        ========================= */
+<footer>
 
-        function togglePassword() {
+<div class="footer-content">
 
-            let password =
-                document.getElementById(
-                    "password"
-                );
+<h2>
+DreamHome Pune
+</h2>
 
-            let icon =
-                document.getElementById(
-                    "togglePassword"
-                );
+<p>
+Your local real estate portal for buying,
+selling and renting properties in Pune.
+</p>
 
+<div class="social">
 
-            if (
-                password.type ===
-                "password"
-            ) {
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-linkedin"></i>
 
-                password.type = "text";
+</div>
 
-                icon.classList.remove(
-                    "fa-eye"
-                );
+<p>
+© 2026 DreamHome Pune. All Rights Reserved.
+</p>
 
-                icon.classList.add(
-                    "fa-eye-slash"
-                );
+</div>
 
-            } else {
+</footer>
 
-                password.type =
-                    "password";
 
-                icon.classList.remove(
-                    "fa-eye-slash"
-                );
+<script>
 
-                icon.classList.add(
-                    "fa-eye"
-                );
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(event) {
 
-            }
+    event.preventDefault();
 
-        }
+    document
+    .getElementById("loginMessage")
+    .style.display = "block";
 
+});
 
-        /* =========================
-           LOGIN
-        ========================= */
+</script>
 
-        document.getElementById("loginForm")
-            .addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    let email =
-                        document.getElementById(
-                            "email"
-                        ).value
-                        .trim()
-                        .toLowerCase();
-
-
-                    let password =
-                        document.getElementById(
-                            "password"
-                        ).value;
-
-
-                    let remember =
-                        document.getElementById(
-                            "rememberMe"
-                        ).checked;
-
-
-                    let error =
-                        document.getElementById(
-                            "errorMessage"
-                        );
-
-                    let success =
-                        document.getElementById(
-                            "successMessage"
-                        );
-
-
-                    error.style.display =
-                        "none";
-
-                    success.style.display =
-                        "none";
-
-
-                    /* EMAIL VALIDATION */
-
-                    let emailPattern =
-                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                    if (
-                        !emailPattern.test(email)
-                    ) {
-
-                        error.textContent =
-                            "Please enter a valid email address.";
-
-                        error.style.display =
-                            "block";
-
-                        return;
-
-                    }
-
-
-                    if (!password) {
-
-                        error.textContent =
-                            "Please enter your password.";
-
-                        error.style.display =
-                            "block";
-
-                        return;
-
-                    }
-
-
-                    /* GET USERS */
-
-                    let users =
-                        JSON.parse(
-                            localStorage.getItem(
-                                "users"
-                            )
-                        ) || [];
-
-
-                    /* FIND USER */
-
-                    let user =
-                        users.find(
-                            function (item) {
-
-                                return (
-                                    item.email ===
-                                    email &&
-                                    item.password ===
-                                    password
-                                );
-
-                            }
-                        );
-
-
-                    if (!user) {
-
-                        error.textContent =
-                            "Invalid email or password.";
-
-                        error.style.display =
-                            "block";
-
-                        return;
-
-                    }
-
-
-                    /* SAVE CURRENT USER */
-
-                    localStorage.setItem(
-                        "currentUser",
-                        JSON.stringify(user)
-                    );
-
-
-                    /* REMEMBER ME */
-
-                    if (remember) {
-
-                        localStorage.setItem(
-                            "rememberMe",
-                            "true"
-                        );
-
-                    } else {
-
-                        localStorage.removeItem(
-                            "rememberMe"
-                        );
-
-                    }
-
-
-                    success.textContent =
-                        "Login successful! Redirecting...";
-
-                    success.style.display =
-                        "block";
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "index.html";
-
-                        },
-                        1000
-                    );
-
-                }
-            );
-
-    </script>
 
 </body>
 
