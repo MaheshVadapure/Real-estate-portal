@@ -1,443 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | DreamHome Pune</title>
 
-<title>Property Details | DreamHome Pune</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        nav {
+            background: #1f2937;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-<style>
+        nav h2 {
+            color: white;
+        }
 
-.details-container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 50px auto;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+        }
 
-.property-details-card {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-}
+        nav a:hover {
+            color: #60a5fa;
+        }
 
-.property-main-image {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-}
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
 
-.details-content {
-    padding: 30px;
-}
+        .property-image {
+            height: 350px;
+            background: #dbeafe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
 
-.details-content h1 {
-    color: #0f172a;
-    margin-bottom: 10px;
-}
+        .property-info {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
 
-.details-location {
-    color: #64748b;
-    font-size: 17px;
-    margin-bottom: 20px;
-}
+        .property-info h1 {
+            margin-bottom: 10px;
+        }
 
-.details-location i {
-    color: #ef4444;
-    margin-right: 5px;
-}
+        .location {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
 
-.details-price {
-    color: #0ea5e9;
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
+        .price {
+            color: #2563eb;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
 
-.details-features {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 20px 0;
-    border-top: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
-}
+        .details {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
 
-.feature {
-    color: #475569;
-}
+        .detail-box {
+            background: #f3f4f6;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-.feature i {
-    color: #0ea5e9;
-    margin-right: 6px;
-}
+        .detail-box strong {
+            display: block;
+            margin-bottom: 6px;
+        }
 
-.details-description {
-    margin-top: 25px;
-}
+        .section {
+            margin-top: 30px;
+        }
 
-.details-description h2,
-.amenities h2 {
-    color: #0f172a;
-    margin-bottom: 12px;
-}
+        .section h2 {
+            margin-bottom: 12px;
+        }
 
-.details-description p {
-    color: #64748b;
-    line-height: 1.7;
-}
+        .section p {
+            line-height: 1.7;
+            color: #555;
+        }
 
-.amenities {
-    margin-top: 25px;
-}
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
 
-.amenities-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
+        .amenity {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
 
-.amenity {
-    background: #f1f5f9;
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: #475569;
-}
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+        }
 
-.amenity i {
-    color: #0ea5e9;
-    margin-right: 5px;
-}
+        .btn {
+            padding: 13px 22px;
+            border-radius: 7px;
+            text-decoration: none;
+            display: inline-block;
+        }
 
-.contact-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 13px 25px;
-    background: #0ea5e9;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-}
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
 
-.contact-btn:hover {
-    background: #0284c7;
-}
+        .secondary {
+            background: #e5e7eb;
+            color: #222;
+        }
 
-.back-btn {
-    display: inline-block;
-    margin-top: 20px;
-    color: #0ea5e9;
-    text-decoration: none;
-}
+        .primary:hover {
+            background: #1d4ed8;
+        }
 
-@media(max-width: 600px) {
+        .secondary:hover {
+            background: #d1d5db;
+        }
 
-    .property-main-image {
-        height: 280px;
-    }
+        @media (max-width: 700px) {
 
-    .details-content {
-        padding: 20px;
-    }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
 
-    .details-price {
-        font-size: 25px;
-    }
+            nav a {
+                margin: 5px;
+            }
 
-}
+            .details {
+                grid-template-columns: 1fr 1fr;
+            }
 
-</style>
+            .property-image {
+                height: 250px;
+            }
 
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-
-<header>
-
-<div class="container">
-
-<div class="logo">
-
-<i class="fa-solid fa-house"></i>
-
-DreamHome Pune
-
-</div>
-
 <nav>
 
-<ul>
+    <h2>DreamHome Pune</h2>
 
-<li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="properties.html">Properties</a>
-</li>
-
-<li>
-<a href="favorites.html">Favorites</a>
-</li>
-
-<li>
-<a href="profile.html">Profile</a>
-</li>
-
-<li>
-<a href="login.html">Login</a>
-</li>
-
-</ul>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="favorites.html">Favorites</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Login</a>
+    </div>
 
 </nav>
 
-</div>
 
-</header>
+<div class="container">
 
-
-<!-- PROPERTY DETAILS -->
-
-<section class="details-container">
-
-<div class="property-details-card">
+    <div class="property-image">
+        2 BHK Apartment - Nigdi
+    </div>
 
 
-<img
-class="property-main-image"
-src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=1200"
-alt="2 BHK Apartment in Nigdi">
+    <div class="property-info">
+
+        <h1>2 BHK Apartment in Nigdi</h1>
+
+        <p class="location">
+            📍 Nigdi, Pimpri-Chinchwad, Pune
+        </p>
+
+        <div class="price">
+            ₹75 Lakhs
+        </div>
 
 
-<div class="details-content">
+        <div class="details">
+
+            <div class="detail-box">
+                <strong>2</strong>
+                Bedrooms
+            </div>
+
+            <div class="detail-box">
+                <strong>2</strong>
+                Bathrooms
+            </div>
+
+            <div class="detail-box">
+                <strong>1</strong>
+                Parking
+            </div>
+
+            <div class="detail-box">
+                <strong>Apartment</strong>
+                Property Type
+            </div>
+
+        </div>
 
 
-<h1>
-2 BHK Apartment
-</h1>
+        <div class="section">
+
+            <h2>Property Description</h2>
+
+            <p>
+                This 2 BHK apartment is located in Nigdi, Pune.
+                The property is suitable for families looking for
+                comfortable residential accommodation in the
+                Pimpri-Chinchwad area.
+            </p>
+
+        </div>
 
 
-<p class="details-location">
+        <div class="section">
 
-<i class="fa-solid fa-location-dot"></i>
+            <h2>Amenities</h2>
 
-Nigdi, Pune
+            <div class="amenities">
 
-</p>
+                <span class="amenity">Covered Parking</span>
+                <span class="amenity">Lift</span>
+                <span class="amenity">Security</span>
+                <span class="amenity">Water Supply</span>
+                <span class="amenity">Power Backup</span>
+                <span class="amenity">Balcony</span>
 
+            </div>
 
-<div class="details-price">
-
-₹75 Lakhs
-
-</div>
-
-
-<!-- FEATURES -->
-
-<div class="details-features">
+        </div>
 
 
-<div class="feature">
+        <div class="section">
 
-<i class="fa-solid fa-bed"></i>
+            <h2>Location</h2>
 
-<strong>2</strong> Bedrooms
+            <p>
+                Nigdi is a residential locality in Pimpri-Chinchwad,
+                Pune, with access to nearby areas such as Akurdi,
+                Pradhikaran, Chinchwad and Ravet.
+            </p>
 
-</div>
-
-
-<div class="feature">
-
-<i class="fa-solid fa-bath"></i>
-
-<strong>2</strong> Bathrooms
-
-</div>
+        </div>
 
 
-<div class="feature">
+        <div class="buttons">
 
-<i class="fa-solid fa-car"></i>
+            <a href="contact-owner.html" class="btn primary">
+                Contact Owner
+            </a>
 
-Parking Available
+            <a href="properties.html" class="btn secondary">
+                Back to Properties
+            </a>
 
-</div>
+        </div>
 
-
-<div class="feature">
-
-<i class="fa-solid fa-building"></i>
-
-Apartment
-
-</div>
-
-
-</div>
-
-
-<!-- DESCRIPTION -->
-
-<div class="details-description">
-
-<h2>
-Property Description
-</h2>
-
-<p>
-
-This 2 BHK apartment is located in Nigdi,
-Pune. The property is suitable for families
-looking for a comfortable home with convenient
-access to nearby residential and commercial areas.
-
-</p>
-
-<p>
-
-The apartment offers spacious bedrooms,
-well-planned living space and essential
-amenities for comfortable everyday living.
-
-</p>
+    </div>
 
 </div>
-
-
-<!-- AMENITIES -->
-
-<div class="amenities">
-
-<h2>
-Amenities
-</h2>
-
-
-<div class="amenities-list">
-
-
-<span class="amenity">
-<i class="fa-solid fa-car"></i>
-Parking
-</span>
-
-
-<span class="amenity">
-<i class="fa-solid fa-elevator"></i>
-Lift
-</span>
-
-
-<span class="amenity">
-<i class="fa-solid fa-shield-halved"></i>
-Security
-</span>
-
-
-<span class="amenity">
-<i class="fa-solid fa-droplet"></i>
-Water Supply
-</span>
-
-
-<span class="amenity">
-<i class="fa-solid fa-bolt"></i>
-Power Backup
-</span>
-
-
-<span class="amenity">
-<i class="fa-solid fa-tree"></i>
-Garden
-</span>
-
-
-</div>
-
-</div>
-
-
-<!-- CONTACT -->
-
-<a
-href="contact-owner.html"
-class="contact-btn">
-
-<i class="fa-solid fa-phone"></i>
-
-Contact Owner
-
-</a>
-
-
-<br>
-
-
-<a
-href="properties.html"
-class="back-btn">
-
-<i class="fa-solid fa-arrow-left"></i>
-
-Back to Properties
-
-</a>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-content">
-
-<h2>
-DreamHome Pune
-</h2>
-
-<p>
-Your local real estate portal for buying,
-selling and renting properties in Pune.
-</p>
-
-<div class="social">
-
-<i class="fab fa-facebook"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-twitter"></i>
-
-<i class="fab fa-linkedin"></i>
-
-</div>
-
-<p>
-© 2026 DreamHome Pune. All Rights Reserved.
-</p>
-
-</div>
-
-</footer>
 
 </body>
-
 </html>
