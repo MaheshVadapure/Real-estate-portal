@@ -1,577 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamHome Pune | Find Your Dream Property</title>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-99GD0YG43D"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-<script>
-window.dataLayer = window.dataLayer || [];
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
 
-function gtag(){
-    dataLayer.push(arguments);
-}
+        nav {
+            background: #1f2937;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-gtag('js', new Date());
+        nav h2 {
+            color: white;
+        }
 
-gtag('config', 'G-99GD0YG43D');
-</script>
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+        }
 
-<title>DreamHome Pune | Real Estate Portal</title>
+        nav a:hover {
+            color: #60a5fa;
+        }
 
-<link rel="stylesheet" href="style.css">
+        .hero {
+            background: #2563eb;
+            color: white;
+            padding: 75px 20px;
+            text-align: center;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
 
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) auto;
+            gap: 12px;
+        }
+
+        select,
+        input {
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            width: 100%;
+        }
+
+        .search-btn {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background: #374151;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 55px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 28px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .location-card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .location-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .location-card p {
+            color: #666;
+        }
+
+        .cta {
+            max-width: 1100px;
+            margin: 50px auto;
+            background: #1f2937;
+            color: white;
+            padding: 45px 25px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .cta h2 {
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            margin-bottom: 22px;
+            color: #d1d5db;
+        }
+
+        .cta a {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 22px;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .cta a:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #d1d5db;
+        }
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .features,
+            .locations {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .features,
+            .locations {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-
-<!-- NAVIGATION -->
-
-<header>
-
-<div class="container">
-
-<div class="logo">
-
-<i class="fa-solid fa-house"></i>
-
-DreamHome Pune
-
-</div>
-
-
 <nav>
 
-<ul>
+    <h2>DreamHome Pune</h2>
 
-<li>
-<a href="index.html">
-Home
-</a>
-</li>
-
-<li>
-<a href="properties.html">
-Properties
-</a>
-</li>
-
-<li>
-<a href="favorites.html">
-Favorites
-</a>
-</li>
-
-<li>
-<a href="profile.html">
-Profile
-</a>
-</li>
-
-<li>
-<a href="login.html">
-Login
-</a>
-</li>
-
-</ul>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="favorites.html">Favorites</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html">Login</a>
+    </div>
 
 </nav>
 
-</div>
-
-</header>
-
-
-
-<!-- HERO -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <h1>Find Your Dream Property in Pune</h1>
 
-<h1>
-Find Your Dream Home in Pune
-</h1>
-
-<p>
-
-Discover apartments, villas, houses and plots
-in Pune and Pimpri-Chinchwad.
-
-</p>
+    <p>
+        Explore residential and commercial properties across
+        Pimpri-Chinchwad and nearby Pune areas.
+    </p>
 
 
-<a
-href="properties.html"
-class="btn">
+    <div class="search-box">
 
-Browse Properties
+        <select id="propertyType">
 
-</a>
+            <option value="">Property Type</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+            <option value="house">House</option>
 
-</div>
-
-</section>
-
+        </select>
 
 
-<!-- SEARCH -->
+        <select id="location">
 
-<section class="search-section">
+            <option value="">Location</option>
+            <option value="nigdi">Nigdi</option>
+            <option value="pradhikaran">Pradhikaran</option>
+            <option value="akurdi">Akurdi</option>
+            <option value="chinchwad">Chinchwad</option>
+            <option value="ravet">Ravet</option>
+            <option value="tathawade">Tathawade</option>
+            <option value="wakad">Wakad</option>
 
-<h2>
-Search Properties in Pune
-</h2>
-
-
-<div class="search-box">
-
-
-<select id="propertyType">
-
-<option value="">
-Property Type
-</option>
-
-<option>
-Apartment
-</option>
-
-<option>
-Villa
-</option>
-
-<option>
-House
-</option>
-
-<option>
-Commercial
-</option>
-
-<option>
-Office
-</option>
-
-<option>
-Land
-</option>
-
-</select>
+        </select>
 
 
+        <select id="budget">
 
-<select id="location">
+            <option value="">Budget</option>
+            <option value="5000000">Up to ₹50 Lakhs</option>
+            <option value="7500000">Up to ₹75 Lakhs</option>
+            <option value="10000000">Up to ₹1 Crore</option>
+            <option value="15000000">Up to ₹1.5 Crore</option>
 
-<option value="">
-Select Location
-</option>
-
-<option>
-Nigdi
-</option>
-
-<option>
-Pradhikaran
-</option>
-
-<option>
-Akurdi
-</option>
-
-<option>
-Chinchwad
-</option>
-
-<option>
-Ravet
-</option>
-
-<option>
-Tathawade
-</option>
-
-<option>
-Wakad
-</option>
-
-<option>
-Pimpri
-</option>
-
-</select>
+        </select>
 
 
+        <button class="search-btn" onclick="searchProperty()">
+            Search
+        </button>
 
-<select id="priceRange">
-
-<option value="">
-Budget
-</option>
-
-<option>
-Under ₹50 Lakhs
-</option>
-
-<option>
-₹50 Lakhs - ₹1 Crore
-</option>
-
-<option>
-₹1 Crore - ₹1.5 Crore
-</option>
-
-<option>
-Above ₹1.5 Crore
-</option>
-
-</select>
-
-
-
-<button onclick="searchProperty()">
-
-<i class="fa-solid fa-magnifying-glass"></i>
-
-Search
-
-</button>
-
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- Why Choose DreamHome -->
 
-<!-- FEATURED PROPERTIES -->
+<section class="section">
 
-<section class="properties">
+    <div class="section-title">
 
-<h2>
-Featured Properties in Pune
-</h2>
+        <h2>Why Choose DreamHome?</h2>
 
+        <p>
+            Simple tools to help you explore properties in Pune.
+        </p>
 
-<div class="property-grid">
+    </div>
 
 
-<!-- NIGDI -->
+    <div class="features">
 
-<div class="card">
+        <div class="feature">
 
-<img
-src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
-alt="2 BHK Apartment in Nigdi">
+            <div class="icon">🏠</div>
 
+            <h3>Local Properties</h3>
 
-<h3>
-2 BHK Apartment
-</h3>
+            <p>
+                Explore properties across Nigdi,
+                Pimpri-Chinchwad and nearby Pune areas.
+            </p>
 
+        </div>
 
-<p>
 
-<i class="fa-solid fa-location-dot"></i>
+        <div class="feature">
 
-Nigdi, Pune
+            <div class="icon">🔎</div>
 
-</p>
+            <h3>Easy Search</h3>
 
+            <p>
+                Find properties using type,
+                location and budget filters.
+            </p>
 
-<p>
-2 Bedrooms | 2 Bathrooms
-</p>
+        </div>
 
 
-<p class="price">
-₹75 Lakhs
-</p>
+        <div class="feature">
 
+            <div class="icon">📋</div>
 
-<a
-href="property-details.html"
-class="card-btn">
+            <h3>Property Details</h3>
 
-View Details
+            <p>
+                View important information such as
+                bedrooms, bathrooms, parking and amenities.
+            </p>
 
-</a>
+        </div>
 
-</div>
 
+        <div class="feature">
 
+            <div class="icon">📞</div>
 
-<!-- PRADHIKARAN -->
+            <h3>Easy Enquiry</h3>
 
-<div class="card">
+            <p>
+                Contact property owners through
+                the enquiry form.
+            </p>
 
-<img
-src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600"
-alt="3 BHK Apartment in Pradhikaran">
+        </div>
 
-
-<h3>
-3 BHK Apartment
-</h3>
-
-
-<p>
-
-<i class="fa-solid fa-location-dot"></i>
-
-Pradhikaran, Pune
-
-</p>
-
-
-<p>
-3 Bedrooms | 2 Bathrooms
-</p>
-
-
-<p class="price">
-₹1.15 Crore
-</p>
-
-
-<a
-href="property-details.html"
-class="card-btn">
-
-View Details
-
-</a>
-
-</div>
-
-
-
-<!-- WAKAD -->
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600"
-alt="4 BHK Villa in Wakad">
-
-
-<h3>
-4 BHK Luxury Villa
-</h3>
-
-
-<p>
-
-<i class="fa-solid fa-location-dot"></i>
-
-Wakad, Pune
-
-</p>
-
-
-<p>
-4 Bedrooms | 4 Bathrooms
-</p>
-
-
-<p class="price">
-₹1.45 Crore
-</p>
-
-
-<a
-href="property-details.html"
-class="card-btn">
-
-View Details
-
-</a>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- Popular Locations -->
 
-<!-- WHY CHOOSE US -->
+<section class="section">
 
-<section class="about">
+    <div class="section-title">
 
-<h2>
-Why Choose DreamHome Pune?
-</h2>
+        <h2>Popular Locations</h2>
 
+        <p>
+            Explore properties in popular areas around Pimpri-Chinchwad.
+        </p>
 
-<div class="about-grid">
-
-
-<div>
-
-<i class="fa-solid fa-location-dot fa-3x"></i>
-
-<h3>
-Pune Local Listings
-</h3>
-
-<p>
-Find properties across Pune and
-Pimpri-Chinchwad.
-</p>
-
-</div>
+    </div>
 
 
+    <div class="locations">
 
-<div>
+        <div class="location-card">
+            <h3>Nigdi</h3>
+            <p>Residential Properties</p>
+        </div>
 
-<i class="fa-solid fa-house-circle-check fa-3x"></i>
+        <div class="location-card">
+            <h3>Pradhikaran</h3>
+            <p>Residential Properties</p>
+        </div>
 
-<h3>
-Verified Properties
-</h3>
+        <div class="location-card">
+            <h3>Ravet</h3>
+            <p>New Residential Projects</p>
+        </div>
 
-<p>
-Property information is organized
-for easy comparison.
-</p>
+        <div class="location-card">
+            <h3>Wakad</h3>
+            <p>Apartments & Villas</p>
+        </div>
 
-</div>
-
-
-
-<div>
-
-<i class="fa-solid fa-headset fa-3x"></i>
-
-<h3>
-Easy Enquiry
-</h3>
-
-<p>
-Contact property owners directly
-through the enquiry form.
-</p>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- Call to Action -->
 
-<!-- FOOTER -->
+<section class="cta">
+
+    <h2>Looking for Your Next Home?</h2>
+
+    <p>
+        Browse available properties and find one that matches
+        your requirements.
+    </p>
+
+    <a href="properties.html">
+        View All Properties
+    </a>
+
+</section>
+
 
 <footer>
 
-<div class="footer-content">
+    <h3>DreamHome Pune</h3>
 
-<h2>
-DreamHome Pune
-</h2>
+    <p>
+        Real Estate Portal for Pune & Pimpri-Chinchwad
+    </p>
 
-
-<p>
-
-Your local real estate portal for buying,
-selling and renting properties in Pune.
-
-</p>
-
-
-<div class="social">
-
-<i class="fab fa-facebook"></i>
-
-<i class="fab fa-instagram"></i>
-
-<i class="fab fa-twitter"></i>
-
-<i class="fab fa-linkedin"></i>
-
-</div>
-
-
-<p>
-
-© 2026 DreamHome Pune. All Rights Reserved.
-
-</p>
-
-
-</div>
+    <p>
+        © 2026 DreamHome Pune. All Rights Reserved.
+    </p>
 
 </footer>
 
-
-
-<script src="script.js"></script>
-
-
-<!-- SEARCH FUNCTION -->
 
 <script>
 
 function searchProperty() {
 
-    const location =
-        document.getElementById("location").value;
+    const type = document.getElementById("propertyType").value;
+    const location = document.getElementById("location").value;
+    const budget = document.getElementById("budget").value;
 
-    const propertyType =
-        document.getElementById("propertyType").value;
+    let url = "properties.html?";
 
-    const priceRange =
-        document.getElementById("priceRange").value;
-
-
-    let url = "properties.html";
-
-
-    const params = new URLSearchParams();
-
-
-    if (location !== "") {
-        params.append("location", location);
+    if (type) {
+        url += "type=" + encodeURIComponent(type) + "&";
     }
 
-
-    if (propertyType !== "") {
-        params.append("type", propertyType);
+    if (location) {
+        url += "location=" + encodeURIComponent(location) + "&";
     }
 
-
-    if (priceRange !== "") {
-        params.append("price", priceRange);
+    if (budget) {
+        url += "budget=" + encodeURIComponent(budget);
     }
-
-
-    if (params.toString() !== "") {
-
-        url += "?" + params.toString();
-
-    }
-
 
     window.location.href = url;
-
 }
 
 </script>
 
-
 </body>
-
 </html>
