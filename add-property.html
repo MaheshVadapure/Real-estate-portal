@@ -1,540 +1,648 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Property | DreamHome Pune</title>
 
-<title>Add Property | DreamHome Pune</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        nav {
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-<style>
+        nav h2 {
+            color: #60a5fa;
+        }
 
-.add-property-container {
-    width: 90%;
-    max-width: 850px;
-    margin: 50px auto;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
 
-.add-property-card {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-}
+        nav a:hover {
+            color: #60a5fa;
+        }
 
-.add-property-card h1 {
-    text-align: center;
-    color: #0f172a;
-    margin-bottom: 10px;
-}
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
 
-.subtitle {
-    text-align: center;
-    color: #64748b;
-    margin-bottom: 30px;
-}
+        .hero h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+        .hero p {
+            font-size: 16px;
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
 
-.form-group label {
-    display: block;
-    color: #334155;
-    font-weight: 600;
-    margin-bottom: 7px;
-}
+        .layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+        }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    box-sizing: border-box;
-    border: 1px solid #cbd5e1;
-    border-radius: 7px;
-    font-size: 15px;
-}
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
 
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
+        .card h2 {
+            margin-bottom: 22px;
+            color: #1f2937;
+        }
 
-.submit-button {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #0ea5e9;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
 
-.submit-button:hover {
-    background: #0284c7;
-}
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-.success-message {
-    display: none;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    background: #dcfce7;
-    color: #166534;
-    text-align: center;
-}
+        .full {
+            grid-column: 1 / -1;
+        }
 
-@media(max-width: 650px) {
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
 
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
 
-    .add-property-card {
-        padding: 20px;
-    }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2563eb;
+        }
 
-}
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
 
-</style>
+        .submit-btn {
+            margin-top: 22px;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .preview {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .preview-image {
+            height: 180px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+        }
+
+        .preview-content {
+            padding: 20px;
+        }
+
+        .preview-content h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .location {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .preview-price {
+            color: #2563eb;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .detail {
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .preview-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .success {
+            display: none;
+            margin-top: 18px;
+            padding: 14px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <nav>
 
-<!-- NAVIGATION -->
+        <h2>DreamHome Admin</h2>
 
-<header>
+        <div>
+            <a href="index.html">Website</a>
+            <a href="properties.html">Properties</a>
+            <a href="admin-dashboard.html">Dashboard</a>
+        </div>
 
-<div class="container">
+    </nav>
 
-<div class="logo">
 
-<i class="fa-solid fa-house"></i>
+    <section class="hero">
 
-DreamHome Pune
+        <h1>Add New Property</h1>
 
-</div>
+        <p>Create a new property listing for DreamHome Pune</p>
 
-<nav>
+    </section>
 
-<ul>
 
-<li>
-<a href="index.html">Home</a>
-</li>
+    <div class="container">
 
-<li>
-<a href="properties.html">Properties</a>
-</li>
+        <div class="layout">
 
-<li>
-<a href="favorites.html">Favorites</a>
-</li>
 
-<li>
-<a href="profile.html">Profile</a>
-</li>
+            <!-- FORM -->
 
-<li>
-<a href="login.html">Login</a>
-</li>
+            <div class="card">
 
-</ul>
+                <h2>Property Information</h2>
 
-</nav>
+                <form id="propertyForm">
 
-</div>
+                    <div class="form-grid">
 
-</header>
 
+                        <div class="form-group full">
 
-<!-- ADD PROPERTY -->
+                            <label>Property Title</label>
 
-<section class="add-property-container">
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="Example: 2 BHK Premium Apartment"
+                                required
+                            >
 
-<div class="add-property-card">
+                        </div>
 
-<h1>
-Add Your Property
-</h1>
 
-<p class="subtitle">
-List your property on DreamHome Pune
-</p>
+                        <div class="form-group">
 
+                            <label>Property Type</label>
 
-<form id="propertyForm">
+                            <select id="type" required>
 
+                                <option value="">Select Type</option>
 
-<!-- PROPERTY NAME -->
+                                <option>Apartment</option>
+                                <option>Villa</option>
+                                <option>Independent House</option>
+                                <option>Plot</option>
+                                <option>Commercial Property</option>
+                                <option>Office</option>
 
-<div class="form-group">
+                            </select>
 
-<label for="propertyName">
-Property Title
-</label>
+                        </div>
 
-<input
-type="text"
-id="propertyName"
-placeholder="Example: 2 BHK Apartment"
-required>
 
-</div>
+                        <div class="form-group">
 
+                            <label>Location</label>
 
-<!-- TYPE + LOCATION -->
+                            <select id="location" required>
 
-<div class="form-row">
+                                <option value="">Select Location</option>
 
-<div class="form-group">
+                                <option>Nigdi</option>
+                                <option>Pradhikaran</option>
+                                <option>Akurdi</option>
+                                <option>Chinchwad</option>
+                                <option>Pimpri</option>
+                                <option>Ravet</option>
+                                <option>Tathawade</option>
+                                <option>Wakad</option>
 
-<label for="propertyType">
-Property Type
-</label>
+                            </select>
 
-<select id="propertyType" required>
+                        </div>
 
-<option value="">
-Select Property Type
-</option>
 
-<option>
-Apartment
-</option>
+                        <div class="form-group">
 
-<option>
-Villa
-</option>
+                            <label>Bedrooms</label>
 
-<option>
-House
-</option>
+                            <select id="bedrooms">
 
-<option>
-Plot
-</option>
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5+</option>
 
-<option>
-Commercial
-</option>
+                            </select>
 
-<option>
-Office
-</option>
+                        </div>
 
-</select>
 
-</div>
+                        <div class="form-group">
 
+                            <label>Bathrooms</label>
 
-<div class="form-group">
+                            <select id="bathrooms">
 
-<label for="location">
-Location
-</label>
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5+</option>
 
-<select id="location" required>
+                            </select>
 
-<option value="">
-Select Location
-</option>
+                        </div>
 
-<option>
-Nigdi
-</option>
 
-<option>
-Pradhikaran
-</option>
+                        <div class="form-group">
 
-<option>
-Akurdi
-</option>
+                            <label>Area (sq.ft.)</label>
 
-<option>
-Chinchwad
-</option>
+                            <input
+                                type="number"
+                                id="area"
+                                placeholder="Example: 1200"
+                                min="100"
+                                required
+                            >
 
-<option>
-Pimpri
-</option>
+                        </div>
 
-<option>
-Ravet
-</option>
 
-<option>
-Tathawade
-</option>
+                        <div class="form-group">
 
-<option>
-Wakad
-</option>
+                            <label>Expected Price (₹)</label>
 
-</select>
+                            <input
+                                type="number"
+                                id="price"
+                                placeholder="Example: 7500000"
+                                min="100000"
+                                required
+                            >
 
-</div>
+                        </div>
 
-</div>
 
+                        <div class="form-group full">
 
-<!-- BEDROOMS + BATHROOMS -->
+                            <label>Property Description</label>
 
-<div class="form-row">
+                            <textarea
+                                id="description"
+                                placeholder="Describe the property, amenities, parking, nearby facilities etc."
+                                required
+                            ></textarea>
 
-<div class="form-group">
+                        </div>
 
-<label for="bedrooms">
-Bedrooms
-</label>
 
-<select id="bedrooms">
+                        <div class="form-group">
 
-<option>
-1 BHK
-</option>
+                            <label>Owner Name</label>
 
-<option>
-2 BHK
-</option>
+                            <input
+                                type="text"
+                                id="owner"
+                                placeholder="Owner name"
+                                required
+                            >
 
-<option>
-3 BHK
-</option>
+                        </div>
 
-<option>
-4 BHK
-</option>
 
-<option>
-5+ BHK
-</option>
+                        <div class="form-group">
 
-</select>
+                            <label>Contact Number</label>
 
-</div>
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10 digit mobile number"
+                                maxlength="10"
+                                required
+                            >
 
+                        </div>
 
-<div class="form-group">
 
-<label for="bathrooms">
-Bathrooms
-</label>
+                    </div>
 
-<select id="bathrooms">
 
-<option>
-1
-</option>
+                    <button type="submit" class="submit-btn">
+                        + Add Property
+                    </button>
 
-<option>
-2
-</option>
 
-<option>
-3
-</option>
+                    <div class="success" id="successMessage">
+                        ✓ Property added successfully!
+                    </div>
 
-<option>
-4+
-</option>
+                </form>
 
-</select>
+            </div>
 
-</div>
 
-</div>
+            <!-- PREVIEW -->
 
+            <div class="card">
 
-<!-- PRICE + AREA -->
+                <h2>Property Preview</h2>
 
-<div class="form-row">
+                <div class="preview">
 
-<div class="form-group">
+                    <div class="preview-image">
+                        🏠
+                    </div>
 
-<label for="price">
-Expected Price
-</label>
+                    <div class="preview-content">
 
-<input
-type="number"
-id="price"
-placeholder="Enter price in ₹"
-required>
+                        <h3 id="previewTitle">
+                            Your Property
+                        </h3>
 
-</div>
+                        <p class="location" id="previewLocation">
+                            📍 Pune
+                        </p>
 
+                        <div class="preview-price" id="previewPrice">
+                            ₹0
+                        </div>
 
-<div class="form-group">
 
-<label for="area">
-Property Area
-</label>
+                        <div class="details">
 
-<input
-type="number"
-id="area"
-placeholder="Area in sq.ft."
-required>
+                            <div class="detail">
+                                🛏 <span id="previewBedrooms">2</span> Bedrooms
+                            </div>
 
-</div>
+                            <div class="detail">
+                                🛁 <span id="previewBathrooms">2</span> Bathrooms
+                            </div>
 
-</div>
+                            <div class="detail">
+                                📐 <span id="previewArea">0</span> sq.ft.
+                            </div>
 
+                            <div class="detail">
+                                🏠 <span id="previewType">Property</span>
+                            </div>
 
-<!-- DESCRIPTION -->
+                        </div>
 
-<div class="form-group">
 
-<label for="description">
-Property Description
-</label>
+                        <p
+                            class="preview-description"
+                            id="previewDescription"
+                        >
+                            Property description will appear here.
+                        </p>
 
-<textarea
-id="description"
-placeholder="Describe your property, amenities and nearby facilities..."
-required></textarea>
+                    </div>
 
-</div>
+                </div>
 
+            </div>
 
-<!-- CONTACT -->
+        </div>
 
-<div class="form-row">
+    </div>
 
-<div class="form-group">
 
-<label for="ownerName">
-Owner Name
-</label>
+    <footer>
 
-<input
-type="text"
-id="ownerName"
-placeholder="Enter owner name"
-required>
+        <p>© 2026 DreamHome Pune | Admin Panel</p>
 
-</div>
+        <p>Property Management System</p>
 
+    </footer>
 
-<div class="form-group">
 
-<label for="phone">
-Contact Number
-</label>
+    <script>
 
-<input
-type="tel"
-id="phone"
-placeholder="Enter phone number"
-required>
+        const title =
+            document.getElementById("title");
 
-</div>
+        const type =
+            document.getElementById("type");
 
-</div>
+        const location =
+            document.getElementById("location");
 
+        const bedrooms =
+            document.getElementById("bedrooms");
 
-<button
-type="submit"
-class="submit-button">
+        const bathrooms =
+            document.getElementById("bathrooms");
 
-<i class="fa-solid fa-plus"></i>
+        const area =
+            document.getElementById("area");
 
-Add Property
+        const price =
+            document.getElementById("price");
 
-</button>
+        const description =
+            document.getElementById("description");
 
 
-</form>
+        function updatePreview() {
 
+            document.getElementById("previewTitle").textContent =
+                title.value || "Your Property";
 
-<div
-id="successMessage"
-class="success-message">
+            document.getElementById("previewLocation").textContent =
+                location.value
+                ? "📍 " + location.value + ", Pune"
+                : "📍 Pune";
 
-<i class="fa-solid fa-circle-check"></i>
+            document.getElementById("previewType").textContent =
+                type.value || "Property";
 
-Property submitted successfully!
+            document.getElementById("previewBedrooms").textContent =
+                bedrooms.value;
 
-</div>
+            document.getElementById("previewBathrooms").textContent =
+                bathrooms.value;
 
+            document.getElementById("previewArea").textContent =
+                area.value || "0";
 
-</div>
+            document.getElementById("previewDescription").textContent =
+                description.value ||
+                "Property description will appear here.";
 
-</section>
+            if (price.value) {
 
+                document.getElementById("previewPrice").textContent =
+                    "₹" + Number(price.value).toLocaleString("en-IN");
 
-<!-- FOOTER -->
+            } else {
 
-<footer>
+                document.getElementById("previewPrice").textContent =
+                    "₹0";
 
-<div class="footer-content">
+            }
+        }
 
-<h2>
-DreamHome Pune
-</h2>
 
-<p>
-Your local real estate portal for buying,
-selling and renting properties in Pune.
-</p>
+        title.addEventListener("input", updatePreview);
+        type.addEventListener("change", updatePreview);
+        location.addEventListener("change", updatePreview);
+        bedrooms.addEventListener("change", updatePreview);
+        bathrooms.addEventListener("change", updatePreview);
+        area.addEventListener("input", updatePreview);
+        price.addEventListener("input", updatePreview);
+        description.addEventListener("input", updatePreview);
 
-<div class="social">
 
-<i class="fab fa-facebook"></i>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-twitter"></i>
-<i class="fab fa-linkedin"></i>
+        document
+            .getElementById("propertyForm")
+            .addEventListener("submit", function(event) {
 
-</div>
+                event.preventDefault();
 
-<p>
-© 2026 DreamHome Pune. All Rights Reserved.
-</p>
+                const phone =
+                    document.getElementById("phone").value;
 
-</div>
+                if (!/^[0-9]{10}$/.test(phone)) {
 
-</footer>
+                    alert("Please enter a valid 10-digit phone number.");
 
+                    return;
+                }
 
-<script>
 
-document
-.getElementById("propertyForm")
-.addEventListener("submit", function(event) {
+                document.getElementById("successMessage")
+                    .style.display = "block";
 
-    event.preventDefault();
 
-    document
-    .getElementById("successMessage")
-    .style.display = "block";
+                setTimeout(function() {
 
-    this.reset();
+                    document.getElementById("successMessage")
+                        .style.display = "none";
 
-});
+                }, 3000);
 
-</script>
+            });
 
+    </script>
 
 </body>
-
 </html>
