@@ -20,75 +20,81 @@
         }
 
         nav {
-            background: #1f2937;
-            padding: 18px 8%;
+            background: white;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         nav h2 {
-            color: white;
+            color: #2563eb;
         }
 
         nav a {
-            color: white;
+            color: #333;
             text-decoration: none;
-            margin-left: 18px;
+            margin-left: 20px;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: #60a5fa;
+            color: #2563eb;
         }
 
-        .container {
-            max-width: 950px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .page-title {
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
             text-align: center;
-            margin-bottom: 30px;
+            padding: 45px 20px;
         }
 
-        .page-title h1 {
+        .hero h1 {
+            font-size: 34px;
             margin-bottom: 8px;
         }
 
-        .page-title p {
-            color: #666;
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 40px auto;
         }
 
-        .content {
+        .layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1.4fr;
             gap: 25px;
         }
 
-        .property-card,
-        .form-card {
+        .card {
             background: white;
             padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
         }
 
+        .card h2 {
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        /* Property information */
+
         .property-image {
-            height: 180px;
-            background: #dbeafe;
-            border-radius: 8px;
+            height: 190px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #2563eb;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 60px;
             margin-bottom: 20px;
         }
 
-        .property-card h2 {
-            margin-bottom: 10px;
+        .property-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
         }
 
         .location {
@@ -98,20 +104,37 @@
 
         .price {
             color: #2563eb;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
         }
 
-        .property-detail {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
-        .property-detail strong {
-            display: inline-block;
-            width: 120px;
+        .detail {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 7px;
+            font-size: 14px;
         }
+
+        .owner-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eff6ff;
+            border-radius: 8px;
+        }
+
+        .owner-box strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Form */
 
         .form-group {
             margin-bottom: 18px;
@@ -119,8 +142,9 @@
 
         label {
             display: block;
-            margin-bottom: 7px;
             font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 14px;
         }
 
         input,
@@ -128,72 +152,85 @@
         textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
             font-size: 15px;
+            outline: none;
         }
 
         input:focus,
         select:focus,
         textarea:focus {
-            outline: none;
             border-color: #2563eb;
         }
 
         textarea {
-            height: 120px;
+            min-height: 130px;
             resize: vertical;
         }
 
-        button {
+        .submit-btn {
             width: 100%;
-            padding: 13px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
             background: #2563eb;
             color: white;
-            border: none;
-            border-radius: 7px;
             font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        button:hover {
+        .submit-btn:hover {
             background: #1d4ed8;
         }
 
-        #successMessage {
+        .success {
             display: none;
-            margin-top: 18px;
-            padding: 14px;
+            margin-top: 20px;
+            padding: 18px;
             background: #dcfce7;
             color: #166534;
-            border-radius: 7px;
-            text-align: center;
+            border-radius: 8px;
+        }
+
+        .success h3 {
+            margin-bottom: 8px;
+        }
+
+        .success p {
+            margin: 5px 0;
         }
 
         .back-link {
-            display: block;
-            text-align: center;
+            display: inline-block;
             margin-top: 20px;
-        }
-
-        .back-link a {
             color: #2563eb;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        @media (max-width: 750px) {
+        footer {
+            margin-top: 50px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
 
             nav {
                 flex-direction: column;
-                gap: 15px;
+                gap: 12px;
             }
 
             nav a {
                 margin: 5px;
-            }
-
-            .content {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -201,219 +238,293 @@
 
 <body>
 
-<nav>
+    <nav>
 
-    <h2>DreamHome Pune</h2>
+        <h2>DreamHome Pune</h2>
 
-    <div>
-        <a href="index.html">Home</a>
-        <a href="properties.html">Properties</a>
-        <a href="favorites.html">Favorites</a>
-        <a href="profile.html">Profile</a>
-        <a href="login.html">Login</a>
-    </div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="profile.html">Profile</a>
+        </div>
 
-</nav>
+    </nav>
 
 
-<div class="container">
-
-    <div class="page-title">
+    <section class="hero">
 
         <h1>Contact Property Owner</h1>
 
-        <p>
-            Send your enquiry and the owner can get in touch with you.
-        </p>
+        <p>Send your enquiry to know more about this property</p>
 
-    </div>
+    </section>
 
 
-    <div class="content">
+    <div class="container">
 
-        <!-- Property Information -->
+        <div class="layout">
 
-        <div class="property-card">
 
-            <div class="property-image">
-                2 BHK Apartment
+            <!-- PROPERTY DETAILS -->
+
+            <div class="card">
+
+                <h2>Property Details</h2>
+
+                <div class="property-image">
+                    🏠
+                </div>
+
+                <div class="property-info">
+
+                    <h3>2 BHK Apartment</h3>
+
+                    <p class="location">
+                        📍 Nigdi, Pune
+                    </p>
+
+                    <p class="price">
+                        ₹75 Lakhs
+                    </p>
+
+                    <div class="details">
+
+                        <div class="detail">
+                            🛏 2 Bedrooms
+                        </div>
+
+                        <div class="detail">
+                            🛁 2 Bathrooms
+                        </div>
+
+                        <div class="detail">
+                            🚗 Parking Available
+                        </div>
+
+                        <div class="detail">
+                            🏢 Apartment
+                        </div>
+
+                    </div>
+
+                    <div class="owner-box">
+
+                        <strong>Property Owner</strong>
+
+                        <span>DreamHome Property Owner</span>
+
+                        <br>
+
+                        <span>📍 Nigdi, Pune</span>
+
+                    </div>
+
+                </div>
+
+                <a href="properties.html" class="back-link">
+                    ← Back to Properties
+                </a>
+
             </div>
 
-            <h2>2 BHK Apartment in Nigdi</h2>
 
-            <p class="location">
-                📍 Nigdi, Pimpri-Chinchwad, Pune
-            </p>
+            <!-- ENQUIRY FORM -->
 
-            <p class="price">
-                ₹75 Lakhs
-            </p>
+            <div class="card">
 
-            <div class="property-detail">
-                <strong>Bedrooms:</strong> 2
-            </div>
+                <h2>Send Enquiry</h2>
 
-            <div class="property-detail">
-                <strong>Bathrooms:</strong> 2
-            </div>
+                <form id="enquiryForm">
 
-            <div class="property-detail">
-                <strong>Parking:</strong> Available
-            </div>
 
-            <div class="property-detail">
-                <strong>Type:</strong> Apartment
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="10 digit mobile number"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="enquiryType">
+                            Enquiry Type
+                        </label>
+
+                        <select id="enquiryType" required>
+
+                            <option value="">
+                                Select Enquiry Type
+                            </option>
+
+                            <option>
+                                Property Visit
+                            </option>
+
+                            <option>
+                                Purchase
+                            </option>
+
+                            <option>
+                                Rental
+                            </option>
+
+                            <option>
+                                More Information
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Write your enquiry..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Send Enquiry
+                    </button>
+
+
+                    <div class="success" id="successMessage">
+
+                        <h3>✓ Enquiry Sent Successfully!</h3>
+
+                        <p>
+                            Thank you, <strong id="successName"></strong>.
+                        </p>
+
+                        <p>
+                            Your enquiry for the
+                            <strong>2 BHK Apartment in Nigdi</strong>
+                            has been submitted.
+                        </p>
+
+                        <p>
+                            The property owner can contact you soon.
+                        </p>
+
+                    </div>
+
+                </form>
+
             </div>
 
         </div>
 
-
-        <!-- Enquiry Form -->
-
-        <div class="form-card">
-
-            <h2>Send Enquiry</h2>
-
-            <br>
-
-            <form id="contactForm">
-
-                <div class="form-group">
-
-                    <label for="name">
-                        Your Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your name"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="enquiry">
-                        Enquiry Type
-                    </label>
-
-                    <select id="enquiry" required>
-
-                        <option value="">
-                            Select Enquiry Type
-                        </option>
-
-                        <option>
-                            Property Visit
-                        </option>
-
-                        <option>
-                            Purchase Enquiry
-                        </option>
-
-                        <option>
-                            Price Information
-                        </option>
-
-                        <option>
-                            More Information
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="message">
-                        Message
-                    </label>
-
-                    <textarea
-                        id="message"
-                        placeholder="Write your enquiry..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <button type="submit">
-                    Send Enquiry
-                </button>
-
-
-                <div id="successMessage">
-                    Your enquiry has been submitted successfully!
-                </div>
-
-            </form>
-
-        </div>
-
     </div>
 
 
-    <div class="back-link">
+    <footer>
 
-        <a href="properties.html">
-            ← Back to Properties
-        </a>
+        <p>© 2026 DreamHome Pune | Real Estate Portal</p>
 
-    </div>
+        <p>Serving Nigdi, Pimpri-Chinchwad and nearby areas</p>
 
-</div>
+    </footer>
 
 
-<script>
+    <script>
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+        document
+            .getElementById("enquiryForm")
+            .addEventListener("submit", function(event) {
 
-    event.preventDefault();
+                event.preventDefault();
 
-    document.getElementById("successMessage").style.display = "block";
+                const name =
+                    document.getElementById("name").value.trim();
 
-    this.reset();
+                const phone =
+                    document.getElementById("phone").value.trim();
 
-});
+                if (!/^[0-9]{10}$/.test(phone)) {
 
-</script>
+                    alert(
+                        "Please enter a valid 10-digit phone number."
+                    );
+
+                    return;
+                }
+
+                if (name.length < 2) {
+
+                    alert(
+                        "Please enter a valid name."
+                    );
+
+                    return;
+                }
+
+                document.getElementById("successName")
+                    .textContent = name;
+
+                document.getElementById("successMessage")
+                    .style.display = "block";
+
+                document.getElementById("enquiryForm")
+                    .reset();
+
+            });
+
+    </script>
 
 </body>
 </html>
