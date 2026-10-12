@@ -1,403 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | DreamHome Pune</title>
 
-<title>Login | DreamHome Pune</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        nav {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
 
-<style>
+        nav h2 {
+            color: #2563eb;
+        }
 
-.login-container {
-    width: 90%;
-    max-width: 450px;
-    margin: 60px auto;
-}
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+        }
 
-.login-card {
-    background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-}
+        nav a:hover {
+            color: #2563eb;
+        }
 
-.login-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
 
-.login-icon {
-    width: 75px;
-    height: 75px;
-    margin: auto;
-    border-radius: 50%;
-    background: #e0f2fe;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .hero h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
 
-.login-icon i {
-    font-size: 32px;
-    color: #0ea5e9;
-}
+        .hero p {
+            font-size: 16px;
+        }
 
-.login-header h1 {
-    color: #0f172a;
-    margin: 15px 0 8px;
-}
+        .container {
+            width: 90%;
+            max-width: 450px;
+            margin: 45px auto;
+        }
 
-.login-header p {
-    color: #64748b;
-}
+        .login-card {
+            background: white;
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
 
-.form-group {
-    margin-bottom: 20px;
-}
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
 
-.form-group label {
-    display: block;
-    color: #334155;
-    font-weight: 600;
-    margin-bottom: 7px;
-}
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
 
-.input-box {
-    position: relative;
-}
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-.input-box i {
-    position: absolute;
-    left: 13px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-}
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
 
-.input-box input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 12px 12px 40px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 15px;
-}
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
 
-.input-box input:focus {
-    outline: none;
-    border-color: #0ea5e9;
-}
+        input:focus {
+            border-color: #2563eb;
+        }
 
-.login-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 22px;
-    font-size: 14px;
-}
+        .password-box {
+            position: relative;
+        }
 
-.remember {
-    color: #475569;
-}
+        .password-box input {
+            padding-right: 75px;
+        }
 
-.forgot {
-    color: #0ea5e9;
-    text-decoration: none;
-}
+        .show-btn {
+            position: absolute;
+            right: 8px;
+            top: 7px;
+            padding: 6px 9px;
+            border: none;
+            background: #f3f4f6;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #2563eb;
+        }
 
-.login-button {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 8px;
-    background: #0ea5e9;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
+        .show-btn:hover {
+            background: #e5e7eb;
+        }
 
-.login-button:hover {
-    background: #0284c7;
-}
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
 
-.register-text {
-    text-align: center;
-    margin-top: 22px;
-    color: #64748b;
-}
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
 
-.register-text a {
-    color: #0ea5e9;
-    text-decoration: none;
-    font-weight: 600;
-}
+        .remember input {
+            width: auto;
+        }
 
-.login-message {
-    display: none;
-    margin-top: 18px;
-    padding: 12px;
-    border-radius: 8px;
-    background: #dcfce7;
-    color: #166534;
-    text-align: center;
-}
+        .forgot {
+            color: #2563eb;
+            text-decoration: none;
+        }
 
-</style>
+        .forgot:hover {
+            text-decoration: underline;
+        }
 
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .success {
+            display: none;
+            margin-top: 18px;
+            padding: 14px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 22px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .register a {
+            color: #2563eb;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .register a:hover {
+            text-decoration: underline;
+        }
+
+        .demo-info {
+            margin-top: 20px;
+            padding: 13px;
+            background: #eff6ff;
+            border-radius: 8px;
+            text-align: center;
+            color: #1e40af;
+            font-size: 13px;
+        }
+
+        .profile-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .login-card {
+                padding: 25px;
+            }
+
+            .options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <nav>
 
-<!-- NAVIGATION -->
+        <h2>DreamHome Pune</h2>
 
-<header>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="favorites.html">Favorites</a>
+            <a href="register.html">Register</a>
+        </div>
 
-<div class="container">
+    </nav>
 
-<div class="logo">
 
-<i class="fa-solid fa-house"></i>
+    <section class="hero">
 
-DreamHome Pune
+        <h1>Welcome Back</h1>
 
-</div>
+        <p>Login to manage your DreamHome account</p>
 
-<nav>
+    </section>
 
-<ul>
 
-<li>
-<a href="index.html">Home</a>
-</li>
+    <div class="container">
 
-<li>
-<a href="properties.html">Properties</a>
-</li>
+        <div class="login-card">
 
-<li>
-<a href="favorites.html">Favorites</a>
-</li>
+            <h2>Login</h2>
 
-<li>
-<a href="profile.html">Profile</a>
-</li>
+            <p class="subtitle">
+                Access your saved properties and preferences
+            </p>
 
-<li>
-<a href="login.html">Login</a>
-</li>
 
-</ul>
+            <form id="loginForm">
 
-</nav>
 
-</div>
+                <div class="form-group">
 
-</header>
+                    <label for="email">
+                        Email Address
+                    </label>
 
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-<!-- LOGIN -->
+                </div>
 
-<section class="login-container">
 
-<div class="login-card">
+                <div class="form-group">
 
+                    <label for="password">
+                        Password
+                    </label>
 
-<div class="login-header">
+                    <div class="password-box">
 
-<div class="login-icon">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            minlength="6"
+                            required
+                        >
 
-<i class="fa-solid fa-user"></i>
+                        <button
+                            type="button"
+                            class="show-btn"
+                            id="showPassword"
+                        >
+                            Show
+                        </button>
 
-</div>
+                    </div>
 
-<h1>
-Welcome Back
-</h1>
+                </div>
 
-<p>
-Login to your DreamHome Pune account
-</p>
 
-</div>
+                <div class="options">
 
+                    <label class="remember">
 
-<form id="loginForm">
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
 
+                        Remember Me
 
-<!-- EMAIL -->
+                    </label>
 
-<div class="form-group">
+                    <a
+                        href="#"
+                        class="forgot"
+                        onclick="forgotPassword()"
+                    >
+                        Forgot Password?
+                    </a>
 
-<label for="email">
-Email Address
-</label>
+                </div>
 
-<div class="input-box">
 
-<i class="fa-solid fa-envelope"></i>
+                <button
+                    type="submit"
+                    class="login-btn"
+                >
+                    Login
+                </button>
 
-<input
-type="email"
-id="email"
-placeholder="Enter your email"
-required>
 
-</div>
+                <div
+                    class="success"
+                    id="successMessage"
+                >
+                    ✓ Login successful! Welcome to DreamHome Pune.
+                </div>
 
-</div>
+            </form>
 
 
-<!-- PASSWORD -->
+            <div class="register">
 
-<div class="form-group">
+                Don't have an account?
 
-<label for="password">
-Password
-</label>
+                <a href="register.html">
+                    Create Account
+                </a>
 
-<div class="input-box">
+            </div>
 
-<i class="fa-solid fa-lock"></i>
 
-<input
-type="password"
-id="password"
-placeholder="Enter your password"
-required>
+            <a
+                href="profile.html"
+                class="profile-link"
+            >
+                View Profile →
+            </a>
 
-</div>
 
-</div>
+            <div class="demo-info">
 
+                Demo login — frontend-only authentication
 
-<!-- OPTIONS -->
+            </div>
 
-<div class="login-options">
+        </div>
 
-<label class="remember">
+    </div>
 
-<input
-type="checkbox"
-id="remember">
 
-Remember me
+    <footer>
 
-</label>
+        <p>© 2026 DreamHome Pune | Real Estate Portal</p>
 
+        <p>Serving Nigdi, Pimpri-Chinchwad and nearby areas</p>
 
-<a
-href="#"
-class="forgot">
+    </footer>
 
-Forgot Password?
 
-</a>
+    <script>
 
-</div>
+        const emailInput =
+            document.getElementById("email");
 
+        const passwordInput =
+            document.getElementById("password");
 
-<!-- LOGIN BUTTON -->
+        const rememberCheckbox =
+            document.getElementById("remember");
 
-<button
-type="submit"
-class="login-button">
 
-<i class="fa-solid fa-right-to-bracket"></i>
+        // Show / Hide Password
 
-Login
+        document
+            .getElementById("showPassword")
+            .addEventListener("click", function() {
 
-</button>
+                if (passwordInput.type === "password") {
 
+                    passwordInput.type = "text";
 
-</form>
+                    this.textContent = "Hide";
 
+                } else {
 
-<div
-id="loginMessage"
-class="login-message">
+                    passwordInput.type = "password";
 
-<i class="fa-solid fa-circle-check"></i>
+                    this.textContent = "Show";
 
-Login submitted successfully.
+                }
 
-</div>
+            });
 
 
-<div class="register-text">
+        // Load remembered email
 
-Don't have an account?
+        const savedEmail =
+            localStorage.getItem("dreamhomeEmail");
 
-<a href="register.html">
-Create Account
-</a>
+        if (savedEmail) {
 
-</div>
+            emailInput.value = savedEmail;
 
+            rememberCheckbox.checked = true;
 
-</div>
+        }
 
-</section>
 
+        // Login
 
-<!-- FOOTER -->
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", function(event) {
 
-<footer>
+                event.preventDefault();
 
-<div class="footer-content">
+                const email =
+                    emailInput.value.trim();
 
-<h2>
-DreamHome Pune
-</h2>
+                const password =
+                    passwordInput.value;
 
-<p>
-Your local real estate portal for buying,
-selling and renting properties in Pune.
-</p>
+                if (password.length < 6) {
 
-<div class="social">
+                    alert(
+                        "Password must contain at least 6 characters."
+                    );
 
-<i class="fab fa-facebook"></i>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-twitter"></i>
-<i class="fab fa-linkedin"></i>
+                    return;
+                }
 
-</div>
 
-<p>
-© 2026 DreamHome Pune. All Rights Reserved.
-</p>
+                if (rememberCheckbox.checked) {
 
-</div>
+                    localStorage.setItem(
+                        "dreamhomeEmail",
+                        email
+                    );
 
-</footer>
+                } else {
 
+                    localStorage.removeItem(
+                        "dreamhomeEmail"
+                    );
 
-<script>
+                }
 
-document
-.getElementById("loginForm")
-.addEventListener("submit", function(event) {
 
-    event.preventDefault();
+                document
+                    .getElementById("successMessage")
+                    .style.display = "block";
 
-    document
-    .getElementById("loginMessage")
-    .style.display = "block";
+            });
 
-});
 
-</script>
+        // Forgot password
 
+        function forgotPassword() {
+
+            alert(
+                "Password reset functionality will be available after backend authentication is added."
+            );
+
+        }
+
+    </script>
 
 </body>
-
 </html>
