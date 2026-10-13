@@ -1,946 +1,439 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <title>Register | DreamHome</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | DreamHome Pune</title>
 
     <style>
-
-        .auth-page {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 50px 20px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
-        .auth-card {
-            width: 100%;
-            max-width: 480px;
+        body {
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        nav {
             background: white;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,.08);
         }
 
-        .auth-header {
+        nav h2 { color: #2563eb; }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+
+        nav a:hover { color: #2563eb; }
+
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
             text-align: center;
-            margin-bottom: 30px;
+            padding: 40px 20px;
         }
 
-        .auth-header i {
-            font-size: 42px;
-            color: #0ea5e9;
-            margin-bottom: 12px;
-        }
-
-        .auth-header h1 {
-            color: #0f172a;
+        .hero h1 {
+            font-size: 32px;
             margin-bottom: 8px;
         }
 
-        .auth-header p {
-            color: #64748b;
+        .container {
+            width: 92%;
+            max-width: 600px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
         .form-group {
-            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .form-group label {
-            display: block;
+        .full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
             margin-bottom: 7px;
-            color: #334155;
-            font-weight: 600;
         }
 
-        .input-wrapper {
-            position: relative;
-        }
-
-        .input-wrapper input {
+        input, select {
             width: 100%;
-            padding: 13px 45px 13px 13px;
-            border: 1px solid #cbd5e1;
+            padding: 12px;
+            border: 1px solid #d1d5db;
             border-radius: 8px;
             font-size: 15px;
             outline: none;
-            box-sizing: border-box;
         }
 
-        .input-wrapper input:focus {
-            border-color: #0ea5e9;
+        input:focus, select:focus {
+            border-color: #2563eb;
         }
 
-        .input-icon {
+        .password-wrap { position: relative; }
+
+        .password-wrap input { padding-right: 65px; }
+
+        .toggle-btn {
             position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 7px;
+            top: 7px;
+            padding: 6px;
+            border: none;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 5px;
             cursor: pointer;
-            color: #64748b;
         }
 
-        .password-strength {
-            height: 6px;
-            background: #e2e8f0;
-            border-radius: 10px;
-            margin-top: 8px;
-            overflow: hidden;
-        }
-
-        .strength-bar {
-            height: 100%;
-            width: 0%;
-            transition: 0.3s;
-        }
-
-        .strength-text {
+        .strength {
+            margin-top: 7px;
             font-size: 13px;
-            margin-top: 5px;
-            color: #64748b;
+            color: #777;
         }
 
-        .password-rules {
-            background: #f8fafc;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-bottom: 18px;
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
             font-size: 13px;
-            color: #64748b;
+            line-height: 1.5;
         }
 
-        .password-rules div {
-            margin: 5px 0;
+        .terms input {
+            width: auto;
+            margin-top: 3px;
         }
 
-        .password-rules i {
-            margin-right: 7px;
+        .terms a {
+            color: #2563eb;
         }
 
-        .valid {
-            color: #16a34a;
-        }
-
-        .invalid {
-            color: #dc2626;
-        }
-
-        .auth-btn {
+        .register-btn {
             width: 100%;
             padding: 14px;
+            margin-top: 22px;
             border: none;
             border-radius: 8px;
-            background: #0ea5e9;
+            background: #2563eb;
             color: white;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            margin-top: 5px;
         }
 
-        .auth-btn:hover {
-            background: #0284c7;
-        }
+        .register-btn:hover { background: #1d4ed8; }
 
-        .error-message {
+        .message {
             display: none;
-            background: #fee2e2;
-            color: #b91c1c;
-            padding: 11px;
+            margin-top: 18px;
+            padding: 15px;
             border-radius: 8px;
-            margin-bottom: 18px;
-            font-size: 14px;
-        }
-
-        .success-message {
-            display: none;
-            background: #dcfce7;
-            color: #15803d;
-            padding: 11px;
-            border-radius: 8px;
-            margin-bottom: 18px;
-            font-size: 14px;
-        }
-
-        .auth-footer {
+            line-height: 1.6;
             text-align: center;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .login-link {
             margin-top: 22px;
-            color: #64748b;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
         }
 
-        .auth-footer a {
-            color: #0ea5e9;
-            font-weight: 600;
+        .login-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        @media(max-width: 500px) {
+        footer {
+            margin-top: 45px;
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
 
-            .auth-card {
-                padding: 25px 20px;
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
             }
 
+            nav a { margin: 5px; }
+
+            .form-grid { grid-template-columns: 1fr; }
+
+            .full { grid-column: auto; }
+
+            .card { padding: 22px; }
         }
-
     </style>
-
 </head>
 
 <body>
 
+<nav>
+    <h2>DreamHome Pune</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="properties.html">Properties</a>
+        <a href="login.html">Login</a>
+    </div>
+</nav>
 
-    <!-- HEADER -->
+<section class="hero">
+    <h1>Create Your Account</h1>
+    <p>Join DreamHome Pune to explore properties</p>
+</section>
 
-    <header>
+<div class="container">
+    <div class="card">
+        <h2>Register</h2>
+        <p class="subtitle">Enter your details to create an account</p>
 
-        <div class="container">
+        <form id="registerForm">
+            <div class="form-grid">
 
-            <div class="logo">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name"
+                           placeholder="Enter your name"
+                           minlength="2" required>
+                </div>
 
-                <i class="fa-solid fa-house"></i>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email"
+                           placeholder="Enter your email" required>
+                </div>
 
-                DreamHome
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone"
+                           placeholder="10-digit mobile number"
+                           maxlength="10" inputmode="numeric" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Preferred Location</label>
+                    <select id="location" required>
+                        <option value="">Select location</option>
+                        <option>Nigdi</option>
+                        <option>Pradhikaran</option>
+                        <option>Akurdi</option>
+                        <option>Chinchwad</option>
+                        <option>Pimpri</option>
+                        <option>Ravet</option>
+                        <option>Tathawade</option>
+                        <option>Wakad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="userType">I am a</label>
+                    <select id="userType" required>
+                        <option value="">Select user type</option>
+                        <option>Buyer</option>
+                        <option>Renter</option>
+                        <option>Property Owner</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="password"
+                               placeholder="At least 8 characters"
+                               minlength="8" required>
+                        <button type="button" class="toggle-btn"
+                                data-target="password">Show</button>
+                    </div>
+                    <p class="strength" id="strength">
+                        Use 8+ characters with uppercase, lowercase,
+                        a number and a symbol.
+                    </p>
+                </div>
+
+                <div class="form-group full">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="confirmPassword"
+                               placeholder="Re-enter your password"
+                               required>
+                        <button type="button" class="toggle-btn"
+                                data-target="confirmPassword">Show</button>
+                    </div>
+                </div>
+
+                <div class="form-group full">
+                    <label class="terms">
+                        <input type="checkbox" id="terms" required>
+                        <span>
+                            I agree to the terms and conditions and confirm
+                            that the information provided is correct.
+                        </span>
+                    </label>
+                </div>
 
             </div>
 
-            <nav>
-
-                <ul>
-
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="properties.html">Properties</a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-    <!-- REGISTER -->
-
-    <main class="auth-page">
-
-        <div class="auth-card">
-
-
-            <div class="auth-header">
-
-                <i class="fa-solid fa-user-plus"></i>
-
-                <h1>
-                    Create Account
-                </h1>
-
-                <p>
-                    Join DreamHome and start exploring properties.
-                </p>
-
-            </div>
-
-
-            <div
-                id="errorMessage"
-                class="error-message">
-            </div>
-
-
-            <div
-                id="successMessage"
-                class="success-message">
-            </div>
-
-
-            <form id="registerForm">
-
-
-                <!-- NAME -->
-
-                <div class="form-group">
-
-                    <label for="name">
-                        Full Name
-                    </label>
-
-                    <div class="input-wrapper">
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Enter your full name"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <!-- EMAIL -->
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <div class="input-wrapper">
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="example@email.com"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PHONE -->
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <div class="input-wrapper">
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            placeholder="10 digit phone number"
-                            maxlength="10"
-                            required>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSWORD -->
-
-                <div class="form-group">
-
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <div class="input-wrapper">
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Create a strong password"
-                            required>
-
-                        <i
-                            class="fa-solid fa-eye input-icon"
-                            id="togglePassword"
-                            onclick="togglePasswordVisibility(
-                                'password',
-                                'togglePassword'
-                            )">
-                        </i>
-
-                    </div>
-
-
-                    <div class="password-strength">
-
-                        <div
-                            id="strengthBar"
-                            class="strength-bar">
-                        </div>
-
-                    </div>
-
-                    <div
-                        id="strengthText"
-                        class="strength-text">
-                        Password strength
-                    </div>
-
-                </div>
-
-
-                <!-- PASSWORD RULES -->
-
-                <div class="password-rules">
-
-                    <div id="lengthRule">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        At least 8 characters
-                    </div>
-
-                    <div id="upperRule">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        One uppercase letter
-                    </div>
-
-                    <div id="numberRule">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        One number
-                    </div>
-
-                    <div id="specialRule">
-                        <i class="fa-solid fa-circle-xmark"></i>
-                        One special character
-                    </div>
-
-                </div>
-
-
-                <!-- CONFIRM PASSWORD -->
-
-                <div class="form-group">
-
-                    <label for="confirmPassword">
-                        Confirm Password
-                    </label>
-
-                    <div class="input-wrapper">
-
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            placeholder="Re-enter your password"
-                            required>
-
-                        <i
-                            class="fa-solid fa-eye input-icon"
-                            id="toggleConfirm"
-                            onclick="togglePasswordVisibility(
-                                'confirmPassword',
-                                'toggleConfirm'
-                            )">
-                        </i>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="auth-btn">
-
-                    <i class="fa-solid fa-user-plus"></i>
-
-                    Create Account
-
-                </button>
-
-
-            </form>
-
-
-            <div class="auth-footer">
-
-                Already have an account?
-
-                <a href="login.html">
-                    Login here
-                </a>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-content">
-
-            <h2>
-                DreamHome
-            </h2>
-
-            <p>
-                Your trusted partner for buying,
-                selling, and renting properties.
-            </p>
-
-            <p>
-                © 2026 DreamHome. All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
-
-    <script>
-
-        /* =========================
-           PASSWORD VISIBILITY
-        ========================= */
-
-        function togglePasswordVisibility(
-            inputId,
-            iconId
-        ) {
-
-            let input =
-                document.getElementById(inputId);
-
-            let icon =
-                document.getElementById(iconId);
-
-
-            if (input.type === "password") {
-
-                input.type = "text";
-
-                icon.classList.remove(
-                    "fa-eye"
-                );
-
-                icon.classList.add(
-                    "fa-eye-slash"
-                );
-
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+            <div class="message" id="formMessage" role="status"
+                 aria-live="polite"></div>
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 DreamHome Pune | Real Estate Portal</p>
+    <p>Serving Nigdi, Pimpri-Chinchwad and nearby areas</p>
+</footer>
+
+<script>
+    const form = document.getElementById("registerForm");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const message = document.getElementById("formMessage");
+    const strength = document.getElementById("strength");
+
+    // Show or hide passwords
+    document.querySelectorAll(".toggle-btn").forEach(function(button) {
+        button.addEventListener("click", function() {
+            const field = document.getElementById(this.dataset.target);
+
+            if (field.type === "password") {
+                field.type = "text";
+                this.textContent = "Hide";
             } else {
-
-                input.type = "password";
-
-                icon.classList.remove(
-                    "fa-eye-slash"
-                );
-
-                icon.classList.add(
-                    "fa-eye"
-                );
-
+                field.type = "password";
+                this.textContent = "Show";
             }
+        });
+    });
 
+    // Password strength indicator
+    password.addEventListener("input", function() {
+        const value = password.value;
+
+        const strong =
+            value.length >= 8 &&
+            /[A-Z]/.test(value) &&
+            /[a-z]/.test(value) &&
+            /[0-9]/.test(value) &&
+            /[^A-Za-z0-9]/.test(value);
+
+        if (value.length === 0) {
+            strength.textContent =
+                "Use 8+ characters with uppercase, lowercase, a number and a symbol.";
+        } else if (strong) {
+            strength.textContent = "Strong password ✓";
+        } else {
+            strength.textContent =
+                "Improve your password: use 8+ characters, uppercase, lowercase, a number and a symbol.";
+        }
+    });
+
+    // Registration form validation
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const phone = document.getElementById("phone").value.trim();
+
+        message.style.display = "block";
+        message.className = "message error";
+
+        if (!/^[6-9][0-9]{9}$/.test(phone)) {
+            message.textContent =
+                "Enter a valid 10-digit Indian mobile number.";
+            return;
         }
 
-
-        /* =========================
-           PASSWORD STRENGTH
-        ========================= */
-
-        document.getElementById("password")
-            .addEventListener(
-                "input",
-                function () {
-
-                    let password =
-                        this.value;
-
-                    let score = 0;
-
-
-                    let length =
-                        password.length >= 8;
-
-                    let upper =
-                        /[A-Z]/.test(password);
-
-                    let number =
-                        /[0-9]/.test(password);
-
-                    let special =
-                        /[^A-Za-z0-9]/.test(password);
-
-
-                    if (length) score++;
-
-                    if (upper) score++;
-
-                    if (number) score++;
-
-                    if (special) score++;
-
-
-                    updateRule(
-                        "lengthRule",
-                        length
-                    );
-
-                    updateRule(
-                        "upperRule",
-                        upper
-                    );
-
-                    updateRule(
-                        "numberRule",
-                        number
-                    );
-
-                    updateRule(
-                        "specialRule",
-                        special
-                    );
-
-
-                    let bar =
-                        document.getElementById(
-                            "strengthBar"
-                        );
-
-                    let text =
-                        document.getElementById(
-                            "strengthText"
-                        );
-
-
-                    if (score === 0) {
-
-                        bar.style.width = "0%";
-                        text.textContent =
-                            "Password strength";
-
-                    }
-
-                    else if (score === 1) {
-
-                        bar.style.width = "25%";
-                        text.textContent =
-                            "Weak password";
-
-                    }
-
-                    else if (score === 2) {
-
-                        bar.style.width = "50%";
-                        text.textContent =
-                            "Medium password";
-
-                    }
-
-                    else if (score === 3) {
-
-                        bar.style.width = "75%";
-                        text.textContent =
-                            "Good password";
-
-                    }
-
-                    else {
-
-                        bar.style.width = "100%";
-                        text.textContent =
-                            "Strong password";
-
-                    }
-
-                }
-            );
-
-
-        function updateRule(
-            id,
-            valid
-        ) {
-
-            let element =
-                document.getElementById(id);
-
-            let icon =
-                element.querySelector("i");
-
-
-            if (valid) {
-
-                element.classList.add(
-                    "valid"
-                );
-
-                element.classList.remove(
-                    "invalid"
-                );
-
-                icon.className =
-                    "fa-solid fa-circle-check";
-
-            } else {
-
-                element.classList.add(
-                    "invalid"
-                );
-
-                element.classList.remove(
-                    "valid"
-                );
-
-                icon.className =
-                    "fa-solid fa-circle-xmark";
-
-            }
-
+        if (password.value.length < 8 ||
+            !/[A-Z]/.test(password.value) ||
+            !/[a-z]/.test(password.value) ||
+            !/[0-9]/.test(password.value) ||
+            !/[^A-Za-z0-9]/.test(password.value)) {
+            message.textContent =
+                "Please create a stronger password using uppercase, lowercase, a number and a symbol.";
+            return;
         }
 
-
-        /* =========================
-           REGISTER
-        ========================= */
-
-        document.getElementById("registerForm")
-            .addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    let name =
-                        document.getElementById(
-                            "name"
-                        ).value.trim();
-
-                    let email =
-                        document.getElementById(
-                            "email"
-                        ).value.trim()
-                        .toLowerCase();
-
-                    let phone =
-                        document.getElementById(
-                            "phone"
-                        ).value.trim();
-
-                    let password =
-                        document.getElementById(
-                            "password"
-                        ).value;
-
-                    let confirmPassword =
-                        document.getElementById(
-                            "confirmPassword"
-                        ).value;
-
-
-                    let error =
-                        document.getElementById(
-                            "errorMessage"
-                        );
-
-                    let success =
-                        document.getElementById(
-                            "successMessage"
-                        );
-
-
-                    error.style.display = "none";
-
-                    success.style.display = "none";
-
-
-                    /* NAME */
-
-                    if (name.length < 3) {
-
-                        showError(
-                            "Please enter a valid name."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* EMAIL */
-
-                    let emailPattern =
-                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-                    if (!emailPattern.test(email)) {
-
-                        showError(
-                            "Please enter a valid email address."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* PHONE */
-
-                    if (!/^[0-9]{10}$/.test(phone)) {
-
-                        showError(
-                            "Phone number must contain exactly 10 digits."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* PASSWORD */
-
-                    let strongPassword =
-                        password.length >= 8 &&
-                        /[A-Z]/.test(password) &&
-                        /[0-9]/.test(password) &&
-                        /[^A-Za-z0-9]/.test(password);
-
-
-                    if (!strongPassword) {
-
-                        showError(
-                            "Please create a stronger password using all the required rules."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* CONFIRM */
-
-                    if (
-                        password !==
-                        confirmPassword
-                    ) {
-
-                        showError(
-                            "Passwords do not match."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* GET USERS */
-
-                    let users =
-                        JSON.parse(
-                            localStorage.getItem(
-                                "users"
-                            )
-                        ) || [];
-
-
-                    /* DUPLICATE EMAIL */
-
-                    let existingUser =
-                        users.find(
-                            function (user) {
-
-                                return user.email === email;
-
-                            }
-                        );
-
-
-                    if (existingUser) {
-
-                        showError(
-                            "An account with this email already exists."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /* CREATE USER */
-
-                    let newUser = {
-
-                        name: name,
-
-                        email: email,
-
-                        phone: phone,
-
-                        password: password,
-
-                        createdAt:
-                            new Date()
-                            .toISOString()
-
-                    };
-
-
-                    users.push(newUser);
-
-
-                    localStorage.setItem(
-                        "users",
-                        JSON.stringify(users)
-                    );
-
-
-                    success.textContent =
-                        "Account created successfully! Redirecting to login...";
-
-                    success.style.display =
-                        "block";
-
-
-                    document.getElementById(
-                        "registerForm"
-                    ).reset();
-
-
-                    setTimeout(
-                        function () {
-
-                            window.location.href =
-                                "login.html";
-
-                        },
-                        1500
-                    );
-
-
-                }
-            );
-
-
-        function showError(message) {
-
-            let error =
-                document.getElementById(
-                    "errorMessage"
-                );
-
-            error.textContent =
-                message;
-
-            error.style.display =
-                "block";
-
+        if (password.value !== confirmPassword.value) {
+            message.textContent = "Passwords do not match.";
+            confirmPassword.focus();
+            return;
         }
 
-    </script>
+        if (!document.getElementById("terms").checked) {
+            message.textContent =
+                "Please accept the terms and conditions.";
+            return;
+        }
+
+        message.className = "message success";
+        message.textContent =
+            "✓ Form validated successfully! Backend registration is not connected yet.";
+
+        // No account or password is stored by this demo form.
+    });
+</script>
 
 </body>
-
 </html>
+```
