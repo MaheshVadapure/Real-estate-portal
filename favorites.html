@@ -1,615 +1,318 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Favorites | DreamHome Pune</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #f5f7fa;
-            color: #222;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            background: #1f2937;
-            padding: 18px 8%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav h2 {
-            color: white;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 18px;
-        }
-
-        nav a:hover {
-            color: #60a5fa;
-        }
-
-        /* HERO */
-
-        .hero {
-            background: #2563eb;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        .hero h1 {
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 17px;
-        }
-
-        /* CONTAINER */
-
-        .container {
-            max-width: 1100px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
-        .favorite-count {
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .favorite-count strong {
-            color: #2563eb;
-        }
-
-        /* PROPERTY GRID */
-
-        .favorites {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        /* CARD */
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .property-image {
-            height: 180px;
-            background: #dbeafe;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #2563eb;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 8px;
-        }
-
-        .location {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #2563eb;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .details {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        /* BUTTONS */
-
-        .buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .view-btn,
-        .remove-btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: 6px;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .view-btn {
-            background: #2563eb;
-            color: white;
-        }
-
-        .view-btn:hover {
-            background: #1d4ed8;
-        }
-
-        .remove-btn {
-            background: #fee2e2;
-            color: #b91c1c;
-        }
-
-        .remove-btn:hover {
-            background: #fecaca;
-        }
-
-        /* EMPTY STATE */
-
-        .empty-state {
-            display: none;
-
-            background: white;
-            padding: 60px 20px;
-
-            text-align: center;
-
-            border-radius: 12px;
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
-
-        .empty-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-
-        .empty-state h2 {
-            margin-bottom: 10px;
-        }
-
-        .empty-state p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .browse-btn {
-            display: inline-block;
-
-            background: #2563eb;
-            color: white;
-
-            padding: 12px 20px;
-
-            border-radius: 7px;
-
-            text-decoration: none;
-        }
-
-        .browse-btn:hover {
-            background: #1d4ed8;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            margin-top: 60px;
-        }
-
-        footer p {
-            color: #d1d5db;
-            margin-top: 7px;
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 850px) {
-
-            .favorites {
-                grid-template-columns: 1fr 1fr;
-            }
-
-        }
-
-        @media (max-width: 550px) {
-
-            nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 5px;
-            }
-
-            .favorites {
-                grid-template-columns: 1fr;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Favorites | DreamHome Pune</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #174c3c;
+      --light: #eaf4ef;
+      --gold: #d7a64a;
+      --text: #24312b;
+      --muted: #6b756f;
+      --border: #e2e8e4;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f7f9f7;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; }
+    .navbar {
+      padding: 15px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 25px; font-weight: 800; color: var(--green); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: #46534c; }
+    .nav-links a.active { color: var(--green); }
+    .nav-links .login {
+      background: var(--green); color: white; padding: 9px 15px; border-radius: 7px;
+    }
+    .hero {
+      padding: 45px 6%;
+      background: linear-gradient(125deg, #123b30, #28644c);
+      color: white;
+    }
+    .hero-inner { max-width: 1150px; margin: auto; }
+    .eyebrow { color: #f3d49a; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; }
+    .hero h1 { font-size: clamp(29px, 4vw, 40px); margin: 10px 0; }
+    .hero p { color: #e0ebe4; }
+    .container { max-width: 1150px; margin: 35px auto 65px; padding: 0 22px; }
+    .heading-row {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 15px; margin-bottom: 22px;
+    }
+    .heading-row h2 { font-size: 25px; }
+    .count { font-size: 14px; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .card {
+      background: white; border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; display: flex; flex-direction: column;
+    }
+    .visual {
+      min-height: 155px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+      background: linear-gradient(135deg, #dfece4, #b8d0c1);
+    }
+    .visual.villa { background: linear-gradient(135deg, #f0e6d5, #d9c3a0); }
+    .visual.house { background: linear-gradient(135deg, #e2e8f4, #bac9e0); }
+    .visual span { font-size: 48px; }
+    .visual small { font-size: 11px; font-weight: 700; color: #254c3b; letter-spacing: 1px; }
+    .content { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .type { color: var(--green); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
+    .content h3 { font-size: 18px; margin: 5px 0; }
+    .location { font-size: 13px; color: var(--muted); }
+    .price { font-size: 23px; color: var(--green); font-weight: 800; margin: 12px 0; }
+    .features { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 17px; }
+    .features span { font-size: 12px; padding: 5px 8px; background: #f4f7f4; border-radius: 5px; color: #59665e; }
+    .actions { display: flex; gap: 9px; margin-top: auto; }
+    .btn {
+      border: 0; border-radius: 7px; padding: 10px 12px; font-size: 13px;
+      font-weight: 700; text-align: center; display: inline-flex;
+      justify-content: center; align-items: center;
+    }
+    .btn-primary { background: var(--green); color: white; flex: 1; }
+    .btn-remove { background: #fff0ee; color: #a12e26; }
+    .empty {
+      background: white; border: 1px dashed #c9d5cd; border-radius: 12px;
+      text-align: center; padding: 48px 20px;
+    }
+    .empty .icon { font-size: 46px; }
+    .empty h2 { margin: 8px 0; }
+    .empty p { color: var(--muted); margin-bottom: 18px; }
+    .empty .btn { background: var(--green); color: white; padding: 12px 18px; }
+    .notice { margin-top: 18px; font-size: 12px; color: var(--muted); }
+    .hidden { display: none !important; }
+    footer { background: #102d24; color: white; text-align: center; padding: 32px 6%; }
+    footer p { color: #c3d2ca; font-size: 13px; margin-top: 8px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; }
+    @media (max-width: 850px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 580px) {
+      .navbar { padding: 14px 5%; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 12px; }
+      .container { padding: 0 15px; }
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 35px 5%; }
+    }
+  </style>
 </head>
-
-
 <body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DreamHome<span>.</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="properties.html">Properties</a>
+      <a href="favorites.html" class="active">Favorites</a>
+      <a href="add-property.html">Sell Property</a>
+      <a href="login.html" class="login">Login</a>
+    </div>
+  </nav>
 
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Your saved homes</div>
+      <h1>My Favorite Properties ❤️</h1>
+      <p>Keep your preferred properties together and find them again easily.</p>
+    </div>
+  </header>
 
-<!-- NAVBAR -->
-
-<nav>
-
-    <h2>
-        DreamHome Pune
-    </h2>
-
-    <div>
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="properties.html">
-            Properties
-        </a>
-
-        <a href="favorites.html">
-            Favorites
-        </a>
-
-        <a href="profile.html">
-            Profile
-        </a>
-
-        <a href="login.html">
-            Login
-        </a>
-
+  <main class="container">
+    <div class="heading-row">
+      <div>
+        <h2>Saved Properties</h2>
+        <p class="count" id="favoriteCount" aria-live="polite">Loading favorites...</p>
+      </div>
+      <a href="properties.html" class="btn btn-primary">＋ Explore Properties</a>
     </div>
 
-</nav>
+    <div class="grid" id="favoritesGrid"></div>
 
+    <section class="empty hidden" id="emptyState">
+      <div class="icon">♡</div>
+      <h2>No favorites yet</h2>
+      <p>Browse properties and tap the heart button to save your favorites here.</p>
+      <a href="properties.html" class="btn">Explore Properties</a>
+    </section>
 
-<!-- HERO -->
-
-<section class="hero">
-
-    <h1>
-        My Favorite Properties
-    </h1>
-
-    <p>
-        Keep track of properties you are interested in.
+    <p class="notice">
+      Favorites are stored in this browser on this device. They are not synced
+      between devices or accounts.
     </p>
+  </main>
 
-</section>
-
-
-<!-- MAIN -->
-
-<div class="container">
-
-
-    <div class="favorite-count">
-
-        You have
-        <strong id="favoriteCount">3</strong>
-        favorite properties.
-
+  <footer>
+    <a href="index.html" class="logo" style="color:white">DreamHome<span>.</span></a>
+    <p>Helping you find a place to call home in Pune.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="properties.html">Properties</a>
+      <a href="contact-owner.html">Contact</a>
     </div>
-
-
-    <!-- FAVORITES -->
-
-    <div
-        class="favorites"
-        id="favoritesList"
-    >
-
-
-        <!-- PROPERTY 1 -->
-
-        <div class="card">
-
-            <div class="property-image">
-                Nigdi Property
-            </div>
-
-            <div class="card-content">
-
-                <h3>
-                    2 BHK Apartment
-                </h3>
-
-                <p class="location">
-                    📍 Nigdi, Pune
-                </p>
-
-                <p class="price">
-                    ₹75 Lakhs
-                </p>
-
-                <p class="details">
-                    2 Bedrooms •
-                    2 Bathrooms •
-                    Parking
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="property-details.html"
-                        class="view-btn"
-                    >
-                        View Details
-                    </a>
-
-                    <button
-                        class="remove-btn"
-                        onclick="removeFavorite(this)"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROPERTY 2 -->
-
-        <div class="card">
-
-            <div class="property-image">
-                Pradhikaran Property
-            </div>
-
-            <div class="card-content">
-
-                <h3>
-                    3 BHK Apartment
-                </h3>
-
-                <p class="location">
-                    📍 Pradhikaran, Pune
-                </p>
-
-                <p class="price">
-                    ₹1.15 Crore
-                </p>
-
-                <p class="details">
-                    3 Bedrooms •
-                    3 Bathrooms •
-                    Parking
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="property-details.html"
-                        class="view-btn"
-                    >
-                        View Details
-                    </a>
-
-                    <button
-                        class="remove-btn"
-                        onclick="removeFavorite(this)"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PROPERTY 3 -->
-
-        <div class="card">
-
-            <div class="property-image">
-                Wakad Property
-            </div>
-
-            <div class="card-content">
-
-                <h3>
-                    4 BHK Luxury Villa
-                </h3>
-
-                <p class="location">
-                    📍 Wakad, Pune
-                </p>
-
-                <p class="price">
-                    ₹1.45 Crore
-                </p>
-
-                <p class="details">
-                    4 Bedrooms •
-                    Private Parking •
-                    Garden
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="property-details.html"
-                        class="view-btn"
-                    >
-                        View Details
-                    </a>
-
-                    <button
-                        class="remove-btn"
-                        onclick="removeFavorite(this)"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- EMPTY STATE -->
-
-    <div
-        class="empty-state"
-        id="emptyState"
-    >
-
-        <div class="empty-icon">
-            ❤️
-        </div>
-
-        <h2>
-            No Favorite Properties
-        </h2>
-
-        <p>
-            You have not saved any properties yet.
-        </p>
-
-        <a
-            href="properties.html"
-            class="browse-btn"
-        >
-            Browse Properties
-        </a>
-
-    </div>
-
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <h3>
-        DreamHome Pune
-    </h3>
-
-    <p>
-        Real Estate Portal for Pune & Pimpri-Chinchwad
-    </p>
-
-    <p>
-        © 2026 DreamHome Pune. All Rights Reserved.
-    </p>
-
-</footer>
-
-
-<script>
-
-
-/* REMOVE FAVORITE */
-
-function removeFavorite(button) {
-
-    const card = button.closest(".card");
-
-    card.remove();
-
-    updateFavoriteCount();
-
-}
-
-
-/* UPDATE COUNT */
-
-function updateFavoriteCount() {
-
-    const cards =
-        document.querySelectorAll(
-            "#favoritesList .card"
-        );
-
-    const count =
-        cards.length;
-
-    document.getElementById(
-        "favoriteCount"
-    ).textContent = count;
-
-
-    /* SHOW EMPTY STATE */
-
-    if (count === 0) {
-
-        document.getElementById(
-            "favoritesList"
-        ).style.display = "none";
-
-        document.getElementById(
-            "emptyState"
-        ).style.display = "block";
-
+    <p>© 2026 DreamHome Pune. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = "dreamhomeFavorites";
+
+    // This catalogue must use the same IDs as properties.html.
+    const catalogue = {
+      nigdi: {
+        id: "nigdi", type: "Apartment", title: "2 BHK Apartment",
+        location: "Nigdi, Pimpri-Chinchwad", price: "₹75 Lakhs",
+        icon: "🏢", visual: "", features: ["2 Bedrooms", "2 Bathrooms", "Ready to Move"]
+      },
+      pradhikaran: {
+        id: "pradhikaran", type: "Apartment", title: "3 BHK Premium Apartment",
+        location: "Pradhikaran, Pune", price: "₹1.15 Crore",
+        icon: "🏙️", visual: "", features: ["3 Bedrooms", "3 Bathrooms", "Ready to Move"]
+      },
+      wakad: {
+        id: "wakad", type: "Villa", title: "4 BHK Luxury Villa",
+        location: "Wakad, Pune", price: "₹1.45 Crore",
+        icon: "🏡", visual: "villa", features: ["4 Bedrooms", "4 Bathrooms", "Private Parking"]
+      },
+      ravet: {
+        id: "ravet", type: "Apartment", title: "2 BHK Premium Apartment",
+        location: "Ravet, Pune", price: "₹68 Lakhs",
+        icon: "🏢", visual: "", features: ["2 Bedrooms", "Lift", "Parking & Security"]
+      },
+      chinchwad: {
+        id: "chinchwad", type: "Independent House", title: "3 BHK Family House",
+        location: "Chinchwad, Pune", price: "₹95 Lakhs",
+        icon: "🏠", visual: "house", features: ["3 Bedrooms", "2 Bathrooms", "Independent House"]
+      },
+      tathawade: {
+        id: "tathawade", type: "Apartment", title: "3 BHK Modern Apartment",
+        location: "Tathawade, Pune", price: "₹88 Lakhs",
+        icon: "🏬", visual: "", features: ["3 Bedrooms", "2 Bathrooms", "New Construction"]
+      }
+    };
+
+    const grid = document.getElementById("favoritesGrid");
+    const count = document.getElementById("favoriteCount");
+    const empty = document.getElementById("emptyState");
+
+    function getFavorites() {
+      try {
+        const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        if (!Array.isArray(value)) return [];
+        return [...new Set(value.filter(id =>
+          typeof id === "string" && Object.prototype.hasOwnProperty.call(catalogue, id)
+        ))];
+      } catch (error) {
+        count.textContent = "Unable to read favorites from this browser.";
+        return [];
+      }
     }
 
-}
+    function saveFavorites(ids) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+        return true;
+      } catch (error) {
+        alert("Your browser could not save favorites. Check browser storage settings.");
+        return false;
+      }
+    }
 
-</script>
+    function renderFavorites() {
+      const ids = getFavorites();
+      grid.innerHTML = "";
 
+      ids.forEach(id => {
+        const property = catalogue[id];
+        if (!property) return;
 
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const visual = document.createElement("div");
+        visual.className = "visual " + property.visual;
+
+        const icon = document.createElement("span");
+        icon.textContent = property.icon;
+
+        const visualLabel = document.createElement("small");
+        visualLabel.textContent = property.type;
+
+        visual.append(icon, visualLabel);
+
+        const content = document.createElement("div");
+        content.className = "content";
+
+        const type = document.createElement("span");
+        type.className = "type";
+        type.textContent = property.type;
+
+        const title = document.createElement("h3");
+        title.textContent = property.title;
+
+        const location = document.createElement("p");
+        location.className = "location";
+        location.textContent = "📍 " + property.location;
+
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = property.price;
+
+        const features = document.createElement("div");
+        features.className = "features";
+        property.features.forEach(feature => {
+          const item = document.createElement("span");
+          item.textContent = feature;
+          features.appendChild(item);
+        });
+
+        const actions = document.createElement("div");
+        actions.className = "actions";
+
+        const view = document.createElement("a");
+        view.className = "btn btn-primary";
+        view.href = "property-details.html";
+        view.textContent = "View Details";
+
+        const remove = document.createElement("button");
+        remove.className = "btn btn-remove";
+        remove.type = "button";
+        remove.textContent = "♥ Remove";
+        remove.setAttribute("aria-label", "Remove " + property.title + " from favorites");
+        remove.addEventListener("click", () => {
+          const updated = getFavorites().filter(favoriteId => favoriteId !== id);
+          if (saveFavorites(updated)) renderFavorites();
+        });
+
+        actions.append(view, remove);
+        content.append(type, title, location, price, features, actions);
+        card.append(visual, content);
+        grid.appendChild(card);
+      });
+
+      count.textContent = ids.length + (ids.length === 1 ? " saved property" : " saved properties");
+      empty.classList.toggle("hidden", ids.length !== 0);
+      grid.classList.toggle("hidden", ids.length === 0);
+    }
+
+    // Re-render when returning to this tab after changing favorites elsewhere.
+    window.addEventListener("storage", event => {
+      if (event.key === STORAGE_KEY) renderFavorites();
+    });
+
+    window.addEventListener("pageshow", renderFavorites);
+    renderFavorites();
+  </script>
 </body>
-
 </html>

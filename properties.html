@@ -5,580 +5,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Properties | DreamHome Pune</title>
-
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --primary: #174c3c;
-      --primary-light: #eaf4ef;
-      --accent: #d7a64a;
-      --text: #24312b;
-      --muted: #6b756f;
-      --border: #e2e8e4;
-      --background: #f7f9f7;
-      --white: #ffffff;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--background);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button, select, input {
-      font: inherit;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .navbar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 15px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      color: var(--primary);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -0.7px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: #46534c;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary);
-    }
-
-    .nav-links .login-btn {
-      background: var(--primary);
-      color: white;
-      padding: 9px 17px;
-      border-radius: 7px;
-    }
-
-    .hero {
-      background: linear-gradient(125deg, #123b30, #28644c);
-      color: white;
-      padding: 53px 6% 58px;
-    }
-
-    .hero-content {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .eyebrow {
-      color: #f3d49a;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .hero h1 {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      margin: 12px 0;
-    }
-
-    .hero p {
-      color: #e0ebe4;
-      max-width: 620px;
-      font-size: 16px;
-    }
-
-    .page-container {
-      max-width: 1200px;
-      margin: 32px auto 65px;
-      padding: 0 22px;
-    }
-
-    .filter-panel {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 23px;
-      box-shadow: 0 7px 24px rgba(22, 55, 40, 0.04);
-      margin-bottom: 30px;
-    }
-
-    .filter-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 17px;
-    }
-
-    .filter-heading h2 {
-      font-size: 20px;
-    }
-
-    .filter-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 15px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 7px;
-      color: #435048;
-    }
-
-    .field select,
-    .field input {
-      width: 100%;
-      padding: 12px;
-      background: white;
-      color: var(--text);
-      border: 1px solid #d9e1dc;
-      border-radius: 8px;
-      outline: none;
-      min-height: 46px;
-    }
-
-    .field select:focus,
-    .field input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(23, 76, 60, 0.1);
-    }
-
-    .filter-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 0;
-      border-radius: 8px;
-      padding: 11px 19px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: #10372b;
-    }
-
-    .btn-secondary {
-      background: var(--primary-light);
-      color: var(--primary);
-    }
-
-    .btn-secondary:hover {
-      background: #dcece3;
-    }
-
-    .listings-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 19px;
-    }
-
-    .listings-heading h2 {
-      font-size: 25px;
-    }
-
-    .results-count {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    .sort-control {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .sort-control label {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .sort-control select {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
-      min-width: 180px;
-      color: var(--text);
-    }
-
-    .property-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 23px;
-    }
-
-    .property-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .property-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(22, 55, 40, 0.09);
-    }
-
-    .property-visual {
-      min-height: 165px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 7px;
-      color: white;
-      background: linear-gradient(135deg, #dfece4, #b8d0c1);
-      position: relative;
-    }
-
-    .property-visual .building-icon {
-      font-size: 55px;
-      line-height: 1.2;
-    }
-
-    .property-visual small {
-      color: #254c3b;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .property-visual.villa {
-      background: linear-gradient(135deg, #f0e6d5, #d9c3a0);
-    }
-
-    .property-visual.house {
-      background: linear-gradient(135deg, #e2e8f4, #bac9e0);
-    }
-
-    .property-visual.premium {
-      background: linear-gradient(135deg, #e8e2f2, #c9badf);
-    }
-
-    .property-visual.new {
-      background: linear-gradient(135deg, #dcefeb, #abd4cb);
-    }
-
-    .property-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 5px 10px;
-      background: white;
-      color: var(--primary);
-      border-radius: 5px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .property-content {
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .property-type {
-      font-size: 11px;
-      color: var(--primary);
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .property-content h3 {
-      font-size: 18px;
-      line-height: 1.4;
-      margin: 5px 0;
-    }
-
-    .location {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .price {
-      color: var(--primary);
-      font-size: 23px;
-      font-weight: 800;
-      margin: 13px 0 10px;
-    }
-
-    .property-features {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 12px 0;
-      border-top: 1px solid #edf0ed;
-      border-bottom: 1px solid #edf0ed;
-      margin-bottom: 15px;
-    }
-
-    .property-features span {
-      color: #59665e;
-      font-size: 12px;
-      background: #f4f7f4;
-      padding: 5px 8px;
-      border-radius: 5px;
-    }
-
-    .property-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    .status {
-      color: #27734f;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .view-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 9px 13px;
-      border-radius: 7px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .view-btn:hover {
-      background: #10372b;
-    }
-
-    .no-results {
-      background: white;
-      border: 1px dashed #c9d5cd;
-      border-radius: 12px;
-      text-align: center;
-      padding: 45px 20px;
-      margin-top: 10px;
-    }
-
-    .no-results .empty-icon {
-      font-size: 40px;
-    }
-
-    .no-results h3 {
-      margin: 8px 0;
-    }
-
-    .no-results p {
-      color: var(--muted);
-      margin-bottom: 17px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .cta {
-      background: var(--primary-light);
-      padding: 30px;
-      margin-top: 45px;
-      border-radius: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .cta h2 {
-      color: var(--primary);
-      font-size: 22px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .footer {
-      background: #102d24;
-      color: white;
-      padding: 35px 6%;
-      text-align: center;
-    }
-
-    .footer p {
-      color: #c3d2ca;
-      font-size: 13px;
-      margin-top: 7px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-      font-size: 13px;
-    }
-
-    .footer-links a:hover {
-      color: #f3d49a;
-    }
-
-    @media (max-width: 950px) {
-      .filter-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .property-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .navbar {
-        padding: 14px 5%;
-      }
-
-      .nav-links {
-        gap: 13px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 38px 5%;
-      }
-
-      .page-container {
-        padding: 0 15px;
-        margin-top: 22px;
-      }
-
-      .filter-grid,
-      .property-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .filter-panel {
-        padding: 17px;
-      }
-
-      .sort-control {
-        width: 100%;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .sort-control select {
-        width: 100%;
-      }
-
-      .listings-heading h2 {
-        font-size: 22px;
-      }
-
-      .cta {
-        padding: 22px;
-      }
+      --green: #174c3c; --light: #eaf4ef; --gold: #d7a64a;
+      --text: #24312b; --muted: #6b756f; --border: #e2e8e4;
+    }
+    body { font-family: Arial, Helvetica, sans-serif; background: #f7f9f7; color: var(--text); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    button, select, input { font: inherit; }
+    .navbar { padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; background: white; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 25px; font-weight: 800; color: var(--green); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: #46534c; }
+    .nav-links a.active { color: var(--green); }
+    .nav-links .login { background: var(--green); color: white; padding: 9px 15px; border-radius: 7px; }
+    .hero { padding: 45px 6%; background: linear-gradient(125deg, #123b30, #28644c); color: white; }
+    .hero-inner { max-width: 1150px; margin: auto; }
+    .eyebrow { color: #f3d49a; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; }
+    .hero h1 { font-size: clamp(29px, 4vw, 42px); margin: 10px 0; }
+    .hero p { color: #e0ebe4; }
+    .container { max-width: 1200px; margin: 32px auto 60px; padding: 0 22px; }
+    .filters { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 28px; }
+    .filters h2 { font-size: 20px; margin-bottom: 16px; }
+    .filter-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .filter-grid select, .filter-grid input, .sort-control select {
+      width: 100%; min-height: 44px; padding: 10px;
+      border: 1px solid #d9e1dc; border-radius: 7px; background: white; color: var(--text);
+    }
+    .actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .btn { border: 0; border-radius: 7px; padding: 11px 16px; cursor: pointer; font-weight: 700; font-size: 13px; display: inline-flex; justify-content: center; align-items: center; }
+    .primary { background: var(--green); color: white; }
+    .secondary { background: var(--light); color: var(--green); }
+    .listing-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .listing-heading h2 { font-size: 25px; }
+    .count { font-size: 13px; color: var(--muted); }
+    .sort-control { display: flex; align-items: center; gap: 10px; }
+    .sort-control label { margin: 0; }
+    .sort-control select { min-width: 190px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+    .visual { min-height: 165px; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 7px; background: linear-gradient(135deg, #dfece4, #b8d0c1); }
+    .visual.villa { background: linear-gradient(135deg, #f0e6d5, #d9c3a0); }
+    .visual.house { background: linear-gradient(135deg, #e2e8f4, #bac9e0); }
+    .visual.premium { background: linear-gradient(135deg, #e8e2f2, #c9badf); }
+    .visual.new { background: linear-gradient(135deg, #dcefeb, #abd4cb); }
+    .building { font-size: 53px; line-height: 1.2; }
+    .visual small { color: #254c3b; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+    .tag { position: absolute; top: 12px; left: 12px; background: white; color: var(--green); padding: 4px 9px; border-radius: 5px; font-size: 11px; font-weight: 800; }
+    .heart {
+      position: absolute; top: 10px; right: 10px; width: 37px; height: 37px;
+      border: 0; border-radius: 50%; background: white; color: #59665e;
+      font-size: 22px; cursor: pointer; box-shadow: 0 2px 8px #0001;
+    }
+    .heart.saved { color: #d6334c; }
+    .heart:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+    .content { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .type { color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    .content h3 { font-size: 18px; line-height: 1.4; margin: 5px 0; }
+    .location { color: var(--muted); font-size: 13px; }
+    .price { color: var(--green); font-size: 23px; font-weight: 800; margin: 12px 0; }
+    .features { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px 0; border-top: 1px solid #edf0ed; border-bottom: 1px solid #edf0ed; margin-bottom: 14px; }
+    .features span { color: #59665e; font-size: 12px; background: #f4f7f4; padding: 5px 8px; border-radius: 5px; }
+    .card-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: auto; }
+    .status { color: #26734d; font-size: 12px; font-weight: 700; }
+    .details { background: var(--green); color: white; padding: 9px 12px; border-radius: 7px; font-size: 12px; font-weight: 700; }
+    .empty { text-align: center; background: white; border: 1px dashed #c9d5cd; border-radius: 12px; padding: 40px 20px; }
+    .empty h3 { margin-bottom: 8px; }
+    .empty p { color: var(--muted); margin-bottom: 15px; }
+    .hidden { display: none !important; }
+    .note { margin-top: 20px; font-size: 12px; color: var(--muted); }
+    footer { background: #102d24; color: white; text-align: center; padding: 32px 6%; }
+    footer p { color: #c3d2ca; font-size: 13px; margin-top: 8px; }
+    .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 14px; font-size: 13px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 580px) {
+      .navbar { padding: 14px 5%; } .nav-links { gap: 12px; } .nav-links a { font-size: 12px; }
+      .container { padding: 0 15px; } .hero { padding: 35px 5%; }
+      .grid, .filter-grid { grid-template-columns: 1fr; }
+      .sort-control { width: 100%; align-items: flex-start; flex-direction: column; }
+      .sort-control select { width: 100%; }
     }
   </style>
 </head>
-
 <body>
-
   <nav class="navbar">
     <a href="index.html" class="logo">DreamHome<span>.</span></a>
-
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="properties.html" class="active">Properties</a>
-      <a href="favorites.html">Favorites</a>
+      <a href="favorites.html">Favorites <span id="navFavoriteCount"></span></a>
       <a href="add-property.html">Sell Property</a>
-      <a href="login.html" class="login-btn">Login</a>
+      <a href="login.html" class="login">Login</a>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="hero-content">
+    <div class="hero-inner">
       <div class="eyebrow">Find your place in Pune</div>
       <h1>Explore Properties</h1>
-      <p>
-        Discover apartments, villas and houses in Nigdi, Pradhikaran,
-        Wakad, Ravet and other popular Pune localities.
-      </p>
+      <p>Explore sample apartment, villa and house listings across Pune localities.</p>
     </div>
   </header>
 
-  <main class="page-container">
-
-    <section class="filter-panel">
-      <div class="filter-heading">
-        <h2>Find Your Property</h2>
-      </div>
-
+  <main class="container">
+    <section class="filters">
+      <h2>Find Your Property</h2>
       <div class="filter-grid">
-        <div class="field">
+        <div>
           <label for="propertyType">Property Type</label>
           <select id="propertyType">
             <option value="">All Types</option>
@@ -587,8 +123,7 @@
             <option value="house">Independent House</option>
           </select>
         </div>
-
-        <div class="field">
+        <div>
           <label for="location">Location</label>
           <select id="location">
             <option value="">All Locations</option>
@@ -600,8 +135,7 @@
             <option value="tathawade">Tathawade</option>
           </select>
         </div>
-
-        <div class="field">
+        <div>
           <label for="budget">Maximum Budget</label>
           <select id="budget">
             <option value="">Any Budget</option>
@@ -612,402 +146,285 @@
             <option value="15000000">Up to ₹1.5 Crore</option>
           </select>
         </div>
-
-        <div class="field">
+        <div>
           <label for="keyword">Search Keyword</label>
-          <input
-            type="search"
-            id="keyword"
-            placeholder="e.g. 2 BHK, parking"
-          >
+          <input id="keyword" type="search" placeholder="e.g. 2 BHK, parking">
         </div>
       </div>
-
-      <div class="filter-actions">
-        <button class="btn btn-primary" id="searchBtn" type="button">
-          Search Properties
-        </button>
-        <button class="btn btn-secondary" id="resetBtn" type="button">
-          Reset Filters
-        </button>
+      <div class="actions">
+        <button class="btn primary" id="searchBtn" type="button">Search Properties</button>
+        <button class="btn secondary" id="resetBtn" type="button">Reset Filters</button>
       </div>
     </section>
 
     <section>
-      <div class="listings-heading">
+      <div class="listing-heading">
         <div>
           <h2>Available Properties</h2>
-          <p class="results-count" id="resultsCount" aria-live="polite">
-            Showing 6 properties
-          </p>
+          <p class="count" id="resultsCount" aria-live="polite">Showing 6 properties</p>
         </div>
-
         <div class="sort-control">
           <label for="sortBy">Sort by:</label>
           <select id="sortBy">
             <option value="default">Recommended</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
-            <option value="name">Property Name: A to Z</option>
+            <option value="name">Name: A to Z</option>
           </select>
         </div>
       </div>
 
-      <div class="property-grid" id="propertyGrid">
+      <div class="grid" id="propertyGrid">
 
-        <article class="property-card"
-          data-type="apartment"
-          data-location="nigdi"
-          data-price="7500000"
-          data-order="1">
-          <div class="property-visual">
-            <span class="property-badge">Popular</span>
-            <span class="building-icon" aria-hidden="true">🏢</span>
-            <small>Residential Apartment</small>
+        <article class="card" data-id="nigdi" data-type="apartment" data-location="nigdi" data-price="7500000" data-order="1">
+          <div class="visual">
+            <span class="tag">Popular</span>
+            <button class="heart" type="button" aria-label="Add 2 BHK Apartment in Nigdi to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏢</span><small>Residential Apartment</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Apartment</span>
-            <h3>2 BHK Apartment</h3>
-            <p class="location">📍 Nigdi, Pimpri-Chinchwad</p>
-            <div class="price">₹75 Lakhs</div>
-            <div class="property-features">
-              <span>🛏 2 Bedrooms</span>
-              <span>🚿 2 Bathrooms</span>
-              <span>Ready to Move</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Apartment</span><h3>2 BHK Apartment</h3>
+            <p class="location">📍 Nigdi, Pimpri-Chinchwad</p><div class="price">₹75 Lakhs</div>
+            <div class="features"><span>2 Bedrooms</span><span>2 Bathrooms</span><span>Ready to Move</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
-        <article class="property-card"
-          data-type="apartment"
-          data-location="pradhikaran"
-          data-price="11500000"
-          data-order="2">
-          <div class="property-visual premium">
-            <span class="property-badge">Premium</span>
-            <span class="building-icon" aria-hidden="true">🏙️</span>
-            <small>Premium Living</small>
+        <article class="card" data-id="pradhikaran" data-type="apartment" data-location="pradhikaran" data-price="11500000" data-order="2">
+          <div class="visual premium">
+            <span class="tag">Premium</span>
+            <button class="heart" type="button" aria-label="Add 3 BHK Premium Apartment to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏙️</span><small>Premium Living</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Apartment</span>
-            <h3>3 BHK Premium Apartment</h3>
-            <p class="location">📍 Pradhikaran, Pune</p>
-            <div class="price">₹1.15 Crore</div>
-            <div class="property-features">
-              <span>🛏 3 Bedrooms</span>
-              <span>🚿 3 Bathrooms</span>
-              <span>Ready to Move</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Apartment</span><h3>3 BHK Premium Apartment</h3>
+            <p class="location">📍 Pradhikaran, Pune</p><div class="price">₹1.15 Crore</div>
+            <div class="features"><span>3 Bedrooms</span><span>3 Bathrooms</span><span>Ready to Move</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
-        <article class="property-card"
-          data-type="villa"
-          data-location="wakad"
-          data-price="14500000"
-          data-order="3">
-          <div class="property-visual villa">
-            <span class="property-badge">Luxury</span>
-            <span class="building-icon" aria-hidden="true">🏡</span>
-            <small>Luxury Villa</small>
+        <article class="card" data-id="wakad" data-type="villa" data-location="wakad" data-price="14500000" data-order="3">
+          <div class="visual villa">
+            <span class="tag">Luxury</span>
+            <button class="heart" type="button" aria-label="Add 4 BHK Luxury Villa to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏡</span><small>Luxury Villa</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Villa</span>
-            <h3>4 BHK Luxury Villa</h3>
-            <p class="location">📍 Wakad, Pune</p>
-            <div class="price">₹1.45 Crore</div>
-            <div class="property-features">
-              <span>🛏 4 Bedrooms</span>
-              <span>🚿 4 Bathrooms</span>
-              <span>Private Parking</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Villa</span><h3>4 BHK Luxury Villa</h3>
+            <p class="location">📍 Wakad, Pune</p><div class="price">₹1.45 Crore</div>
+            <div class="features"><span>4 Bedrooms</span><span>4 Bathrooms</span><span>Private Parking</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
-        <article class="property-card"
-          data-type="apartment"
-          data-location="ravet"
-          data-price="6800000"
-          data-order="4">
-          <div class="property-visual premium">
-            <span class="property-badge">Value Pick</span>
-            <span class="building-icon" aria-hidden="true">🏢</span>
-            <small>Modern Apartment</small>
+        <article class="card" data-id="ravet" data-type="apartment" data-location="ravet" data-price="6800000" data-order="4">
+          <div class="visual premium">
+            <span class="tag">Value Pick</span>
+            <button class="heart" type="button" aria-label="Add 2 BHK Premium Apartment in Ravet to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏢</span><small>Modern Apartment</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Apartment</span>
-            <h3>2 BHK Premium Apartment</h3>
-            <p class="location">📍 Ravet, Pune</p>
-            <div class="price">₹68 Lakhs</div>
-            <div class="property-features">
-              <span>🛏 2 Bedrooms</span>
-              <span>🛗 Lift</span>
-              <span>Parking & Security</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Apartment</span><h3>2 BHK Premium Apartment</h3>
+            <p class="location">📍 Ravet, Pune</p><div class="price">₹68 Lakhs</div>
+            <div class="features"><span>2 Bedrooms</span><span>Lift</span><span>Parking & Security</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
-        <article class="property-card"
-          data-type="house"
-          data-location="chinchwad"
-          data-price="9500000"
-          data-order="5">
-          <div class="property-visual house">
-            <span class="building-icon" aria-hidden="true">🏠</span>
-            <small>Independent Home</small>
+        <article class="card" data-id="chinchwad" data-type="house" data-location="chinchwad" data-price="9500000" data-order="5">
+          <div class="visual house">
+            <button class="heart" type="button" aria-label="Add 3 BHK Family House to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏠</span><small>Independent Home</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Independent House</span>
-            <h3>3 BHK Family House</h3>
-            <p class="location">📍 Chinchwad, Pune</p>
-            <div class="price">₹95 Lakhs</div>
-            <div class="property-features">
-              <span>🛏 3 Bedrooms</span>
-              <span>🚿 2 Bathrooms</span>
-              <span>Independent House</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Independent House</span><h3>3 BHK Family House</h3>
+            <p class="location">📍 Chinchwad, Pune</p><div class="price">₹95 Lakhs</div>
+            <div class="features"><span>3 Bedrooms</span><span>2 Bathrooms</span><span>Independent House</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
-        <article class="property-card"
-          data-type="apartment"
-          data-location="tathawade"
-          data-price="8800000"
-          data-order="6">
-          <div class="property-visual new">
-            <span class="property-badge">New</span>
-            <span class="building-icon" aria-hidden="true">🏬</span>
-            <small>Contemporary Living</small>
+        <article class="card" data-id="tathawade" data-type="apartment" data-location="tathawade" data-price="8800000" data-order="6">
+          <div class="visual new">
+            <span class="tag">New</span>
+            <button class="heart" type="button" aria-label="Add 3 BHK Modern Apartment to favorites" aria-pressed="false">♡</button>
+            <span class="building">🏬</span><small>Contemporary Living</small>
           </div>
-          <div class="property-content">
-            <span class="property-type">Apartment</span>
-            <h3>3 BHK Modern Apartment</h3>
-            <p class="location">📍 Tathawade, Pune</p>
-            <div class="price">₹88 Lakhs</div>
-            <div class="property-features">
-              <span>🛏 3 Bedrooms</span>
-              <span>🚿 2 Bathrooms</span>
-              <span>New Construction</span>
-            </div>
-            <div class="property-footer">
-              <span class="status">For Sale</span>
-              <a class="view-btn" href="property-details.html">View Details</a>
-            </div>
+          <div class="content">
+            <span class="type">Apartment</span><h3>3 BHK Modern Apartment</h3>
+            <p class="location">📍 Tathawade, Pune</p><div class="price">₹88 Lakhs</div>
+            <div class="features"><span>3 Bedrooms</span><span>2 Bathrooms</span><span>New Construction</span></div>
+            <div class="card-bottom"><span class="status">For Sale</span><a class="details" href="property-details.html">View Details</a></div>
           </div>
         </article>
 
       </div>
 
-      <div class="no-results hidden" id="noResults">
-        <div class="empty-icon" aria-hidden="true">🔎</div>
+      <div class="empty hidden" id="noResults">
         <h3>No matching properties found</h3>
-        <p>Try changing your filters or searching with another keyword.</p>
-        <button class="btn btn-primary" id="emptyResetBtn" type="button">
-          Show All Properties
-        </button>
+        <p>Try another keyword or reset the filters.</p>
+        <button class="btn primary" id="emptyReset" type="button">Show All Properties</button>
       </div>
+      <p class="note">Sample listings for demonstration. Verify property details and availability before making decisions.</p>
     </section>
-
-    <section class="cta">
-      <div>
-        <h2>Have a property to sell?</h2>
-        <p>List your property on DreamHome Pune.</p>
-      </div>
-      <a href="add-property.html" class="btn btn-primary">List Your Property</a>
-    </section>
-
   </main>
 
-  <footer class="footer">
-    <a href="index.html" class="logo" style="color:white">
-      DreamHome<span>.</span>
-    </a>
+  <footer>
+    <a href="index.html" class="logo" style="color:white">DreamHome<span>.</span></a>
     <p>Helping you find a place to call home in Pune.</p>
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="properties.html">Properties</a>
-      <a href="favorites.html">Favorites</a>
-      <a href="contact-owner.html">Contact</a>
+      <a href="index.html">Home</a><a href="favorites.html">Favorites</a><a href="contact-owner.html">Contact</a>
     </div>
     <p>© 2026 DreamHome Pune. All rights reserved.</p>
   </footer>
 
   <script>
-    const propertyGrid = document.getElementById("propertyGrid");
-    const propertyCards = Array.from(
-      propertyGrid.querySelectorAll(".property-card")
-    );
-
-    const propertyType = document.getElementById("propertyType");
+    const STORAGE_KEY = "dreamhomeFavorites";
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const grid = document.getElementById("propertyGrid");
+    const typeFilter = document.getElementById("propertyType");
     const locationFilter = document.getElementById("location");
     const budgetFilter = document.getElementById("budget");
     const keywordFilter = document.getElementById("keyword");
     const sortBy = document.getElementById("sortBy");
     const resultsCount = document.getElementById("resultsCount");
     const noResults = document.getElementById("noResults");
+    const navFavoriteCount = document.getElementById("navFavoriteCount");
 
-    function filterProperties() {
-      const selectedType = propertyType.value.toLowerCase();
-      const selectedLocation = locationFilter.value.toLowerCase();
-      const maximumBudget = budgetFilter.value
-        ? Number(budgetFilter.value)
-        : Infinity;
-      const keyword = keywordFilter.value.trim().toLowerCase();
-
-      const matchingCards = [];
-
-      propertyCards.forEach((card) => {
-        const type = card.dataset.type.toLowerCase();
-        const location = card.dataset.location.toLowerCase();
-        const price = Number(card.dataset.price);
-        const searchableText = card.innerText.toLowerCase();
-
-        const matchesType = !selectedType || type === selectedType;
-        const matchesLocation =
-          !selectedLocation || location === selectedLocation;
-        const matchesBudget = price <= maximumBudget;
-        const matchesKeyword =
-          !keyword || searchableText.includes(keyword);
-
-        const isMatch =
-          matchesType &&
-          matchesLocation &&
-          matchesBudget &&
-          matchesKeyword;
-
-        card.classList.toggle("hidden", !isMatch);
-
-        if (isMatch) {
-          matchingCards.push(card);
-        }
-      });
-
-      sortMatchingCards(matchingCards);
-
-      const count = matchingCards.length;
-      resultsCount.textContent =
-        `Showing ${count} ${count === 1 ? "property" : "properties"}`;
-
-      noResults.classList.toggle("hidden", count !== 0);
-      propertyGrid.classList.toggle("hidden", count === 0);
+    function getFavorites() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        if (!Array.isArray(saved)) return [];
+        return [...new Set(saved.filter(id => cards.some(card => card.dataset.id === id)))];
+      } catch (error) {
+        return [];
+      }
     }
 
-    function sortMatchingCards(cards) {
-      const sortValue = sortBy.value;
+    function saveFavorites(ids) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+        return true;
+      } catch (error) {
+        alert("Could not save favorites. Check your browser storage settings.");
+        return false;
+      }
+    }
 
-      cards.sort((a, b) => {
-        if (sortValue === "price-low") {
-          return Number(a.dataset.price) - Number(b.dataset.price);
+    function updateHeartButtons() {
+      const favorites = getFavorites();
+
+      cards.forEach(card => {
+        const button = card.querySelector(".heart");
+        const saved = favorites.includes(card.dataset.id);
+
+        button.classList.toggle("saved", saved);
+        button.textContent = saved ? "♥" : "♡";
+        button.setAttribute("aria-pressed", String(saved));
+        button.setAttribute(
+          "aria-label",
+          (saved ? "Remove " : "Add ") + card.querySelector("h3").textContent + " " +
+          (saved ? "from" : "to") + " favorites"
+        );
+      });
+
+      navFavoriteCount.textContent = favorites.length ? `(${favorites.length})` : "";
+    }
+
+    cards.forEach(card => {
+      card.querySelector(".heart").addEventListener("click", () => {
+        const favorites = getFavorites();
+        const id = card.dataset.id;
+        const updated = favorites.includes(id)
+          ? favorites.filter(item => item !== id)
+          : [...favorites, id];
+
+        if (saveFavorites(updated)) updateHeartButtons();
+      });
+    });
+
+    function sortCards(matching) {
+      const mode = sortBy.value;
+
+      matching.sort((a, b) => {
+        if (mode === "price-low") return Number(a.dataset.price) - Number(b.dataset.price);
+        if (mode === "price-high") return Number(b.dataset.price) - Number(a.dataset.price);
+        if (mode === "name") {
+          return a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent);
         }
-
-        if (sortValue === "price-high") {
-          return Number(b.dataset.price) - Number(a.dataset.price);
-        }
-
-        if (sortValue === "name") {
-          const nameA = a.querySelector("h3").textContent.trim();
-          const nameB = b.querySelector("h3").textContent.trim();
-          return nameA.localeCompare(nameB);
-        }
-
         return Number(a.dataset.order) - Number(b.dataset.order);
       });
 
-      cards.forEach((card) => propertyGrid.appendChild(card));
+      matching.forEach(card => grid.appendChild(card));
+    }
+
+    function filterProperties() {
+      const type = typeFilter.value;
+      const location = locationFilter.value;
+      const maxPrice = budgetFilter.value ? Number(budgetFilter.value) : Infinity;
+      const keyword = keywordFilter.value.trim().toLowerCase();
+      const matching = [];
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const matches =
+          (!type || card.dataset.type === type) &&
+          (!location || card.dataset.location === location) &&
+          Number(card.dataset.price) <= maxPrice &&
+          (!keyword || text.includes(keyword));
+
+        card.classList.toggle("hidden", !matches);
+        if (matches) matching.push(card);
+      });
+
+      sortCards(matching);
+      resultsCount.textContent = `Showing ${matching.length} ${matching.length === 1 ? "property" : "properties"}`;
+      grid.classList.toggle("hidden", matching.length === 0);
+      noResults.classList.toggle("hidden", matching.length !== 0);
     }
 
     function resetFilters() {
-      propertyType.value = "";
+      typeFilter.value = "";
       locationFilter.value = "";
       budgetFilter.value = "";
       keywordFilter.value = "";
       sortBy.value = "default";
-
-      // Remove old homepage search parameters.
-      window.history.replaceState({}, "", "properties.html");
-
+      history.replaceState({}, "", "properties.html");
       filterProperties();
     }
+
+    document.getElementById("searchBtn").addEventListener("click", filterProperties);
+    document.getElementById("resetBtn").addEventListener("click", resetFilters);
+    document.getElementById("emptyReset").addEventListener("click", resetFilters);
+    [typeFilter, locationFilter, budgetFilter, sortBy].forEach(element =>
+      element.addEventListener("change", filterProperties)
+    );
+    keywordFilter.addEventListener("input", filterProperties);
+    keywordFilter.addEventListener("keydown", event => {
+      if (event.key === "Enter") filterProperties();
+    });
 
     function loadHomepageSearch() {
-      const params = new URLSearchParams(window.location.search);
-
-      const type = params.get("type");
-      const location = params.get("location");
-      const budget = params.get("budget");
-
-      if (type && Array.from(propertyType.options).some(
-        option => option.value === type.toLowerCase()
-      )) {
-        propertyType.value = type.toLowerCase();
+      const params = new URLSearchParams(location.search);
+      if ([...typeFilter.options].some(option => option.value === params.get("type"))) {
+        typeFilter.value = params.get("type") || "";
       }
-
-      if (location && Array.from(locationFilter.options).some(
-        option => option.value === location.toLowerCase()
-      )) {
-        locationFilter.value = location.toLowerCase();
+      if ([...locationFilter.options].some(option => option.value === params.get("location"))) {
+        locationFilter.value = params.get("location") || "";
       }
-
-      if (budget && Array.from(budgetFilter.options).some(
-        option => option.value === budget
-      )) {
-        budgetFilter.value = budget;
+      if ([...budgetFilter.options].some(option => option.value === params.get("budget"))) {
+        budgetFilter.value = params.get("budget") || "";
       }
-
       filterProperties();
     }
 
-    document.getElementById("searchBtn").addEventListener(
-      "click",
-      filterProperties
-    );
-
-    document.getElementById("resetBtn").addEventListener(
-      "click",
-      resetFilters
-    );
-
-    document.getElementById("emptyResetBtn").addEventListener(
-      "click",
-      resetFilters
-    );
-
-    sortBy.addEventListener("change", filterProperties);
-
-    [propertyType, locationFilter, budgetFilter].forEach((element) => {
-      element.addEventListener("change", filterProperties);
+    window.addEventListener("storage", event => {
+      if (event.key === STORAGE_KEY) updateHeartButtons();
     });
 
-    keywordFilter.addEventListener("input", filterProperties);
-
-    keywordFilter.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        filterProperties();
-      }
-    });
-
+    updateHeartButtons();
     loadHomepageSearch();
   </script>
-
 </body>
 </html>
