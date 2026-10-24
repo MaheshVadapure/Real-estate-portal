@@ -1,530 +1,468 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Owner | DreamHome Pune</title>
 
-    <title>Contact Owner | DreamHome Pune</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+    body {
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
 
-        body {
-            background: #f5f7fa;
-            color: #222;
-        }
+    header {
+      background: #10233f;
+      color: white;
+      padding: 17px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        nav {
-            background: white;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        nav h2 {
-            color: #2563eb;
-        }
+    .logo span {
+      color: #ffb703;
+    }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-        }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        nav a:hover {
-            color: #2563eb;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
+    nav a:hover {
+      color: #ffb703;
+    }
 
-        .hero h1 {
-            font-size: 34px;
-            margin-bottom: 8px;
-        }
+    .hero {
+      background: linear-gradient(120deg, #10233f, #24558a);
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
 
-        .container {
-            width: 88%;
-            max-width: 1100px;
-            margin: 40px auto;
-        }
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
 
-        .layout {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 25px;
-        }
+    .hero p {
+      color: #e0e8f4;
+    }
 
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 14px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-        }
+    .container {
+      width: min(1050px, 90%);
+      margin: 35px auto 50px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 25px;
+      align-items: start;
+    }
 
-        .card h2 {
-            margin-bottom: 20px;
-            color: #1f2937;
-        }
+    .info-card,
+    .form-card {
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 5px 22px rgba(0, 0, 0, 0.07);
+    }
 
-        /* Property information */
+    h2 {
+      color: #10233f;
+      margin-bottom: 15px;
+      font-size: 23px;
+    }
 
-        .property-image {
-            height: 190px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
+    .info-card > p {
+      color: #606b78;
+      margin-bottom: 20px;
+    }
 
-        .property-info h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
+    .info-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #e9edf2;
+    }
 
-        .location {
-            color: #666;
-            margin-bottom: 15px;
-        }
+    .info-item:last-child {
+      border-bottom: none;
+    }
 
-        .price {
-            color: #2563eb;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+    .info-item strong {
+      display: block;
+      color: #10233f;
+      margin-bottom: 4px;
+    }
 
-        .details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+    .info-item span {
+      color: #687383;
+      font-size: 14px;
+    }
 
-        .detail {
-            background: #f3f4f6;
-            padding: 12px;
-            border-radius: 7px;
-            font-size: 14px;
-        }
+    .property-box {
+      background: #edf4ff;
+      border-left: 4px solid #24558a;
+      padding: 15px;
+      border-radius: 7px;
+      margin: 18px 0;
+    }
 
-        .owner-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: #eff6ff;
-            border-radius: 8px;
-        }
+    .property-box strong {
+      display: block;
+      color: #10233f;
+      margin-bottom: 5px;
+    }
 
-        .owner-box strong {
-            display: block;
-            margin-bottom: 5px;
-        }
+    #selectedProperty {
+      color: #24558a;
+      font-weight: bold;
+    }
 
-        /* Form */
+    .form-group {
+      margin-bottom: 17px;
+    }
 
-        .form-group {
-            margin-bottom: 18px;
-        }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #303b4b;
+      font-size: 14px;
+    }
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 7px;
-            font-size: 14px;
-        }
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d5dce5;
+      border-radius: 7px;
+      font-size: 15px;
+      outline: none;
+      background: white;
+    }
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            font-size: 15px;
-            outline: none;
-        }
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #24558a;
+      box-shadow: 0 0 0 2px rgba(36, 85, 138, 0.1);
+    }
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #2563eb;
-        }
+    textarea {
+      resize: vertical;
+      min-height: 115px;
+    }
 
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
+    .submit-btn {
+      width: 100%;
+      background: #10233f;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
 
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    .submit-btn:hover {
+      background: #24558a;
+    }
 
-        .submit-btn:hover {
-            background: #1d4ed8;
-        }
+    .success-message {
+      display: none;
+      background: #e7f8ed;
+      color: #176534;
+      border: 1px solid #b9e7c7;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 18px;
+    }
 
-        .success {
-            display: none;
-            margin-top: 20px;
-            padding: 18px;
-            background: #dcfce7;
-            color: #166534;
-            border-radius: 8px;
-        }
+    .back-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: #24558a;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .success h3 {
-            margin-bottom: 8px;
-        }
+    footer {
+      text-align: center;
+      padding: 22px;
+      background: #10233f;
+      color: #dce5f0;
+      font-size: 14px;
+    }
 
-        .success p {
-            margin: 5px 0;
-        }
+    @media (max-width: 750px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
+      nav {
+        justify-content: center;
+      }
 
-        footer {
-            margin-top: 50px;
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+      .container {
+        grid-template-columns: 1fr;
+      }
 
-        @media (max-width: 800px) {
+      .hero h1 {
+        font-size: 28px;
+      }
 
-            .layout {
-                grid-template-columns: 1fr;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav a {
-                margin: 5px;
-            }
-        }
-    </style>
+      .info-card,
+      .form-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+  <header>
+    <a href="index.html" class="logo">DreamHome <span>Pune</span></a>
+
     <nav>
-
-        <h2>DreamHome Pune</h2>
-
-        <div>
-            <a href="index.html">Home</a>
-            <a href="properties.html">Properties</a>
-            <a href="favorites.html">Favorites</a>
-            <a href="profile.html">Profile</a>
-        </div>
-
+      <a href="index.html">Home</a>
+      <a href="properties.html">Properties</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact-owner.html">Contact</a>
     </nav>
+  </header>
 
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>Have questions about a property? Send us your enquiry.</p>
+  </section>
 
-    <section class="hero">
+  <main class="container">
 
-        <h1>Contact Property Owner</h1>
+    <section class="info-card">
+      <h2>Let's Connect</h2>
+      <p>
+        Looking for your dream home in Pune? Share your requirements with us.
+        Our enquiry form helps you record your interest in a property.
+      </p>
 
-        <p>Send your enquiry to know more about this property</p>
+      <div class="property-box">
+        <strong>Property of Interest</strong>
+        <span id="selectedProperty">General Enquiry</span>
+      </div>
 
+      <div class="info-item">
+        <strong>📍 Location</strong>
+        <span>Nigdi, Pradhikaran, Wakad, Ravet and nearby Pune areas</span>
+      </div>
+
+      <div class="info-item">
+        <strong>🏠 Property Assistance</strong>
+        <span>Explore apartments, villas and family homes.</span>
+      </div>
+
+      <div class="info-item">
+        <strong>✉️ Enquiry Support</strong>
+        <span>Submit your details using the form on this page.</span>
+      </div>
+
+      <a href="properties.html" class="back-link">← Browse Properties</a>
     </section>
 
-
-    <div class="container">
-
-        <div class="layout">
-
-
-            <!-- PROPERTY DETAILS -->
-
-            <div class="card">
-
-                <h2>Property Details</h2>
-
-                <div class="property-image">
-                    🏠
-                </div>
-
-                <div class="property-info">
-
-                    <h3>2 BHK Apartment</h3>
-
-                    <p class="location">
-                        📍 Nigdi, Pune
-                    </p>
-
-                    <p class="price">
-                        ₹75 Lakhs
-                    </p>
-
-                    <div class="details">
-
-                        <div class="detail">
-                            🛏 2 Bedrooms
-                        </div>
-
-                        <div class="detail">
-                            🛁 2 Bathrooms
-                        </div>
-
-                        <div class="detail">
-                            🚗 Parking Available
-                        </div>
-
-                        <div class="detail">
-                            🏢 Apartment
-                        </div>
-
-                    </div>
-
-                    <div class="owner-box">
-
-                        <strong>Property Owner</strong>
-
-                        <span>DreamHome Property Owner</span>
-
-                        <br>
-
-                        <span>📍 Nigdi, Pune</span>
-
-                    </div>
-
-                </div>
-
-                <a href="properties.html" class="back-link">
-                    ← Back to Properties
-                </a>
-
-            </div>
-
-
-            <!-- ENQUIRY FORM -->
-
-            <div class="card">
-
-                <h2>Send Enquiry</h2>
-
-                <form id="enquiryForm">
-
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            placeholder="Enter your full name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your email"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            placeholder="10 digit mobile number"
-                            maxlength="10"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="enquiryType">
-                            Enquiry Type
-                        </label>
-
-                        <select id="enquiryType" required>
-
-                            <option value="">
-                                Select Enquiry Type
-                            </option>
-
-                            <option>
-                                Property Visit
-                            </option>
-
-                            <option>
-                                Purchase
-                            </option>
-
-                            <option>
-                                Rental
-                            </option>
-
-                            <option>
-                                More Information
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="message">
-                            Message
-                        </label>
-
-                        <textarea
-                            id="message"
-                            placeholder="Write your enquiry..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="submit-btn"
-                    >
-                        Send Enquiry
-                    </button>
-
-
-                    <div class="success" id="successMessage">
-
-                        <h3>✓ Enquiry Sent Successfully!</h3>
-
-                        <p>
-                            Thank you, <strong id="successName"></strong>.
-                        </p>
-
-                        <p>
-                            Your enquiry for the
-                            <strong>2 BHK Apartment in Nigdi</strong>
-                            has been submitted.
-                        </p>
-
-                        <p>
-                            The property owner can contact you soon.
-                        </p>
-
-                    </div>
-
-                </form>
-
-            </div>
-
+    <section class="form-card">
+      <h2>Send an Enquiry</h2>
+
+      <div id="successMessage" class="success-message" role="status" aria-live="polite"></div>
+
+      <form id="enquiryForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            required
+            maxlength="100"
+          >
         </div>
 
-    </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+        </div>
 
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your 10-digit mobile number"
+            autocomplete="tel"
+            inputmode="numeric"
+            pattern="[6-9][0-9]{9}"
+            title="Enter a valid 10-digit Indian mobile number"
+            required
+          >
+        </div>
 
-    <footer>
+        <div class="form-group">
+          <label for="property">Property Type</label>
+          <select id="property" name="propertyType">
+            <option value="Any Property">Any Property</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="House">House</option>
+          </select>
+        </div>
 
-        <p>© 2026 DreamHome Pune | Real Estate Portal</p>
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell us what you are looking for..."
+            required
+            maxlength="1000"
+          ></textarea>
+        </div>
 
-        <p>Serving Nigdi, Pimpri-Chinchwad and nearby areas</p>
+        <button type="submit" class="submit-btn">Submit Enquiry</button>
+      </form>
+    </section>
 
-    </footer>
+  </main>
 
+  <footer>
+    <p>© 2026 DreamHome Pune. All rights reserved.</p>
+    <p>Demo real estate portal for properties in Pune.</p>
+  </footer>
 
-    <script>
+  <script>
+    const properties = {
+      nigdi: {
+        title: "2 BHK Apartment - Nigdi",
+        type: "Apartment",
+        price: "₹75 Lakhs"
+      },
+      pradhikaran: {
+        title: "3 BHK Premium Apartment - Pradhikaran",
+        type: "Apartment",
+        price: "₹1.15 Crore"
+      },
+      wakad: {
+        title: "4 BHK Luxury Villa - Wakad",
+        type: "Villa",
+        price: "₹1.45 Crore"
+      },
+      ravet: {
+        title: "2 BHK Premium Apartment - Ravet",
+        type: "Apartment",
+        price: "₹68 Lakhs"
+      },
+      chinchwad: {
+        title: "3 BHK Family House - Chinchwad",
+        type: "House",
+        price: "₹95 Lakhs"
+      },
+      tathawade: {
+        title: "3 BHK Modern Apartment - Tathawade",
+        type: "Apartment",
+        price: "₹88 Lakhs"
+      }
+    };
 
-        document
-            .getElementById("enquiryForm")
-            .addEventListener("submit", function(event) {
+    const params = new URLSearchParams(window.location.search);
+    const propertyId = params.get("id");
+    const selected = properties[propertyId];
 
-                event.preventDefault();
+    const propertyDisplay = document.getElementById("selectedProperty");
+    const propertySelect = document.getElementById("property");
+    const messageField = document.getElementById("message");
 
-                const name =
-                    document.getElementById("name").value.trim();
+    if (selected) {
+      propertyDisplay.textContent =
+        selected.title + " | " + selected.price;
 
-                const phone =
-                    document.getElementById("phone").value.trim();
+      propertySelect.value = selected.type;
 
-                if (!/^[0-9]{10}$/.test(phone)) {
+      messageField.value =
+        "I am interested in " + selected.title +
+        " (" + selected.price + "). Please share more details.";
+    } else {
+      propertyDisplay.textContent = "General Enquiry";
+    }
 
-                    alert(
-                        "Please enter a valid 10-digit phone number."
-                    );
+    document.getElementById("enquiryForm").addEventListener("submit", function (event) {
+      event.preventDefault();
 
-                    return;
-                }
+      const form = event.currentTarget;
 
-                if (name.length < 2) {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-                    alert(
-                        "Please enter a valid name."
-                    );
+      const name = document.getElementById("name").value.trim();
+      const successMessage = document.getElementById("successMessage");
 
-                    return;
-                }
+      successMessage.textContent =
+        "Thank you, " + name +
+        "! Your demo enquiry has been recorded on this page. " +
+        "No email has been sent because this website does not have a backend.";
 
-                document.getElementById("successName")
-                    .textContent = name;
+      successMessage.style.display = "block";
+      successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
 
-                document.getElementById("successMessage")
-                    .style.display = "block";
+      form.reset();
 
-                document.getElementById("enquiryForm")
-                    .reset();
-
-            });
-
-    </script>
+      if (selected) {
+        propertySelect.value = selected.type;
+        messageField.value =
+          "I am interested in " + selected.title +
+          " (" + selected.price + "). Please share more details.";
+      }
+    });
+  </script>
 
 </body>
 </html>
