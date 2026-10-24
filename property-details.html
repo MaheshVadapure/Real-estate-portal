@@ -2,343 +2,645 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Property Details | DreamHome Pune</title>
-<meta name="description" content="View property details on DreamHome Pune.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details | DreamHome Pune</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--primary:#173b67;--accent:#f0a83c;--text:#243247;--muted:#667085;--light:#f5f7fb}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6;background:#fff}
-a{text-decoration:none;color:inherit}
-button{font:inherit;cursor:pointer}
-.container{width:min(1100px,92%);margin:auto}
-header{background:white;box-shadow:0 2px 12px #14243b12;position:sticky;top:0;z-index:10}
-.navbar{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:12px 0}
-.logo{font-size:25px;font-weight:800;color:var(--primary)}
-.logo span{color:var(--accent)}
-nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-nav a{font-size:14px;font-weight:600}
-nav a:hover{color:#d68a17}
-.nav-fav{color:#b42336}
-main{padding:34px 0 60px}
-.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:20px}
-.breadcrumb a{color:var(--primary);font-weight:700}
-.details-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
-.main-image{width:100%;height:410px;object-fit:cover;border-radius:13px;background:#e8edf3;display:block}
-.gallery-note{font-size:12px;color:var(--muted);margin-top:8px}
-.property-type{display:inline-block;background:#eaf0f8;color:var(--primary);padding:5px 10px;border-radius:5px;font-size:12px;font-weight:800;text-transform:capitalize}
-h1{font-size:clamp(27px,4vw,37px);line-height:1.2;margin:12px 0 8px;color:var(--primary)}
-.location{color:var(--muted);margin-bottom:15px}
-.price{font-size:30px;font-weight:800;color:var(--primary);margin:15px 0}
-.description{color:#536174;margin:12px 0 22px}
-.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
-.info-box{padding:15px;background:var(--light);border-radius:9px}
-.info-box span{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
-.info-box strong{font-size:15px;color:var(--primary)}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:7px;padding:12px 17px;font-weight:700}
-.btn-primary{background:var(--accent);color:#202a38}
-.btn-primary:hover{background:#ffc15a}
-.btn-dark{background:var(--primary);color:white}
-.btn-dark:hover{background:#24558b}
-.btn-outline{background:white;color:var(--primary);border:1px solid #d6deea}
-.section{margin-top:42px}
-.section h2{font-size:25px;color:var(--primary);margin-bottom:15px}
-.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.highlight{background:var(--light);padding:19px;border-radius:10px}
-.highlight strong{display:block;color:var(--primary);margin-bottom:4px}
-.highlight p{font-size:13px;color:var(--muted)}
-.disclaimer{margin-top:25px;padding:15px;background:#fff7e8;border:1px solid #f3d7a1;border-radius:8px;font-size:13px;color:#79531a}
-.not-found{text-align:center;padding:65px 15px}
-.not-found h1{margin-bottom:10px}
-.not-found p{color:var(--muted);margin-bottom:20px}
-footer{background:#101f33;color:#dbe4ee;padding:30px 0 18px}
-.footer-main{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-main p{max-width:420px;color:#b6c3d3;font-size:13px;margin-top:8px}
-.footer-links{display:flex;gap:16px;flex-wrap:wrap;font-size:13px}
-.copyright{border-top:1px solid #ffffff20;margin-top:22px;padding-top:14px;color:#b6c3d3;font-size:12px}
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#14243b;color:white;padding:12px 18px;border-radius:8px;display:none;z-index:20;box-shadow:0 6px 24px #0003;font-size:14px}
-@media(max-width:760px){.details-grid{grid-template-columns:1fr}.main-image{height:300px}.highlights{grid-template-columns:1fr}.navbar{align-items:flex-start;flex-direction:column}}
-@media(max-width:480px){.main-image{height:240px}.info-grid{grid-template-columns:1fr}.actions .btn{width:100%}}
-</style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #10233f;
+      color: white;
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #ffb703;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ffb703;
+    }
+
+    .breadcrumb {
+      width: 90%;
+      max-width: 1150px;
+      margin: 22px auto;
+      color: #687383;
+      font-size: 14px;
+    }
+
+    .breadcrumb a {
+      color: #24558a;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: 0 auto 50px;
+    }
+
+    .property-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .property-image {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      border-radius: 14px;
+      background: #e3e9f2;
+    }
+
+    .image-placeholder {
+      height: 390px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #dce8f5, #a9bfd9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #10233f;
+      font-size: 21px;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    .details-card,
+    .description-card,
+    .contact-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .property-type {
+      display: inline-block;
+      background: #e8f1ff;
+      color: #24558a;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: #10233f;
+      font-size: 30px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .location {
+      color: #687383;
+      margin-bottom: 18px;
+    }
+
+    .price {
+      color: #24558a;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .fact {
+      background: #f5f7fb;
+      padding: 13px;
+      border-radius: 9px;
+    }
+
+    .fact span {
+      display: block;
+      color: #687383;
+      font-size: 13px;
+    }
+
+    .fact strong {
+      color: #10233f;
+      font-size: 16px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 7px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .btn-dark {
+      background: #10233f;
+      color: white;
+    }
+
+    .btn-dark:hover {
+      background: #24558a;
+    }
+
+    .btn-outline {
+      background: white;
+      color: #10233f;
+      border: 1px solid #10233f;
+    }
+
+    .btn-outline:hover {
+      background: #edf4ff;
+    }
+
+    .description-card,
+    .contact-card {
+      margin-top: 25px;
+    }
+
+    h2 {
+      color: #10233f;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .description-card p {
+      color: #606b78;
+      margin-bottom: 12px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .feature {
+      padding: 10px;
+      border-radius: 7px;
+      background: #f5f7fb;
+      color: #394657;
+    }
+
+    .contact-card p {
+      color: #606b78;
+      margin-bottom: 15px;
+    }
+
+    .notice {
+      color: #687383;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .not-found {
+      background: white;
+      border-radius: 14px;
+      padding: 45px 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .not-found h1 {
+      margin-bottom: 12px;
+    }
+
+    .not-found p {
+      color: #687383;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #10233f;
+      color: #dce5f0;
+      text-align: center;
+      padding: 22px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .property-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .property-image,
+      .image-placeholder {
+        height: 300px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .price {
+        font-size: 25px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .details-card,
+      .description-card,
+      .contact-card {
+        padding: 19px;
+      }
+
+      .actions .btn {
+        flex: 1 1 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<header>
-<div class="container navbar">
-<a href="index.html" class="logo">DreamHome<span>.</span></a>
-<nav aria-label="Main navigation">
-<a href="index.html">Home</a>
-<a href="properties.html">Properties</a>
-<a href="favorites.html" class="nav-fav">♡ Favorites (<span id="favoriteCount">0</span>)</a>
-<a href="contact-owner.html">Contact</a>
-<a href="login.html">Login</a>
-</nav>
-</div>
-</header>
 
-<main class="container">
-<div id="propertyContent"></div>
-</main>
+  <header>
+    <a href="index.html" class="logo">DreamHome <span>Pune</span></a>
 
-<footer>
-<div class="container">
-<div class="footer-main">
-<div>
-<a href="index.html" class="logo" style="color:white">DreamHome<span>.</span></a>
-<p>Explore sample homes across Pune and Pimpri-Chinchwad. Property details and prices are illustrative and must be independently verified.</p>
-</div>
-<div class="footer-links">
-<a href="index.html">Home</a>
-<a href="properties.html">Properties</a>
-<a href="favorites.html">Favorites</a>
-<a href="contact-owner.html">Contact</a>
-</div>
-</div>
-<div class="copyright">© <span id="year"></span> DreamHome Pune. Demonstration project.</div>
-</div>
-</footer>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="properties.html">Properties</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="contact-owner.html">Contact</a>
+    </nav>
+  </header>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> /
+    <a href="properties.html">Properties</a> /
+    <span>Property Details</span>
+  </div>
 
-<script>
-"use strict";
+  <main class="container">
+    <div id="propertyContent">
+      <div class="not-found">
+        <h1>Loading Property...</h1>
+        <p>Please wait while the property details load.</p>
+      </div>
+    </div>
+  </main>
 
-const FAVORITES_KEY = "dreamhomeFavorites";
+  <footer>
+    <p>© 2026 DreamHome Pune. All rights reserved.</p>
+    <p>Property information is for demonstration purposes.</p>
+  </footer>
 
-const properties = {
-    nigdi: {
+  <script>
+    const properties = {
+      nigdi: {
         id: "nigdi",
-        name: "2 BHK Apartment",
+        title: "2 BHK Apartment",
+        location: "Nigdi, Pune",
         type: "Apartment",
-        location: "Nigdi, Pimpri-Chinchwad",
-        price: 7500000,
-        priceLabel: "₹75 Lakhs",
+        price: "₹75 Lakhs",
+        priceValue: 7500000,
         bedrooms: 2,
         bathrooms: 2,
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample two-bedroom apartment listing in Nigdi, suitable for people exploring residential options in Pimpri-Chinchwad.",
-        highlights: ["Residential neighbourhood", "Two-bedroom layout", "Pune region"]
-    },
-    pradhikaran: {
+        area: "1050 sq. ft.",
+        furnishing: "Semi-Furnished",
+        parking: "1 Car Parking",
+        description:
+          "A comfortable 2 BHK apartment in Nigdi, suitable for small families and first-time homebuyers. The property is listed as a sample residential option in the DreamHome Pune portal.",
+        features: ["2 Bedrooms", "2 Bathrooms", "Living Room", "Kitchen", "Parking", "Residential Location"]
+      },
+
+      pradhikaran: {
         id: "pradhikaran",
-        name: "3 BHK Premium Apartment",
+        title: "3 BHK Premium Apartment",
+        location: "Pradhikaran, Pune",
         type: "Apartment",
-        location: "Pradhikaran, Nigdi",
-        price: 11500000,
-        priceLabel: "₹1.15 Crore",
+        price: "₹1.15 Crore",
+        priceValue: 11500000,
         bedrooms: 3,
         bathrooms: 3,
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample three-bedroom apartment listing in Pradhikaran for visitors comparing larger residential homes.",
-        highlights: ["Pradhikaran location", "Three-bedroom layout", "Pune region"]
-    },
-    wakad: {
+        area: "1550 sq. ft.",
+        furnishing: "Semi-Furnished",
+        parking: "1 Car Parking",
+        description:
+          "A spacious 3 BHK apartment concept for families looking for additional living space in Pradhikaran. The price and property specifications are sample listing details.",
+        features: ["3 Bedrooms", "3 Bathrooms", "Spacious Living Room", "Modern Kitchen", "Parking", "Family Home"]
+      },
+
+      wakad: {
         id: "wakad",
-        name: "4 BHK Luxury Villa",
-        type: "Villa",
+        title: "4 BHK Luxury Villa",
         location: "Wakad, Pune",
-        price: 14500000,
-        priceLabel: "₹1.45 Crore",
+        type: "Villa",
+        price: "₹1.45 Crore",
+        priceValue: 14500000,
         bedrooms: 4,
         bathrooms: 4,
-        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample four-bedroom villa listing in Wakad, included for comparing larger homes and different property types.",
-        highlights: ["Wakad location", "Four-bedroom layout", "Villa-style listing"]
-    },
-    ravet: {
+        area: "2200 sq. ft.",
+        furnishing: "Semi-Furnished",
+        parking: "2 Car Parking",
+        description:
+          "A luxury villa concept with four bedrooms and generous living space for larger families. This entry is a sample listing and is not a verified property offer.",
+        features: ["4 Bedrooms", "4 Bathrooms", "Large Living Area", "Kitchen", "2 Parking Spaces", "Villa Layout"]
+      },
+
+      ravet: {
         id: "ravet",
-        name: "2 BHK Premium Apartment",
-        type: "Apartment",
+        title: "2 BHK Premium Apartment",
         location: "Ravet, Pune",
-        price: 6800000,
-        priceLabel: "₹68 Lakhs",
+        type: "Apartment",
+        price: "₹68 Lakhs",
+        priceValue: 6800000,
         bedrooms: 2,
         bathrooms: 2,
-        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample two-bedroom apartment listing in Ravet for users exploring homes around Pimpri-Chinchwad.",
-        highlights: ["Ravet location", "Two-bedroom layout", "Apartment listing"]
-    },
-    chinchwad: {
+        area: "1000 sq. ft.",
+        furnishing: "Unfurnished",
+        parking: "1 Car Parking",
+        description:
+          "A sample 2 BHK apartment for buyers looking for a compact home in Ravet. Contact through the demo form to practise the property enquiry workflow.",
+        features: ["2 Bedrooms", "2 Bathrooms", "Living Room", "Kitchen", "Parking", "Apartment Layout"]
+      },
+
+      chinchwad: {
         id: "chinchwad",
-        name: "3 BHK Family House",
-        type: "House",
+        title: "3 BHK Family House",
         location: "Chinchwad, Pune",
-        price: 9500000,
-        priceLabel: "₹95 Lakhs",
+        type: "House",
+        price: "₹95 Lakhs",
+        priceValue: 9500000,
         bedrooms: 3,
         bathrooms: 2,
-        image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample three-bedroom house listing in Chinchwad, designed for demonstrating property information and comparison.",
-        highlights: ["Chinchwad location", "Three-bedroom layout", "House listing"]
-    },
-    tathawade: {
+        area: "1650 sq. ft.",
+        furnishing: "Semi-Furnished",
+        parking: "1 Car Parking",
+        description:
+          "A sample three-bedroom family house concept with practical living space. All details shown here are illustrative and should be verified before any real-world property decision.",
+        features: ["3 Bedrooms", "2 Bathrooms", "Family Living Area", "Kitchen", "Parking", "Independent House"]
+      },
+
+      tathawade: {
         id: "tathawade",
-        name: "3 BHK Modern Apartment",
-        type: "Apartment",
+        title: "3 BHK Modern Apartment",
         location: "Tathawade, Pune",
-        price: 8800000,
-        priceLabel: "₹88 Lakhs",
+        type: "Apartment",
+        price: "₹88 Lakhs",
+        priceValue: 8800000,
         bedrooms: 3,
-        bathrooms: 2,
-        image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=85",
-        description: "A sample modern three-bedroom apartment listing in Tathawade for visitors comparing homes in the Pune area.",
-        highlights: ["Tathawade location", "Three-bedroom layout", "Apartment listing"]
-    }
-};
+        bathrooms: 3,
+        area: "1400 sq. ft.",
+        furnishing: "Semi-Furnished",
+        parking: "1 Car Parking",
+        description:
+          "A modern apartment concept with three bedrooms for families seeking extra room. This is a sample listing for the DreamHome Pune frontend project.",
+        features: ["3 Bedrooms", "3 Bathrooms", "Modern Living Room", "Kitchen", "Parking", "Apartment Layout"]
+      }
+    };
 
-function getFavorites() {
-    try {
-        const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
-        return Array.isArray(stored)
-            ? [...new Set(stored.filter(item => typeof item === "string"))]
-            : [];
-    } catch {
+    const propertyId = new URLSearchParams(window.location.search).get("id");
+    const property = properties[propertyId];
+    const propertyContent = document.getElementById("propertyContent");
+
+    function getFavorites() {
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem("dreamhomeFavorites") || "[]"
+        );
+
+        return Array.isArray(saved) ? saved : [];
+      } catch (error) {
         return [];
+      }
     }
-}
 
-function updateFavoriteCount() {
-    document.getElementById("favoriteCount").textContent = getFavorites().length;
-}
+    function saveFavorites(favorites) {
+      localStorage.setItem(
+        "dreamhomeFavorites",
+        JSON.stringify(favorites)
+      );
+    }
 
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.style.display = "block";
-    setTimeout(() => toast.style.display = "none", 2400);
-}
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, function (character) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        }[character];
+      });
+    }
 
-function escapeHTML(value) {
-    return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-    })[char]);
-}
-
-function renderNotFound() {
-    document.title = "Property Not Found | DreamHome Pune";
-    document.getElementById("propertyContent").innerHTML = `
-        <div class="not-found">
-            <h1>Property Not Found</h1>
-            <p>The property ID is missing or does not match one of our sample listings.</p>
-            <a class="btn btn-dark" href="properties.html">Browse All Properties</a>
-        </div>`;
-}
-
-function renderProperty(property) {
-    const favorites = getFavorites();
-    const isFavorite = favorites.includes(property.id);
-
-    document.title = `${property.name} in ${property.location} | DreamHome Pune`;
-
-    document.getElementById("propertyContent").innerHTML = `
-        <div class="breadcrumb">
-            <a href="index.html">Home</a> /
-            <a href="properties.html">Properties</a> /
-            ${escapeHTML(property.name)}
-        </div>
-
-        <div class="details-grid">
-            <div>
-                <img class="main-image"
-                    src="${escapeHTML(property.image)}"
-                    alt="${escapeHTML(property.name)} in ${escapeHTML(property.location)}">
-                <p class="gallery-note">Illustrative property image; actual listing images have not been verified.</p>
-            </div>
-
-            <div>
-                <span class="property-type">${escapeHTML(property.type)}</span>
-                <h1>${escapeHTML(property.name)}</h1>
-                <p class="location">📍 ${escapeHTML(property.location)}</p>
-                <div class="price">${escapeHTML(property.priceLabel)}</div>
-                <p class="description">${escapeHTML(property.description)}</p>
-
-                <div class="info-grid">
-                    <div class="info-box">
-                        <span>Bedrooms</span>
-                        <strong>🛏 ${property.bedrooms} BHK</strong>
-                    </div>
-                    <div class="info-box">
-                        <span>Bathrooms</span>
-                        <strong>🛁 ${property.bathrooms}</strong>
-                    </div>
-                    <div class="info-box">
-                        <span>Property type</span>
-                        <strong>${escapeHTML(property.type)}</strong>
-                    </div>
-                    <div class="info-box">
-                        <span>Location</span>
-                        <strong>${escapeHTML(property.location)}</strong>
-                    </div>
-                </div>
-
-                <div class="actions">
-                    <button class="btn btn-primary" id="favoriteButton"
-                        type="button" aria-pressed="${isFavorite}">
-                        ${isFavorite ? "♥ Remove Favorite" : "♡ Add to Favorites"}
-                    </button>
-                    <a class="btn btn-dark" href="contact-owner.html">Contact Us</a>
-                    <a class="btn btn-outline" href="properties.html">All Properties</a>
-                </div>
-            </div>
-        </div>
-
-        <section class="section">
-            <h2>Property Highlights</h2>
-            <div class="highlights">
-                ${property.highlights.map(item => `
-                    <div class="highlight">
-                        <strong>✓ ${escapeHTML(item)}</strong>
-                        <p>Sample listing information for demonstration purposes.</p>
-                    </div>
-                `).join("")}
-            </div>
+    function renderNotFound() {
+      propertyContent.innerHTML = `
+        <section class="not-found">
+          <h1>Property Not Found</h1>
+          <p>
+            We could not find this property. Please browse our available
+            sample listings and select a property to view its details.
+          </p>
+          <a class="btn btn-dark" href="properties.html">Browse Properties</a>
         </section>
+      `;
+    }
 
-        <div class="disclaimer">
-            <strong>Important:</strong> This website is a demonstration project. Property descriptions, prices, images and features are sample content, not verified real estate offers. Confirm all information directly with a legitimate property owner or agent before making decisions.
+    function renderProperty() {
+      if (!property) {
+        renderNotFound();
+        return;
+      }
+
+      const favorites = getFavorites();
+      const isFavorite = favorites.includes(property.id);
+
+      document.title = property.title + " | DreamHome Pune";
+
+      propertyContent.innerHTML = `
+        <div class="property-layout">
+
+          <div>
+            <div class="image-placeholder" role="img"
+              aria-label="Image placeholder for ${escapeHTML(property.title)}">
+              ${escapeHTML(property.title)}<br>
+              ${escapeHTML(property.location)}
+            </div>
+
+            <section class="description-card">
+              <h2>About This Property</h2>
+              <p>${escapeHTML(property.description)}</p>
+              <p>
+                <strong>Location:</strong> ${escapeHTML(property.location)}
+              </p>
+              <p>
+                <strong>Important:</strong> The property details, price,
+                and measurements are sample project data, not a verified
+                real estate listing.
+              </p>
+
+              <h2 style="margin-top:22px">Property Features</h2>
+              <div class="features">
+                ${property.features.map(feature => `
+                  <div class="feature">✓ ${escapeHTML(feature)}</div>
+                `).join("")}
+              </div>
+            </section>
+          </div>
+
+          <div>
+            <section class="details-card">
+              <span class="property-type">${escapeHTML(property.type)}</span>
+              <h1>${escapeHTML(property.title)}</h1>
+              <p class="location">📍 ${escapeHTML(property.location)}</p>
+              <div class="price">${escapeHTML(property.price)}</div>
+
+              <div class="quick-facts">
+                <div class="fact">
+                  <span>Bedrooms</span>
+                  <strong>${property.bedrooms} BHK</strong>
+                </div>
+
+                <div class="fact">
+                  <span>Bathrooms</span>
+                  <strong>${property.bathrooms}</strong>
+                </div>
+
+                <div class="fact">
+                  <span>Built-up Area</span>
+                  <strong>${escapeHTML(property.area)}</strong>
+                </div>
+
+                <div class="fact">
+                  <span>Furnishing</span>
+                  <strong>${escapeHTML(property.furnishing)}</strong>
+                </div>
+
+                <div class="fact">
+                  <span>Parking</span>
+                  <strong>${escapeHTML(property.parking)}</strong>
+                </div>
+
+                <div class="fact">
+                  <span>Property Type</span>
+                  <strong>${escapeHTML(property.type)}</strong>
+                </div>
+              </div>
+
+              <div class="actions">
+                <a class="btn btn-dark"
+                  href="contact-owner.html?id=${encodeURIComponent(property.id)}">
+                  Contact Us
+                </a>
+
+                <button class="btn btn-outline" id="favoriteButton"
+                  type="button">
+                  ${isFavorite ? "♥ Remove Favorite" : "♡ Add to Favorites"}
+                </button>
+
+                <a class="btn btn-outline" href="properties.html">
+                  Back to Properties
+                </a>
+              </div>
+            </section>
+
+            <section class="contact-card">
+              <h2>Interested in This Property?</h2>
+              <p>
+                Send an enquiry to prefill the property name and price in
+                the contact form. The form is a frontend demo and does not
+                contact a real property owner.
+              </p>
+              <a class="btn btn-dark"
+                href="contact-owner.html?id=${encodeURIComponent(property.id)}">
+                Enquire About This Property
+              </a>
+              <p class="notice">
+                Sample listing. Verify availability, ownership, and pricing
+                independently before making any property decision.
+              </p>
+            </section>
+          </div>
+
         </div>
-    `;
+      `;
 
-    document.getElementById("favoriteButton").addEventListener("click", () => {
-        const current = getFavorites();
-        const alreadySaved = current.includes(property.id);
-        const updated = alreadySaved
-            ? current.filter(id => id !== property.id)
-            : [...current, property.id];
+      document.getElementById("favoriteButton").addEventListener("click", function () {
+        let currentFavorites = getFavorites();
 
-        try {
-            localStorage.setItem(FAVORITES_KEY, JSON.stringify(updated));
-            updateFavoriteCount();
-
-            const button = document.getElementById("favoriteButton");
-            button.textContent = alreadySaved ? "♡ Add to Favorites" : "♥ Remove Favorite";
-            button.setAttribute("aria-pressed", String(!alreadySaved));
-            showToast(alreadySaved ? "Removed from favorites" : "Added to favorites");
-        } catch {
-            showToast("Unable to save favorites in this browser.");
+        if (currentFavorites.includes(property.id)) {
+          currentFavorites = currentFavorites.filter(
+            id => id !== property.id
+          );
+        } else {
+          currentFavorites.push(property.id);
         }
-    });
-}
 
-document.getElementById("year").textContent = new Date().getFullYear();
+        saveFavorites(currentFavorites);
+        renderProperty();
+      });
+    }
 
-const propertyId = new URLSearchParams(window.location.search).get("id");
-const property = propertyId ? properties[propertyId.toLowerCase()] : null;
+    renderProperty();
+  </script>
 
-if (property) {
-    renderProperty(property);
-} else {
-    renderNotFound();
-}
-
-updateFavoriteCount();
-</script>
 </body>
 </html>
