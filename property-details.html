@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="View property photos, features, pricing and enquiry details on DreamHome Pune.">
+  <meta name="description" content="Explore property details, photos and home loan EMI estimates with DreamHome Pune.">
   <title>Property Details | DreamHome Pune</title>
 
   <style>
@@ -18,7 +18,6 @@
       --muted: #687386;
       --border: #e2e7ef;
       --danger: #dc3545;
-      --shadow: 0 8px 24px rgba(25,45,75,.08);
     }
 
     * {
@@ -39,7 +38,7 @@
       color: inherit;
     }
 
-    button {
+    button, input {
       font: inherit;
     }
 
@@ -132,6 +131,8 @@
       white-space: nowrap;
     }
 
+    /* Property gallery */
+
     .gallery {
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(230px, 1fr);
@@ -148,11 +149,11 @@
     }
 
     .main-photo img {
-      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       cursor: zoom-in;
+      display: block;
     }
 
     .photo-count {
@@ -178,33 +179,19 @@
       color: var(--primary);
       font-size: 24px;
       cursor: pointer;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,.15);
     }
 
-    .gallery-arrow:hover {
-      background: white;
-    }
-
-    .gallery-arrow.previous {
-      left: 13px;
-    }
-
-    .gallery-arrow.next {
-      right: 13px;
-    }
+    .gallery-arrow.previous { left: 13px; }
+    .gallery-arrow.next { right: 13px; }
 
     .thumbnail-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-template-rows: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      min-height: 0;
     }
 
     .thumbnail {
-      position: relative;
       min-width: 0;
       min-height: 0;
       height: 100%;
@@ -222,27 +209,10 @@
       height: 100%;
       min-height: 120px;
       object-fit: cover;
-      transition: transform .2s;
-    }
-
-    .thumbnail:hover img {
-      transform: scale(1.04);
     }
 
     .thumbnail.active {
       border-color: var(--primary);
-    }
-
-    .thumbnail.active::after {
-      content: "Viewing";
-      position: absolute;
-      bottom: 7px;
-      left: 7px;
-      background: var(--primary);
-      color: white;
-      padding: 3px 7px;
-      border-radius: 4px;
-      font-size: 10px;
     }
 
     .gallery-help {
@@ -251,6 +221,8 @@
       color: var(--muted);
       font-size: 12px;
     }
+
+    /* Main content */
 
     .content-layout {
       display: grid;
@@ -293,9 +265,7 @@
       border-radius: 8px;
     }
 
-    .feature-icon {
-      font-size: 23px;
-    }
+    .feature-icon { font-size: 23px; }
 
     .feature strong {
       display: block;
@@ -349,13 +319,9 @@
       font-size: 13px;
     }
 
-    .detail-row span:first-child {
-      color: var(--muted);
-    }
+    .detail-row span:first-child { color: var(--muted); }
 
-    .detail-row strong {
-      text-align: right;
-    }
+    .detail-row strong { text-align: right; }
 
     .btn {
       display: inline-flex;
@@ -377,9 +343,7 @@
       color: white;
     }
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
+    .btn-primary:hover { background: var(--primary-dark); }
 
     .btn-outline {
       border: 1px solid var(--primary);
@@ -387,9 +351,7 @@
       color: var(--primary);
     }
 
-    .btn-outline:hover {
-      background: #edf4ff;
-    }
+    .btn-outline:hover { background: #edf4ff; }
 
     .favorite-button.active {
       color: var(--danger);
@@ -407,6 +369,176 @@
       margin-top: 18px;
     }
 
+    /* EMI calculator */
+
+    .emi-panel {
+      border-top: 4px solid var(--accent);
+    }
+
+    .emi-intro {
+      margin-bottom: 22px;
+    }
+
+    .emi-intro p {
+      margin-top: 5px;
+    }
+
+    .emi-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .emi-field {
+      min-width: 0;
+    }
+
+    .emi-field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .emi-field label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 9px;
+    }
+
+    .emi-field label strong {
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .emi-field input[type="number"] {
+      width: 100%;
+      border: 1px solid var(--border);
+      padding: 11px 12px;
+      border-radius: 7px;
+      outline: none;
+    }
+
+    .emi-field input[type="number"]:focus {
+      border-color: var(--primary);
+    }
+
+    .emi-field input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 3px;
+    }
+
+    .emi-results {
+      margin-top: 28px;
+      padding: 23px;
+      background: #edf4ff;
+      border-radius: 12px;
+    }
+
+    .emi-results-heading {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .monthly-emi {
+      font-size: clamp(29px, 4vw, 38px);
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .emi-result-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .emi-result {
+      background: white;
+      padding: 14px 12px;
+      border-radius: 8px;
+      min-width: 0;
+    }
+
+    .emi-result span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .emi-result strong {
+      display: block;
+      color: var(--text);
+      font-size: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .loan-breakdown {
+      margin-top: 22px;
+    }
+
+    .breakdown-bar {
+      display: flex;
+      height: 13px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #dce4ef;
+      margin-bottom: 12px;
+    }
+
+    .principal-bar {
+      width: 65%;
+      background: var(--primary);
+      transition: width .2s;
+    }
+
+    .interest-bar {
+      width: 35%;
+      background: var(--accent);
+      transition: width .2s;
+    }
+
+    .breakdown-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+
+    .principal-dot { background: var(--primary); }
+    .interest-dot { background: var(--accent); }
+
+    .emi-note {
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .not-found {
       background: white;
       padding: 45px 25px;
@@ -415,9 +547,7 @@
       text-align: center;
     }
 
-    .not-found h1 {
-      margin-bottom: 10px;
-    }
+    .not-found h1 { margin-bottom: 10px; }
 
     .not-found p {
       color: var(--muted);
@@ -440,9 +570,7 @@
       font-size: 13px;
     }
 
-    footer p {
-      color: #c4cfde;
-    }
+    footer p { color: #c4cfde; }
 
     .toast {
       position: fixed;
@@ -454,15 +582,12 @@
       color: white;
       padding: 13px 18px;
       border-radius: 8px;
-      box-shadow: var(--shadow);
       font-size: 14px;
     }
 
-    .toast.show {
-      display: block;
-    }
+    .toast.show { display: block; }
 
-    /* Full-screen photo preview */
+    /* Image lightbox */
 
     .lightbox {
       position: fixed;
@@ -475,9 +600,7 @@
       padding: 25px;
     }
 
-    .lightbox.open {
-      display: flex;
-    }
+    .lightbox.open { display: flex; }
 
     .lightbox img {
       max-width: 90vw;
@@ -506,26 +629,16 @@
     }
 
     @media (max-width: 850px) {
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .main-photo {
-        height: 390px;
-      }
+      .gallery { grid-template-columns: 1fr; }
+      .main-photo { height: 390px; }
 
       .thumbnail-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-template-rows: 115px;
       }
 
-      .content-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar .panel {
-        position: static;
-      }
+      .content-layout { grid-template-columns: 1fr; }
+      .sidebar .panel { position: static; }
     }
 
     @media (max-width: 600px) {
@@ -535,36 +648,23 @@
         flex-direction: column;
       }
 
-      .nav-links {
-        gap: 12px 17px;
-      }
-
-      .nav-links a {
-        font-size: 12px;
-      }
-
-      .page-heading {
-        flex-direction: column;
-      }
-
-      .main-photo {
-        height: 280px;
-      }
+      .nav-links { gap: 12px 17px; }
+      .nav-links a { font-size: 12px; }
+      .page-heading { flex-direction: column; }
+      .main-photo { height: 280px; }
 
       .thumbnail-grid {
         gap: 7px;
         grid-template-rows: 85px;
       }
 
-      .thumbnail img {
-        min-height: 80px;
-      }
+      .thumbnail img { min-height: 80px; }
+      .panel { padding: 19px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .emi-form { grid-template-columns: 1fr; }
+      .emi-field.full-width { grid-column: auto; }
 
-      .panel {
-        padding: 19px;
-      }
-
-      .features-grid {
+      .emi-result-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -592,9 +692,7 @@
       <span id="breadcrumbTitle">Property Details</span>
     </div>
 
-    <div id="propertyPage">
-      <!-- Property details are generated here -->
-    </div>
+    <div id="propertyPage"></div>
   </main>
 
   <footer>
@@ -611,14 +709,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <div
-    class="lightbox"
-    id="lightbox"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Full-size property photo"
-    aria-hidden="true"
-  >
+  <div class="lightbox" id="lightbox" role="dialog"
+       aria-modal="true" aria-label="Full-size property photo" aria-hidden="true">
     <button class="lightbox-close" id="closeLightbox" aria-label="Close photo preview">×</button>
     <img id="lightboxImage" src="" alt="">
     <p class="lightbox-caption" id="lightboxCaption"></p>
@@ -629,11 +721,6 @@
 
     const FAVORITES_KEY = "dreamhomeFavorites";
     const RECENT_KEY = "dreamhomeRecentlyViewed";
-
-    /*
-      Demo listings. Gallery images are online sample photos.
-      Replace these URLs with your own property photos if available.
-    */
 
     const properties = {
       nigdi: {
@@ -648,17 +735,8 @@
         area: "950 sq.ft.",
         parking: "1 parking space",
         furnishing: "Semi-furnished",
-        availability: "Contact for availability",
-        description:
-          "This sample 2 BHK apartment listing represents a home option for small families or working professionals in Nigdi, Pune. Contact us to enquire about the property's actual specifications, availability and visit arrangements.",
-        amenities: [
-          "Parking",
-          "Lift",
-          "Security",
-          "Water Supply",
-          "Nearby Shops",
-          "Public Transport"
-        ],
+        description: "This sample 2 BHK apartment listing represents a home option for small families or working professionals in Nigdi, Pune. Contact us to enquire about actual specifications, availability and visit arrangements.",
+        amenities: ["Parking", "Lift", "Security", "Water Supply", "Nearby Shops", "Public Transport"],
         images: [
           "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
@@ -679,17 +757,8 @@
         area: "1,450 sq.ft.",
         parking: "Parking available",
         furnishing: "Semi-furnished",
-        availability: "Contact for availability",
-        description:
-          "Explore this sample premium 3 BHK apartment listing in Pradhikaran, Pune. The listing is designed for families looking for extra living space. Verify the actual property details, building facilities and price before making a decision.",
-        amenities: [
-          "Parking",
-          "Lift",
-          "Security",
-          "Balcony",
-          "Power Backup",
-          "Nearby Shops"
-        ],
+        description: "Explore this sample premium 3 BHK apartment listing in Pradhikaran, Pune. Verify the actual property details, building facilities and price before making a decision.",
+        amenities: ["Parking", "Lift", "Security", "Balcony", "Power Backup", "Nearby Shops"],
         images: [
           "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80",
@@ -710,17 +779,8 @@
         area: "2,200 sq.ft.",
         parking: "Parking available",
         furnishing: "Unfurnished",
-        availability: "Contact for availability",
-        description:
-          "This sample 4 BHK villa listing in Wakad illustrates a larger home option with spacious interiors. Contact us to request verified details, actual photographs, property documents and a site visit.",
-        amenities: [
-          "Parking",
-          "Private Outdoor Space",
-          "Security",
-          "Balcony",
-          "Spacious Rooms",
-          "Road Access"
-        ],
+        description: "This sample 4 BHK villa listing in Wakad illustrates a larger home option. Contact us to request verified details, actual photographs, property documents and a site visit.",
+        amenities: ["Parking", "Outdoor Space", "Security", "Balcony", "Spacious Rooms", "Road Access"],
         images: [
           "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80",
@@ -741,17 +801,8 @@
         area: "900 sq.ft.",
         parking: "Parking available",
         furnishing: "Semi-furnished",
-        availability: "Contact for availability",
-        description:
-          "This sample 2 BHK apartment listing in Ravet is intended for buyers exploring homes within a moderate budget. Please confirm the actual carpet area, amenities, building information and final price with the property contact.",
-        amenities: [
-          "Parking",
-          "Lift",
-          "Security",
-          "Water Supply",
-          "Nearby Shops",
-          "Public Transport"
-        ],
+        description: "This sample 2 BHK apartment listing in Ravet is intended for buyers exploring homes within a moderate budget. Confirm the actual carpet area, amenities and final price with the property contact.",
+        amenities: ["Parking", "Lift", "Security", "Water Supply", "Nearby Shops", "Public Transport"],
         images: [
           "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
@@ -772,17 +823,8 @@
         area: "1,500 sq.ft.",
         parking: "Parking available",
         furnishing: "Unfurnished",
-        availability: "Contact for availability",
-        description:
-          "This sample 3 BHK family house listing in Chinchwad offers a starting point for exploring homes with additional room for family living. Ask for verified ownership, property condition, location and price information before proceeding.",
-        amenities: [
-          "Parking",
-          "Family Living Space",
-          "Water Supply",
-          "Road Access",
-          "Nearby Shops",
-          "Public Transport"
-        ],
+        description: "This sample 3 BHK family house listing in Chinchwad offers a starting point for exploring family homes. Ask for verified ownership, property condition, location and price information before proceeding.",
+        amenities: ["Parking", "Family Living Space", "Water Supply", "Road Access", "Nearby Shops", "Public Transport"],
         images: [
           "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80",
@@ -803,17 +845,8 @@
         area: "1,300 sq.ft.",
         parking: "Parking available",
         furnishing: "Semi-furnished",
-        availability: "Contact for availability",
-        description:
-          "Explore this sample modern 3 BHK apartment listing in Tathawade, Pune. It is presented as a demonstration listing for the portal. Contact us for verified photographs, actual specifications, availability and a property visit.",
-        amenities: [
-          "Parking",
-          "Lift",
-          "Security",
-          "Balcony",
-          "Power Backup",
-          "Nearby Shops"
-        ],
+        description: "Explore this sample modern 3 BHK apartment listing in Tathawade, Pune. Contact us for verified photographs, actual specifications, availability and a property visit.",
+        amenities: ["Parking", "Lift", "Security", "Balcony", "Power Backup", "Nearby Shops"],
         images: [
           "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85",
           "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=80",
@@ -842,8 +875,8 @@
 
     function readStorage(key) {
       try {
-        const result = JSON.parse(localStorage.getItem(key) || "[]");
-        return Array.isArray(result) ? result : [];
+        const value = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(value) ? value : [];
       } catch {
         return [];
       }
@@ -870,35 +903,29 @@
       }, 2500);
     }
 
-    function formatIndianPrice(price) {
-      return "₹" + Number(price).toLocaleString("en-IN");
-    }
-
-    function getPropertyIdFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      return params.get("id");
+    function getFavorites() {
+      return readStorage(FAVORITES_KEY).map(String);
     }
 
     function addToRecentlyViewed(propertyId) {
-      const ids = readStorage(RECENT_KEY).map(String);
+      const oldIds = readStorage(RECENT_KEY).map(String);
       const updated = [
         propertyId,
-        ...ids.filter(id => id !== propertyId)
+        ...oldIds.filter(id => id !== propertyId)
       ].slice(0, 10);
 
       saveStorage(RECENT_KEY, updated);
     }
 
-    function getFavorites() {
-      return readStorage(FAVORITES_KEY).map(String);
+    function getPropertyIdFromURL() {
+      return new URLSearchParams(window.location.search).get("id");
     }
 
     function renderProperty(property) {
-      const favorites = getFavorites();
-      const isFavorite = favorites.includes(property.id);
+      const isFavorite = getFavorites().includes(property.id);
 
-      document.title = property.title + " in " +
-        property.location + " | DreamHome Pune";
+      document.title = property.title + " in " + property.location +
+        " | DreamHome Pune";
 
       document.getElementById("breadcrumbTitle").textContent = property.title;
 
@@ -906,62 +933,44 @@
         <div class="page-heading">
           <div>
             <h1>${escapeHTML(property.title)}</h1>
-            <p class="location">
-              📍 ${escapeHTML(property.location)}, Pune, Maharashtra
-            </p>
+            <p class="location">📍 ${escapeHTML(property.location)}, Pune, Maharashtra</p>
           </div>
-
           <div class="price">${escapeHTML(property.priceText)}</div>
         </div>
 
         <section class="gallery" aria-label="Property photo gallery">
           <div class="main-photo">
-            <img
-              id="mainPropertyImage"
-              src="${escapeHTML(property.images[0])}"
-              alt="${escapeHTML(property.title)} - Photo 1"
-              title="Click to enlarge photo"
-            >
+            <img id="mainPropertyImage"
+                 src="${escapeHTML(property.images[0])}"
+                 alt="${escapeHTML(property.title)} - Photo 1">
 
-            <button
-              type="button"
-              class="gallery-arrow previous"
-              id="previousPhoto"
-              aria-label="Previous photo"
-            >‹</button>
+            <button type="button" class="gallery-arrow previous"
+                    id="previousPhoto" aria-label="Previous photo">‹</button>
 
-            <button
-              type="button"
-              class="gallery-arrow next"
-              id="nextPhoto"
-              aria-label="Next photo"
-            >›</button>
+            <button type="button" class="gallery-arrow next"
+                    id="nextPhoto" aria-label="Next photo">›</button>
 
             <span class="photo-count" id="photoCount">Photo 1 of ${property.images.length}</span>
           </div>
 
           <div class="thumbnail-grid" id="thumbnailGrid">
             ${property.images.map((image, index) => `
-              <button
-                type="button"
-                class="thumbnail ${index === 0 ? "active" : ""}"
-                data-photo-index="${index}"
-                aria-label="View photo ${index + 1}"
-                aria-pressed="${index === 0}"
-              >
-                <img
-                  src="${escapeHTML(image)}"
-                  alt="Property thumbnail ${index + 1}"
-                  loading="lazy"
-                >
+              <button type="button"
+                      class="thumbnail ${index === 0 ? "active" : ""}"
+                      data-photo-index="${index}"
+                      aria-label="View photo ${index + 1}"
+                      aria-pressed="${index === 0}">
+                <img src="${escapeHTML(image)}"
+                     alt="Property thumbnail ${index + 1}"
+                     loading="lazy">
               </button>
             `).join("")}
           </div>
         </section>
 
         <p class="gallery-help">
-          Select a thumbnail or use the arrows to browse the property photos.
-          Click the main photo to view it larger.
+          Select a thumbnail or use the arrows to browse photos.
+          Click the main photo to enlarge it.
         </p>
 
         <div class="content-layout">
@@ -973,49 +982,32 @@
 
             <section class="panel">
               <h2>Property Features</h2>
-
               <div class="features-grid">
                 <div class="feature">
                   <span class="feature-icon">🛏️</span>
-                  <div>
-                    <strong>${property.bedrooms} Bedrooms</strong>
-                    <span>Bedroom configuration</span>
-                  </div>
+                  <div><strong>${property.bedrooms} Bedrooms</strong><span>Bedroom configuration</span></div>
                 </div>
-
                 <div class="feature">
                   <span class="feature-icon">🛁</span>
-                  <div>
-                    <strong>${property.bathrooms} Bathrooms</strong>
-                    <span>Bathroom configuration</span>
-                  </div>
+                  <div><strong>${property.bathrooms} Bathrooms</strong><span>Bathroom configuration</span></div>
                 </div>
-
                 <div class="feature">
                   <span class="feature-icon">📐</span>
-                  <div>
-                    <strong>${escapeHTML(property.area)}</strong>
-                    <span>Listed area; verify actual area</span>
-                  </div>
+                  <div><strong>${escapeHTML(property.area)}</strong><span>Verify actual area</span></div>
                 </div>
-
                 <div class="feature">
                   <span class="feature-icon">🏠</span>
-                  <div>
-                    <strong>${escapeHTML(property.type)}</strong>
-                    <span>Property type</span>
-                  </div>
+                  <div><strong>${escapeHTML(property.type)}</strong><span>Property type</span></div>
                 </div>
               </div>
             </section>
 
             <section class="panel">
               <h2>Amenities</h2>
-
               <div class="amenities">
-                ${property.amenities.map(item => `
-                  <span class="amenity">✓ ${escapeHTML(item)}</span>
-                `).join("")}
+                ${property.amenities.map(item =>
+                  `<span class="amenity">✓ ${escapeHTML(item)}</span>`
+                ).join("")}
               </div>
             </section>
 
@@ -1023,17 +1015,102 @@
               <h2>Location</h2>
               <p>
                 ${escapeHTML(property.location)}, Pune, Maharashtra.
-                Please confirm the exact property address with the contact
-                before arranging a visit.
+                Confirm the exact property address before arranging a visit.
               </p>
+              <a class="btn btn-outline"
+                 style="max-width:260px"
+                 href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.location + ", Pune, Maharashtra")}"
+                 target="_blank" rel="noopener noreferrer">
+                Explore Area on Maps ↗
+              </a>
+            </section>
 
-              <a
-                class="btn btn-outline"
-                style="max-width:260px"
-                href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.location + ", Pune, Maharashtra")}"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Explore Area on Maps ↗</a>
+            <!-- Phase 54: EMI calculator -->
+            <section class="panel emi-panel" id="emiCalculator">
+              <div class="emi-intro">
+                <h2>Home Loan EMI Calculator</h2>
+                <p>Estimate your monthly payment based on the property price and your loan assumptions.</p>
+              </div>
+
+              <div class="emi-form">
+                <div class="emi-field full-width">
+                  <label for="downPayment">
+                    Down Payment
+                    <strong id="downPaymentDisplay">20%</strong>
+                  </label>
+                  <input type="range" id="downPayment"
+                         min="10" max="80" step="5" value="20">
+                  <div class="range-labels"><span>10%</span><span>80%</span></div>
+                  <p style="margin-top:7px">
+                    Down payment amount: <strong id="downPaymentAmount">—</strong>
+                  </p>
+                </div>
+
+                <div class="emi-field">
+                  <label for="interestRate">
+                    Annual Interest Rate (%)
+                    <strong id="interestDisplay">8.5%</strong>
+                  </label>
+                  <input type="range" id="interestRate"
+                         min="5" max="15" step="0.25" value="8.5">
+                  <div class="range-labels"><span>5%</span><span>15%</span></div>
+                </div>
+
+                <div class="emi-field">
+                  <label for="loanTenure">
+                    Loan Tenure
+                    <strong id="tenureDisplay">20 years</strong>
+                  </label>
+                  <input type="range" id="loanTenure"
+                         min="5" max="30" step="1" value="20">
+                  <div class="range-labels"><span>5 years</span><span>30 years</span></div>
+                </div>
+
+                <div class="emi-field full-width">
+                  <label for="propertyPriceInput">Property Price (₹)</label>
+                  <input type="number" id="propertyPriceInput"
+                         min="100000" max="1000000000" step="50000">
+                  <p style="margin-top:6px;font-size:12px">
+                    The default price is based on the selected sample listing. You can change it.
+                  </p>
+                </div>
+              </div>
+
+              <div class="emi-results" aria-live="polite">
+                <div class="emi-results-heading">Estimated Monthly EMI</div>
+                <div class="monthly-emi" id="monthlyEMI">—</div>
+
+                <div class="emi-result-grid">
+                  <div class="emi-result">
+                    <span>Loan Amount</span>
+                    <strong id="loanAmountResult">—</strong>
+                  </div>
+                  <div class="emi-result">
+                    <span>Total Interest</span>
+                    <strong id="totalInterestResult">—</strong>
+                  </div>
+                  <div class="emi-result">
+                    <span>Total Repayment</span>
+                    <strong id="totalRepaymentResult">—</strong>
+                  </div>
+                </div>
+
+                <div class="loan-breakdown">
+                  <div class="breakdown-bar" aria-label="Principal and interest breakdown">
+                    <div class="principal-bar" id="principalBar"></div>
+                    <div class="interest-bar" id="interestBar"></div>
+                  </div>
+                  <div class="breakdown-legend">
+                    <span><i class="legend-dot principal-dot"></i>Loan principal</span>
+                    <span><i class="legend-dot interest-dot"></i>Loan interest</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="emi-note">
+                Estimate only. The calculation assumes a fixed interest rate and regular monthly payments.
+                Actual bank offers may differ and may include fees, insurance or other charges.
+              </p>
             </section>
           </div>
 
@@ -1042,65 +1119,37 @@
               <div class="sidebar-price">${escapeHTML(property.priceText)}</div>
               <p class="sidebar-subtitle">Listed sample price</p>
 
-              <div class="detail-row">
-                <span>Property ID</span>
-                <strong>${escapeHTML(property.id.toUpperCase())}</strong>
-              </div>
+              <div class="detail-row"><span>Property ID</span><strong>${escapeHTML(property.id.toUpperCase())}</strong></div>
+              <div class="detail-row"><span>Location</span><strong>${escapeHTML(property.location)}</strong></div>
+              <div class="detail-row"><span>Type</span><strong>${escapeHTML(property.type)}</strong></div>
+              <div class="detail-row"><span>Bedrooms</span><strong>${property.bedrooms} BHK</strong></div>
+              <div class="detail-row"><span>Bathrooms</span><strong>${property.bathrooms}</strong></div>
+              <div class="detail-row"><span>Area</span><strong>${escapeHTML(property.area)}</strong></div>
+              <div class="detail-row"><span>Furnishing</span><strong>${escapeHTML(property.furnishing)}</strong></div>
+              <div class="detail-row"><span>Parking</span><strong>${escapeHTML(property.parking)}</strong></div>
 
-              <div class="detail-row">
-                <span>Location</span>
-                <strong>${escapeHTML(property.location)}</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Type</span>
-                <strong>${escapeHTML(property.type)}</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Bedrooms</span>
-                <strong>${property.bedrooms} BHK</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Bathrooms</span>
-                <strong>${property.bathrooms}</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Area</span>
-                <strong>${escapeHTML(property.area)}</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Furnishing</span>
-                <strong>${escapeHTML(property.furnishing)}</strong>
-              </div>
-
-              <div class="detail-row">
-                <span>Parking</span>
-                <strong>${escapeHTML(property.parking)}</strong>
-              </div>
-
-              <a
-                class="btn btn-primary"
-                href="contact-owner.html?id=${encodeURIComponent(property.id)}"
-              >Enquire About This Property</a>
-
-              <button
-                type="button"
-                class="btn btn-outline favorite-button ${isFavorite ? "active" : ""}"
-                id="favoriteToggle"
-                aria-pressed="${isFavorite}"
-              >${isFavorite ? "♥ Remove from Favorites" : "♡ Add to Favorites"}</button>
-
-              <a class="btn btn-outline" href="properties.html">
-                ← Back to Properties
+              <a class="btn btn-primary"
+                 href="contact-owner.html?id=${encodeURIComponent(property.id)}">
+                Enquire About This Property
               </a>
 
+              <button type="button"
+                      class="btn btn-outline favorite-button ${isFavorite ? "active" : ""}"
+                      id="favoriteToggle"
+                      aria-pressed="${isFavorite}">
+                ${isFavorite ? "♥ Remove from Favorites" : "♡ Add to Favorites"}
+              </button>
+
+              <button type="button" class="btn btn-outline"
+                      id="calculateEMIButton">
+                Calculate Home Loan EMI
+              </button>
+
+              <a class="btn btn-outline" href="properties.html">← Back to Properties</a>
+
               <div class="notice">
-                Demo project: price, photographs, features and availability
-                are sample information and have not been independently verified.
+                Demo project: prices, photos and features are sample information
+                and have not been independently verified.
               </div>
             </section>
           </aside>
@@ -1109,7 +1158,10 @@
 
       attachGalleryEvents();
       attachFavoriteEvent();
+      attachEMICalculator(property);
     }
+
+    /* Gallery interactions */
 
     function updateMainPhoto(index) {
       if (!currentProperty) return;
@@ -1118,20 +1170,15 @@
       currentImageIndex = (index + total) % total;
 
       const mainImage = document.getElementById("mainPropertyImage");
-      const photoCount = document.getElementById("photoCount");
-      const thumbnails = document.querySelectorAll("[data-photo-index]");
-
       mainImage.src = currentProperty.images[currentImageIndex];
-      mainImage.alt = currentProperty.title +
-        " - Photo " + (currentImageIndex + 1);
+      mainImage.alt = currentProperty.title + " - Photo " + (currentImageIndex + 1);
 
-      photoCount.textContent =
+      document.getElementById("photoCount").textContent =
         "Photo " + (currentImageIndex + 1) + " of " + total;
 
-      thumbnails.forEach((thumbnail, thumbnailIndex) => {
-        const active = thumbnailIndex === currentImageIndex;
-        thumbnail.classList.toggle("active", active);
-        thumbnail.setAttribute("aria-pressed", String(active));
+      document.querySelectorAll("[data-photo-index]").forEach((button, i) => {
+        button.classList.toggle("active", i === currentImageIndex);
+        button.setAttribute("aria-pressed", String(i === currentImageIndex));
       });
     }
 
@@ -1145,28 +1192,23 @@
       });
 
       document.getElementById("thumbnailGrid").addEventListener("click", event => {
-        const thumbnail = event.target.closest("[data-photo-index]");
-        if (!thumbnail) return;
-
-        updateMainPhoto(Number(thumbnail.dataset.photoIndex));
+        const button = event.target.closest("[data-photo-index]");
+        if (button) updateMainPhoto(Number(button.dataset.photoIndex));
       });
 
       document.getElementById("mainPropertyImage").addEventListener("click", openLightbox);
     }
 
     function openLightbox() {
-      if (!currentProperty) return;
-
       const lightbox = document.getElementById("lightbox");
       const image = document.getElementById("lightboxImage");
-      const caption = document.getElementById("lightboxCaption");
 
       image.src = currentProperty.images[currentImageIndex];
-      image.alt = currentProperty.title + " - enlarged photo";
-      caption.textContent =
+      image.alt = currentProperty.title + " enlarged photo";
+
+      document.getElementById("lightboxCaption").textContent =
         currentProperty.title + " · Photo " +
-        (currentImageIndex + 1) + " of " +
-        currentProperty.images.length;
+        (currentImageIndex + 1) + " of " + currentProperty.images.length;
 
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
@@ -1186,63 +1228,150 @@
     });
 
     document.addEventListener("keydown", event => {
-      const lightboxOpen = document.getElementById("lightbox")
-        .classList.contains("open");
+      const isOpen = document.getElementById("lightbox").classList.contains("open");
+      if (!isOpen) return;
 
-      if (event.key === "Escape" && lightboxOpen) {
-        closeLightbox();
-      }
-
-      if (lightboxOpen && event.key === "ArrowLeft") {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") {
         updateMainPhoto(currentImageIndex - 1);
         openLightbox();
       }
-
-      if (lightboxOpen && event.key === "ArrowRight") {
+      if (event.key === "ArrowRight") {
         updateMainPhoto(currentImageIndex + 1);
         openLightbox();
       }
     });
 
+    /* Favorites */
+
     function attachFavoriteEvent() {
       document.getElementById("favoriteToggle").addEventListener("click", () => {
-        if (!currentProperty) return;
-
         const favorites = getFavorites();
-        const alreadyFavorite = favorites.includes(currentProperty.id);
+        const exists = favorites.includes(currentProperty.id);
 
-        const updated = alreadyFavorite
+        const updated = exists
           ? favorites.filter(id => id !== currentProperty.id)
           : [...favorites, currentProperty.id];
 
         if (!saveStorage(FAVORITES_KEY, updated)) return;
 
         const button = document.getElementById("favoriteToggle");
-
-        button.classList.toggle("active", !alreadyFavorite);
-        button.setAttribute("aria-pressed", String(!alreadyFavorite));
-        button.textContent = alreadyFavorite
+        button.classList.toggle("active", !exists);
+        button.setAttribute("aria-pressed", String(!exists));
+        button.textContent = exists
           ? "♡ Add to Favorites"
           : "♥ Remove from Favorites";
 
-        showToast(
-          alreadyFavorite
-            ? "Removed from favorites."
-            : "Added to favorites."
-        );
+        showToast(exists ? "Removed from favorites." : "Added to favorites.");
       });
+    }
+
+    /* Phase 54: EMI calculation */
+
+    function formatINR(amount) {
+      return "₹" + Math.round(amount).toLocaleString("en-IN");
+    }
+
+    function attachEMICalculator(property) {
+      const downPaymentSlider = document.getElementById("downPayment");
+      const interestSlider = document.getElementById("interestRate");
+      const tenureSlider = document.getElementById("loanTenure");
+      const priceInput = document.getElementById("propertyPriceInput");
+
+      priceInput.value = property.price;
+
+      function calculateEMI() {
+        const price = Number(priceInput.value);
+        const downPercent = Number(downPaymentSlider.value);
+        const annualRate = Number(interestSlider.value);
+        const years = Number(tenureSlider.value);
+
+        document.getElementById("downPaymentDisplay").textContent =
+          downPercent + "%";
+        document.getElementById("interestDisplay").textContent =
+          annualRate.toFixed(2).replace(/\.?0+$/, "") + "%";
+        document.getElementById("tenureDisplay").textContent =
+          years + (years === 1 ? " year" : " years");
+
+        if (!Number.isFinite(price) || price < 100000 || price > 1000000000) {
+          document.getElementById("monthlyEMI").textContent = "Enter a valid price";
+          document.getElementById("loanAmountResult").textContent = "—";
+          document.getElementById("totalInterestResult").textContent = "—";
+          document.getElementById("totalRepaymentResult").textContent = "—";
+          document.getElementById("downPaymentAmount").textContent = "—";
+          document.getElementById("principalBar").style.width = "0%";
+          document.getElementById("interestBar").style.width = "0%";
+          return;
+        }
+
+        const downPayment = price * downPercent / 100;
+        const principal = price - downPayment;
+        const monthlyRate = annualRate / 100 / 12;
+        const months = years * 12;
+
+        let emi;
+
+        if (monthlyRate === 0) {
+          emi = principal / months;
+        } else {
+          const factor = Math.pow(1 + monthlyRate, months);
+          emi = principal * monthlyRate * factor / (factor - 1);
+        }
+
+        const totalRepayment = emi * months;
+        const totalInterest = totalRepayment - principal;
+        const totalCost = principal + totalInterest;
+        const principalShare = totalCost > 0 ? principal / totalCost * 100 : 100;
+        const interestShare = totalCost > 0 ? totalInterest / totalCost * 100 : 0;
+
+        document.getElementById("downPaymentAmount").textContent =
+          formatINR(downPayment);
+        document.getElementById("monthlyEMI").textContent = formatINR(emi);
+        document.getElementById("loanAmountResult").textContent =
+          formatINR(principal);
+        document.getElementById("totalInterestResult").textContent =
+          formatINR(totalInterest);
+        document.getElementById("totalRepaymentResult").textContent =
+          formatINR(totalRepayment);
+
+        document.getElementById("principalBar").style.width =
+          principalShare + "%";
+        document.getElementById("interestBar").style.width =
+          interestShare + "%";
+      }
+
+      downPaymentSlider.addEventListener("input", calculateEMI);
+      interestSlider.addEventListener("input", calculateEMI);
+      tenureSlider.addEventListener("input", calculateEMI);
+      priceInput.addEventListener("input", calculateEMI);
+
+      document.getElementById("calculateEMIButton").addEventListener("click", () => {
+        document.getElementById("emiCalculator").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+        priceInput.focus({ preventScroll: true });
+      });
+
+      calculateEMI();
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimeout);
+
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
     }
 
     function renderNotFound() {
       document.title = "Property Not Found | DreamHome Pune";
-
       propertyPage.innerHTML = `
         <div class="not-found">
           <h1>Property Not Found</h1>
-          <p>
-            We couldn't find that property. Please return to the property
-            listings and select a valid property.
-          </p>
+          <p>Please return to the listings and select a valid property.</p>
           <a href="properties.html">Browse Properties</a>
         </div>
       `;
@@ -1252,7 +1381,7 @@
       document.getElementById("currentYear").textContent =
         new Date().getFullYear();
 
-      const propertyId = getPropertyIdFromURL();
+      const propertyId = new URLSearchParams(window.location.search).get("id");
       currentProperty = properties[propertyId];
 
       if (!currentProperty) {
@@ -1260,7 +1389,12 @@
         return;
       }
 
-      addToRecentlyViewed(currentProperty.id);
+      const oldIds = readStorage(RECENT_KEY).map(String);
+      saveStorage(RECENT_KEY, [
+        currentProperty.id,
+        ...oldIds.filter(id => id !== currentProperty.id)
+      ].slice(0, 10));
+
       renderProperty(currentProperty);
     }
 
